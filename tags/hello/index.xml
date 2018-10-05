@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>hello on Aileen&#39;s Blog</title>
-    <link>https://aileen.github.io/tags/hello/</link>
+    <link>https://aileenxie.github.io/tags/hello/</link>
     <description>Recent content in hello on Aileen&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ch-cn</language>
     <lastBuildDate>Fri, 05 Oct 2018 13:01:24 +0800</lastBuildDate>
     
-	<atom:link href="https://aileen.github.io/tags/hello/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://aileenxie.github.io/tags/hello/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>First Post</title>
-      <link>https://aileen.github.io/2018/first-post/</link>
+      <link>https://aileenxie.github.io/2018/first-post/</link>
       <pubDate>Fri, 05 Oct 2018 13:01:24 +0800</pubDate>
       
-      <guid>https://aileen.github.io/2018/first-post/</guid>
+      <guid>https://aileenxie.github.io/2018/first-post/</guid>
       <description></description>
     </item>
     
