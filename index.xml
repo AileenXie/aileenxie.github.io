@@ -6,8 +6,179 @@
     <description>Recent content in Aileen&#39;s Blog on Aileen&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ch-cn</language>
-    <lastBuildDate>Fri, 05 Oct 2018 13:01:36 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 05 Oct 2018 21:52:20 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Hugo快速搭建博客</title>
+      <link>https://aileenxie.github.io/2018/hugo%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</link>
+      <pubDate>Fri, 05 Oct 2018 21:52:20 +0800</pubDate>
+      
+      <guid>https://aileenxie.github.io/2018/hugo%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</guid>
+      <description>
+
+&lt;p&gt;简单记录一下mac下用&lt;a href=&#34;https://gohugo.io/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;Hugo&lt;/a&gt;搭建博客的过程，以便日后查阅。感谢&lt;a href=&#34;https://blog.renyijiu.com/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;renyijiu&lt;/a&gt;的安利和帮助。&lt;/p&gt;
+
+&lt;h2 id=&#34;hugo&#34;&gt;Hugo&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;一个用Go语言写的静态网站生成器&lt;/li&gt;
+&lt;li&gt;能把markdown转变成静态网页&lt;/li&gt;
+&lt;li&gt;内置web服务期，便于本地草稿调试&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;安装-hugo&#34;&gt;安装 Hugo&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;直接用Homebrew安装&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;brew install hugo
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;完成之后查看版本，我目前装的是0.49&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;hugo version
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;创建一个新站点&#34;&gt;创建一个新站点&lt;/h2&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;到你的目录下找个喜欢的地方执行语句&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;hugo new site myblog
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;会在当前目录生成一个叫“myblog”的目录，里面包含若干文件夹和一个config.toml文件:&lt;/p&gt;
+
+&lt;p&gt;▸ archetypes/&lt;/p&gt;
+
+&lt;p&gt;▸ content/ -&amp;gt;你写的markdown文章&lt;/p&gt;
+
+&lt;p&gt;▸ layouts/ -&amp;gt;网站的模板文件&lt;/p&gt;
+
+&lt;p&gt;▸ static/ -&amp;gt;放的是一些图片、css、js等资源&lt;/p&gt;
+
+&lt;p&gt;▸ data/&lt;/p&gt;
+
+&lt;p&gt;▸ themes/ -&amp;gt;放的是你之后添加的主题&lt;/p&gt;
+
+&lt;p&gt;config.toml -&amp;gt;网站的配置文件&lt;/p&gt;
+
+&lt;h2 id=&#34;添加主题&#34;&gt;添加主题&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;进入目录页&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;cd myblog
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;初始化为git项目，方便之后放入github或者任何仓库进行版本管理&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;git init
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;添加主题, 以LeaveIt为例&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;git submodule add  https://github.com/liuzc/LeaveIt.git themes/LeaveIt
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;之后会在themes/目录下看到你添加的主题。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;修改配置文件(直接打开config.toml文件修改也是一样的)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;echo &#39;theme = &amp;quot;LeaveIt&amp;quot;&#39; &amp;gt;&amp;gt; config.toml
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Hugo中有很多可供选择的&lt;a href=&#34;https://themes.gohugo.io/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;主题&lt;/a&gt;，选一个你喜欢的，复制链接替换上面的主题&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;添加第一篇博客&#34;&gt;添加第一篇博客&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;在myblog目录下运行命令&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;hugo new posts/my-first-post.md
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;会在content/posts目录下生成一个my-first-post.md的文件，文件初始会有&amp;rdquo;title&amp;rdquo;(文章标题)、&amp;rdquo;date&amp;rdquo;（文章时间）、&amp;rdquo;draft&amp;rdquo;（是否是草稿）几个字段内容。之后你要写的内容以markdown写在后面即可，这里我们可以先不管。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;b&gt;【tips】: 刚开始我在这步运行报错，查了资料发现是hugo版本问题，需要更新到0.48以上，如果装的版本旧了，手动更新一下：&lt;/b&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;brew update
+brew upgrade hugo
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;启动web服务器本地调试-看看效果&#34;&gt;启动web服务器本地调试（看看效果）&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;在myblog目录下运行命令&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;hugo server
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;访问：&lt;a href=&#34;http://localhost:1313/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;http://localhost:1313/&lt;/a&gt;
+可以看到博客的效果，值得一提的是，前面生成的.md文档里&amp;rdquo;draft&amp;rdquo;设置为&amp;rdquo;true&amp;rdquo;的，无法被看到。想要看到作为草稿的文章，记得加&amp;rdquo;-D&amp;rdquo;参数&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;hugo server -D
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;调整你的主题&#34;&gt;调整你的主题&lt;/h2&gt;
+
+&lt;p&gt;按照所用主题的例子修改你的config.toml文件.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;公共的部分：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-toml&#34;&gt;baseURL = &amp;quot;https://example.org/&amp;quot;
+languageCode = &amp;quot;en-us&amp;quot;
+title = &amp;quot;My New Hugo Site&amp;quot;
+theme = &amp;quot;ananke&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;所用主题的定制部分参考主题介绍，如LeaveIt的config.toml中的头像配置  &lt;code&gt;avatar = &amp;quot;/images/me/avatar.jpeg&amp;quot;&lt;/code&gt;把你想要的头像按照/images/meavatar.jpeg格式放到&lt;strong&gt;static&lt;/strong&gt;目录下（注意不是项目根目录）&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;利用hugo生成静态页面&#34;&gt;利用Hugo生成静态页面&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;在myblog目录下运行命令&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;hugo
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;会自动生成/刷新&lt;strong&gt;public&lt;/strong&gt;目录，之后每次修改过markdown文件或改过主题，都要重新运行&lt;code&gt;hugo&lt;/code&gt;命令以更新public目录下的静态文件。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;b&gt;【tips】:本地调试的时候不需要运行&lt;code&gt;hugo&lt;/code&gt;,修改保存后会直接更新在页面上，但public下的静态文件是没有被更新的。&lt;/b&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;将public目录代码放到github上&#34;&gt;将public目录代码放到Github上&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;github上新建一个项目&amp;rdquo;blog&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;复制项目ssh链接地址: 如git@github.com:xxx/blog.git&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;确保已上传ssh-key，进入本地myblog项目的public目录初始化git并添加远端仓库&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;cd public
+git init
+git remote add origin git@github.com:xxx/blog.git
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;提交你public下的代码&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;git add .
+git commit -m &#39;initial commit.&#39;
+git push origin master
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;设置blog项目的&amp;rdquo;Repository name&amp;rdquo;为&amp;rdquo;xxx.github.io&amp;rdquo;(xxx是你的github用户名），通过github的page功能，你的博客就可以通过&lt;a href=&#34;https://xxx.github.io/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;https://xxx.github.io/&lt;/a&gt;直接访问。（只提交public目录即可直接访问不用再做跳转。）&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;整个过程到此结束，之后的博客更新就是直接修改content/目录下的markdown文件，然后执行&lt;code&gt;hugo&lt;/code&gt;后push更新到github。大功告成！&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>About</title>
@@ -31,7 +202,7 @@
 &lt;li&gt;Java/Groovy+Spock&lt;/li&gt;
 &lt;li&gt;Ruby+Cucumber+Capybara&lt;/li&gt;
 &lt;li&gt;Selenium/Appium/Jmeter&lt;/li&gt;
-&lt;li&gt;Mysql/Postgres&lt;/li&gt;
+&lt;li&gt;MySQL/PostgreSQL&lt;/li&gt;
 &lt;li&gt;Git&lt;/li&gt;
 &lt;/ul&gt;
 
