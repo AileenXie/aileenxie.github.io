@@ -6,8 +6,179 @@
     <description>Recent content in Aileen&#39;s Blog on Aileen&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ch-cn</language>
-    <lastBuildDate>Fri, 05 Oct 2018 21:52:20 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 10 Oct 2018 19:17:39 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>L0,L1,L2以及核范数规则化</title>
+      <link>https://aileenxie.github.io/2018/03norm-introduction/</link>
+      <pubDate>Wed, 10 Oct 2018 19:17:39 +0800</pubDate>
+      
+      <guid>https://aileenxie.github.io/2018/03norm-introduction/</guid>
+      <description>
+
+&lt;p&gt;看到一篇讲解很详细的&lt;a href=&#34;https://blog.csdn.net/zouxy09/article/details/24971995&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;文章&lt;/a&gt;，边看边做笔记整理要点。&lt;/p&gt;
+
+&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
+
+&lt;p&gt;监督机器学习问题无非就是“minimizeyour error while regularizing your parameters”，也就是在规则化参数的同时最小化误差。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;最小化误差&lt;/strong&gt;是为了让我们的模型拟合我们的训练数据，而&lt;strong&gt;规则化参数&lt;/strong&gt;是防止我们的模型过分拟合我们的训练数据。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;过拟合：参数过多会导致模型复杂度上升，产生过拟合，即训练误差很小，但测试误差很大，这和监督学习的目标是相违背的。所以需要采取措施，保证模型尽量简单的基础上，最小化训练误差，使模型具有更好的泛化能力。&lt;/li&gt;
+&lt;li&gt;泛化能力强：测试误差也很小&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;范数规则化有两个作用：&lt;/p&gt;
+
+&lt;p&gt;1）保证模型尽可能的简单，避免过拟合。&lt;/p&gt;
+
+&lt;p&gt;2）约束模型特性，加入一些先验知识，例如稀疏、低秩等。&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;目标函数&#34;&gt;目标函数&lt;/h2&gt;
+
+&lt;p&gt;一般来说，监督学习可以看做最小化下面的目标函数：
+&lt;img src=&#34;https://ws3.sinaimg.cn/large/006tNbRwly1fw2ykov1yxj30zw04adg7.jpg&#34; alt=&#34;&#34; /&gt;
+1. &lt;strong&gt;第一项L(yi,f(xi;w))&lt;/strong&gt;:
+    衡量我们的模型（分类或者回归）对第i个样本的预测值f(xi;w)和真实的标签yi之前的误差。
+    + 如果是Square loss,那就是最小二乘了；
+    + 如果是Hinge Loss，那就是著名的SVM了；
+    + 如果是exp-Loss，那就是牛逼的 Boosting了；
+    + 如果是log-Loss，那就是Logistic Regression了；
+    + 不同的loss函数，具有不同的拟合特性，这个也得就具体问题具体分析的。&lt;br /&gt;
+2. &lt;strong&gt;第二项λΩ(w)&lt;/strong&gt;:
+   也就是对参数w的规则化函数Ω(w)去约束我们的模型尽量的简单。
+   + 本文讨论的即是“规则项Ω(w)”；
+   + 一般是模型复杂度的单调递增函数，模型越复杂，规则化值就越大。比如，规则化项可以是模型参数向量的范数；
+   + 论文中常见的都聚集在：零范数、一范数、二范数、迹范数、Frobenius范数和核范数等等；&lt;/p&gt;
+
+&lt;h2 id=&#34;l0范数与l1范数&#34;&gt;L0范数与L1范数&lt;/h2&gt;
+
+&lt;h3 id=&#34;l0范数&#34;&gt;L0范数&lt;/h3&gt;
+
+&lt;p&gt;L0范数（||W||0）是指向量中非0的元素的个数。如果我们用L0范数来规则化一个参数矩阵W的话，就是希望W的大部分元素都是0。换句话说，让参数W是稀疏的。&lt;/p&gt;
+
+&lt;h3 id=&#34;l1范数&#34;&gt;L1范数&lt;/h3&gt;
+
+&lt;p&gt;L1范数（||W||1）是指向量中各个元素绝对值之和，也有个美称叫“稀疏规则算子”（Lasso regularization）。L1范数会使权值稀疏，它是L0范数的最优凸近似。
++ Tips: 任何的规则化算子，如果他在Wi=0的地方不可微，并且可以分解为一个“求和”的形式，那么这个规则化算子就可以实现稀疏。这说是这么说，W的L1范数是绝对值，|w|在w=0处是不可微。&lt;/p&gt;
+
+&lt;h3 id=&#34;为什么不用l0-而用l1&#34;&gt;为什么不用L0，而用L1？&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;是因为L0范数很难优化求解（NP难问题）；&lt;/li&gt;
+&lt;li&gt;是L1范数是L0范数的最优凸近似，而且它比L0范数要容易优化求解。&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;总结：L1范数和L0范数可以实现稀疏，L1因具有比L0更好的优化求解特性而被广泛应用。&lt;/p&gt;
+
+&lt;h3 id=&#34;为什么要稀疏&#34;&gt;为什么要稀疏？&lt;/h3&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;特征选择(Feature Selection)：去掉没有信息的特征，及将对应权重置0，防止无用特征对测试新样本的干扰；&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;可解释性(Interpretability)：如最初有1000个特征，回归模型：y=w1*x1+w2*x2+…+w1000*x1000+b，通过学习，如果最后学习到只有5个非零的wi，那么就可以说影响患病率的主要就是这5个特征，医生就好分析多了。&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;l2范数&#34;&gt;L2范数&lt;/h2&gt;
+
+&lt;p&gt;L2范数（||W||2）是指向量各元素的平方和然后求平方根。它有两个美称，在回归里面，有人把有它的回归叫“岭回归”（Ridge Regression），有人也叫它“权值衰减”（weight decay）它的强大功效是改善机器学习里面一个非常重要的问题：过拟合。与L1范数不同，它不会让它等于0，而是&lt;strong&gt;接近于0&lt;/strong&gt;。&lt;/p&gt;
+
+&lt;h3 id=&#34;l2范数的好处&#34;&gt;L2范数的好处：&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;从学习理论的角度来说，L2范数可以防止过拟合，提升模型的泛化能力。&lt;/li&gt;
+&lt;li&gt;从优化计算的角度来说，L2范数有助于处理 condition number不好的情况下矩阵求逆很困难的问题。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&#34;condition-number&#34;&gt;Condition number&lt;/h3&gt;
+
+&lt;p&gt;优化有两大难题，一是：局部最小值，二是：ill-condition病态问题。
++ ill-condition病态：假设我们有个方程组AX=b，我们需要求解X。如果A或者b稍微的改变，会使得X的解发生很大的改变，那么这个方程组系统就是ill-condition的，反之就是well-condition的。
++ condition number：用来衡量ill-condition系统的可信度的，即输入发生微小变化时，输出会发生多大变化。值越小越好。
+如果方阵A是非奇异的，那么A的condition number定义为：
+&lt;img src=&#34;https://ws1.sinaimg.cn/large/006tNbRwly1fw32a1nvcsj310403u74c.jpg&#34; alt=&#34;&#34; /&gt;
+如果方阵A是奇异的，那么A的condigion number正无穷大。&lt;/p&gt;
+
+&lt;h3 id=&#34;l2为什么能处理condition-number不好的情况&#34;&gt;L2为什么能处理condition number不好的情况？&lt;/h3&gt;
+
+&lt;p&gt;因为目标函数如果是二次的，对于线性回归来说，那实际上是有解析解的，求导并令导数等于零即可得到最优解为：
+&lt;img src=&#34;https://ws1.sinaimg.cn/large/006tNbRwly1fw32cce7llj312205et8y.jpg&#34; alt=&#34;&#34; /&gt;
+如果&lt;strong&gt;当我们的样本X的数目比每个样本的维度还要小的时候，矩阵XTX将会不是满秩的，也就是XTX会变得不可逆&lt;/strong&gt;，所以w*就没办法直接计算出来了。或者更确切地说，将会有无穷多个解（因为我们方程组的个数小于未知数的个数）。总而言之，我们过拟合了。
+但如果加上L2规则项，就变成了下面这种情况，就可以直接求逆了：
+&lt;img src=&#34;https://ws1.sinaimg.cn/large/006tNbRwly1fw32uzyn84j313003wjrp.jpg&#34; alt=&#34;&#34; /&gt; ？？？
++ 要得到这个解，我们通常并不直接求矩阵的逆，而是通过解线性方程组的方式（例如高斯消元法）来计算。
++ 考虑没有规则项的时候，也就是λ=0的情况，如果矩阵XTX的 condition number 很大的话，解线性方程组就会在数值上相当不稳定，而这个规则项的引入则可以改善condition number。
++ 如果使用迭代优化的算法，condition number太大还会拖慢迭代收敛的速度。规则项从优化的角度来看，实际上是将目标函数变成λ-strongly convex（λ强凸）的了。&lt;/p&gt;
+
+&lt;h3 id=&#34;强凸&#34;&gt;强凸&lt;/h3&gt;
+
+&lt;p&gt;就是convex 可以保证函数在任意一点都处于它的一阶泰勒函数之上，而strongly convex可以保证函数在任意一点都存在一个非常漂亮的二次下界quadratic lower bound。
+&lt;img src=&#34;https://ws4.sinaimg.cn/large/006tNbRwly1fw33tpbzohj30y80ekta8.jpg&#34; alt=&#34;&#34; /&gt;
+正如上面分析的那样，如果f(w)在全局最小点w*周围是非常平坦的情况的话，我们有可能会找到一个很远的点。但如果我们有“强凸”的话，就能对情况做一些控制，我们就可以得到一个更好的近似解。&lt;/p&gt;
+
+&lt;h3 id=&#34;l1和l2差别&#34;&gt;L1和L2差别&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;下降速度
+我们将权值参数以L1或者L2的方式放到代价函数里面去。然后模型就会尝试去最小化这些权值参数。而这个最小化就像一个下坡的过程，L1和L2的差别就在于这个“坡”不同：&lt;/li&gt;
+&lt;li&gt;L1就是按绝对值函数的“坡”下降的&lt;/li&gt;
+&lt;li&gt;L2是按二次函数的“坡”下降。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;所以实际上在0附近，L1的下降速度比L2的下降速度要快。所以会非常快得降到0。
+&lt;img src=&#34;https://ws2.sinaimg.cn/large/006tNbRwly1fw3cmhrbx1j31ga0potb0.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;模型空间的限制(L1-regularization 能产生稀疏性，而L2-regularization 不行)：
+L1和L2规则化的代价函数形式如下：
+&lt;img src=&#34;https://ws3.sinaimg.cn/large/006tNbRwly1fw3bgb75yrj311e08odgq.jpg&#34; alt=&#34;&#34; /&gt;
+在(w1, w2)平面上可以画出目标函数的等高线，而约束条件则成为平面上半径为C的一个 norm ball 。等高线与 norm ball 首次相交的地方就是最优解：
+&lt;img src=&#34;https://ws2.sinaimg.cn/large/006tNbRwly1fw3bhq203sj313i0lmq7r.jpg&#34; alt=&#34;&#34; /&gt;&lt;/li&gt;
+&lt;li&gt;L1-ball 与L2-ball 的不同就在于：
+L1. 在和每个坐标轴相交的地方都有“角”出现，而目标函数的测地线除非位置摆得非常好，大部分时候都会在角的地方相交。注意到在角的位置就会产生稀疏性;
+L2. 没有这样的性质，因为没有角，所以第一次相交的地方出现在具有稀疏性的位置的概率就变得非常小了&lt;/li&gt;
+&lt;li&gt;总结：L1会趋向于产生少量的特征，而其他的特征都是0，而L2会选择更多的特征，这些特征都会接近于0。Lasso在特征选择时候非常有用，而Ridge就只是一种规则化而已。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;核范数&#34;&gt;核范数&lt;/h2&gt;
+
+&lt;p&gt;核范数||W||*是指矩阵奇异值的和，英文称呼叫Nuclear Norm。用来约束Low-Rank（低秩）。&lt;/p&gt;
+
+&lt;h3 id=&#34;约束rank-w-与核范数有何关系&#34;&gt;约束rank（w）与核范数有何关系？&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;因为rank()是&lt;strong&gt;非凸的&lt;/strong&gt;，在优化问题里面很难求解，那么就需要寻找它的凸近似来近似它了。rank(w)的凸近似就是核范数||W||*。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;低秩的应用&#34;&gt;低秩的应用&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;矩阵填充(Matrix Completion)&lt;/li&gt;
+&lt;li&gt;鲁棒PCA（鲁棒：只是假设它的噪声是稀疏的）&lt;/li&gt;
+&lt;li&gt;背景建模&lt;/li&gt;
+&lt;li&gt;变换不变低秩纹理（TILT）
+具体讲解见&lt;a href=&#34;https://blog.csdn.net/zouxy09/article/details/24972869&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;参考文章&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;规则化参数的选择&#34;&gt;规则化参数的选择&lt;/h2&gt;
+
+&lt;p&gt;重新审视我们的目标函数：
+&lt;img src=&#34;https://ws2.sinaimg.cn/large/006tNbRwly1fw2yk725x5j30o8036wet.jpg&#34; alt=&#34;&#34; /&gt;
+里面除了loss和规则项两块外，还有一个参数λ，叫hyper-parameters（超参）。它主要是平衡loss和规则项这两项的。
++ λ越大，就表示规则项要比模型训练误差更重要，也就是相比于要模型拟合我们的数据，我们更希望我们的模型能满足我们约束的Ω(w)的特性。
++ λ越小，就表示希望输出与期待值误差最小（回归曲线尽量过所有点，就会过拟合）。&lt;/p&gt;
+
+&lt;h3 id=&#34;调参经验&#34;&gt;调参经验&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;如Hinton大哥的那篇A Practical Guide to Training RestrictedBoltzmann Machines等等；&lt;/li&gt;
+&lt;li&gt;通过分析我们的模型来选择：
+在训练之前，我们大概计算下这时候的loss项的值是多少？Ω(w)的值是多少？然后针对他们的比例来确定我们的λ，这种启发式的方法会缩小我们的搜索空间。&lt;/li&gt;
+&lt;li&gt;交叉验证Cross validation：
+先把我们的训练数据库分成几份，然后取一部分做训练集，一部分做测试集，然后选择不同的λ用这个训练集来训练N个模型，然后用这个测试集来测试我们的模型，取N模型里面的测试误差最小对应的λ来作为我们最终的λ。&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
     
     <item>
       <title>Hugo快速搭建博客</title>

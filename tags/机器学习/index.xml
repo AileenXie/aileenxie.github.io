@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>学习 · 笔记 on Aileen&#39;s Blog</title>
-    <link>https://aileenxie.github.io/categories/%E5%AD%A6%E4%B9%A0-%E7%AC%94%E8%AE%B0/</link>
-    <description>Recent content in 学习 · 笔记 on Aileen&#39;s Blog</description>
+    <title>机器学习 on Aileen&#39;s Blog</title>
+    <link>https://aileenxie.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</link>
+    <description>Recent content in 机器学习 on Aileen&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ch-cn</language>
     <lastBuildDate>Wed, 10 Oct 2018 19:17:39 +0800</lastBuildDate>
     
-	<atom:link href="https://aileenxie.github.io/categories/%E5%AD%A6%E4%B9%A0-%E7%AC%94%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://aileenxie.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -31,32 +31,6 @@ L1范数 L1范数（||W||1）是指向量中各个元素绝对值之和，也有
 为什么要稀疏？ 特征选择(Feature Selection)：去掉没有信息的特征，及将对应权重置0，防止无用特征对测试新样本的干扰；
  可解释性(Interpretability)：如最初有1000个特征，回归模型：y=w1*x1+w2*x2+…+w1000*x1000+b，通过学习，如果最后学习到只有5个非零的wi，那么就可以说影响患病率的主要就是这5个特征，医生就好分析多了。
   L2范数 L2范数（||W||2）是指向量各元素的平方和然后求平方根。它有两个美称，在回归里面，有人把有它的回归叫“岭回归”（Ridge Regression），有人也叫它“权值衰减”（weight decay）它的强大功效是改善机器学习里面一个非常重要的问题：过拟合。与L1范数不同，它不会让它等于0，而是接近于0。</description>
-    </item>
-    
-    <item>
-      <title>Hugo快速搭建博客</title>
-      <link>https://aileenxie.github.io/2018/hugo%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</link>
-      <pubDate>Fri, 05 Oct 2018 21:52:20 +0800</pubDate>
-      
-      <guid>https://aileenxie.github.io/2018/hugo%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</guid>
-      <description>简单记录一下mac下用Hugo搭建博客的过程，以便日后查阅。感谢renyijiu的安利和帮助。
-Hugo  一个用Go语言写的静态网站生成器 能把markdown转变成静态网页 内置web服务期，便于本地草稿调试  安装 Hugo  直接用Homebrew安装
-brew install hugo  完成之后查看版本，我目前装的是0.49
-hugo version  创建一个新站点 到你的目录下找个喜欢的地方执行语句
-hugo new site myblog   会在当前目录生成一个叫“myblog”的目录，里面包含若干文件夹和一个config.toml文件:
-▸ archetypes/
-▸ content/ -&amp;gt;你写的markdown文章
-▸ layouts/ -&amp;gt;网站的模板文件
-▸ static/ -&amp;gt;放的是一些图片、css、js等资源
-▸ data/
-▸ themes/ -&amp;gt;放的是你之后添加的主题
-config.toml -&amp;gt;网站的配置文件
-添加主题  进入目录页
-cd myblog  初始化为git项目，方便之后放入github或者任何仓库进行版本管理
-git init  添加主题, 以LeaveIt为例
-git submodule add https://github.com/liuzc/LeaveIt.git themes/LeaveIt  之后会在themes/目录下看到你添加的主题。
- 修改配置文件(直接打开config.toml文件修改也是一样的)
-echo &#39;theme = &amp;quot;LeaveIt&amp;quot;&#39; &amp;gt;&amp;gt; config.</description>
     </item>
     
   </channel>

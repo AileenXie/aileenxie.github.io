@@ -3,6 +3,16 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
     <url>
+      <loc>https://aileenxie.github.io/2018/03norm-introduction/</loc>
+      
+      <lastmod>2018-10-10T19:17:39+08:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
       <loc>https://aileenxie.github.io/2018/hugo%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</loc>
       
       <lastmod>2018-10-05T21:52:20+08:00</lastmod>
@@ -35,7 +45,7 @@
     <url>
       <loc>https://aileenxie.github.io/</loc>
       
-      <lastmod>2018-10-05T21:52:20+08:00</lastmod>
+      <lastmod>2018-10-10T19:17:39+08:00</lastmod>
       
       
       
@@ -57,7 +67,7 @@
     <url>
       <loc>https://aileenxie.github.io/posts/</loc>
       
-      <lastmod>2018-10-05T21:52:20+08:00</lastmod>
+      <lastmod>2018-10-10T19:17:39+08:00</lastmod>
       
       
       
@@ -79,7 +89,7 @@
     <url>
       <loc>https://aileenxie.github.io/categories/%E5%AD%A6%E4%B9%A0-%E7%AC%94%E8%AE%B0/</loc>
       
-      <lastmod>2018-10-05T21:52:20+08:00</lastmod>
+      <lastmod>2018-10-10T19:17:39+08:00</lastmod>
       
       
       
@@ -92,6 +102,18 @@
       <loc>https://aileenxie.github.io/tags/%E6%95%99%E7%A8%8B/</loc>
       
       <lastmod>2018-10-05T21:52:20+08:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://aileenxie.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</loc>
+      
+      <lastmod>2018-10-10T19:17:39+08:00</lastmod>
       
       
       
