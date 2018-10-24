@@ -13,10 +13,10 @@
     
     <item>
       <title>L0,L1,L2以及核范数规则化</title>
-      <link>https://aileenxie.github.io/2018/03norm-introduction/</link>
+      <link>https://aileenxie.github.io/2018/02/</link>
       <pubDate>Wed, 10 Oct 2018 19:17:39 +0800</pubDate>
       
-      <guid>https://aileenxie.github.io/2018/03norm-introduction/</guid>
+      <guid>https://aileenxie.github.io/2018/02/</guid>
       <description>看到一篇讲解很详细的文章，边看边做笔记整理要点。
 前言 监督机器学习问题无非就是“minimizeyour error while regularizing your parameters”，也就是在规则化参数的同时最小化误差。
 最小化误差是为了让我们的模型拟合我们的训练数据，而规则化参数是防止我们的模型过分拟合我们的训练数据。

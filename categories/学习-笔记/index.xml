@@ -13,10 +13,10 @@
     
     <item>
       <title>L0,L1,L2以及核范数规则化</title>
-      <link>https://aileenxie.github.io/2018/03norm-introduction/</link>
+      <link>https://aileenxie.github.io/2018/02/</link>
       <pubDate>Wed, 10 Oct 2018 19:17:39 +0800</pubDate>
       
-      <guid>https://aileenxie.github.io/2018/03norm-introduction/</guid>
+      <guid>https://aileenxie.github.io/2018/02/</guid>
       <description>看到一篇讲解很详细的文章，边看边做笔记整理要点。
 前言 监督机器学习问题无非就是“minimizeyour error while regularizing your parameters”，也就是在规则化参数的同时最小化误差。
 最小化误差是为了让我们的模型拟合我们的训练数据，而规则化参数是防止我们的模型过分拟合我们的训练数据。
@@ -33,10 +33,10 @@ L1范数 L1范数（||W||1）是指向量中各个元素绝对值之和，也有
     
     <item>
       <title>Hugo快速搭建博客</title>
-      <link>https://aileenxie.github.io/2018/hugo%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</link>
+      <link>https://aileenxie.github.io/2018/01hugo%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</link>
       <pubDate>Fri, 05 Oct 2018 21:52:20 +0800</pubDate>
       
-      <guid>https://aileenxie.github.io/2018/hugo%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</guid>
+      <guid>https://aileenxie.github.io/2018/01hugo%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</guid>
       <description>简单记录一下mac下用Hugo搭建博客的过程，以便日后查阅。感谢renyijiu的安利和帮助。
 Hugo  一个用Go语言写的静态网站生成器 能把markdown转变成静态网页 内置web服务期，便于本地草稿调试  安装 Hugo  直接用Homebrew安装
 brew install hugo  完成之后查看版本，我目前装的是0.49
