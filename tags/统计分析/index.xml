@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>学习 · 笔记 on Aileen&#39;s Blog</title>
-    <link>https://aileenxie.github.io/categories/%E5%AD%A6%E4%B9%A0-%E7%AC%94%E8%AE%B0/</link>
-    <description>Recent content in 学习 · 笔记 on Aileen&#39;s Blog</description>
+    <title>统计分析 on Aileen&#39;s Blog</title>
+    <link>https://aileenxie.github.io/tags/%E7%BB%9F%E8%AE%A1%E5%88%86%E6%9E%90/</link>
+    <description>Recent content in 统计分析 on Aileen&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ch-cn</language>
     <lastBuildDate>Mon, 19 Nov 2018 19:59:46 +0800</lastBuildDate>
     
-	<atom:link href="https://aileenxie.github.io/categories/%E5%AD%A6%E4%B9%A0-%E7%AC%94%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://aileenxie.github.io/tags/%E7%BB%9F%E8%AE%A1%E5%88%86%E6%9E%90/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -57,52 +57,6 @@ T分布的可视化 我们平常说的t分布，都是指小样本的分布。�
 PS：上述两幅图中的t分布曲线并不是频率学派应用t分布的常规套路（更像是贝叶斯学派的用法）。细心者可以发现，我们使用的t分布的自由度明显低于n - 1的自由度计算方法。这里的自由度是根据最大似然法估计出来的，用以更恰当地拟合数据的分布。虽然这与我们平时的用法不同，但小编觉得，这一点点不同不仅无伤大雅，反而更有利于大家深入理解t分布的特征——温良宽厚。
 卡方分布的应用 本文来自http://www.cnblogs.com/baiboy/p/tjx11.html
   提到统计学，很多人认为是经济学或者数学的专利，与计算机并没有交集。诚然在传统学科中，其在以上学科发挥作用很大。然而随着科学技术的发展和机器智能的普及，统计学在机器智能中的作用越来越重要。本系列统计学学习基于李航的《统计学习方法》一书和一些基本的概率知识。</description>
-    </item>
-    
-    <item>
-      <title>L0,L1,L2以及核范数规则化</title>
-      <link>https://aileenxie.github.io/2018/02l_norm/</link>
-      <pubDate>Wed, 10 Oct 2018 19:17:39 +0800</pubDate>
-      
-      <guid>https://aileenxie.github.io/2018/02l_norm/</guid>
-      <description>看到一篇讲解很详细的文章，边看边做笔记整理要点。
-前言 监督机器学习问题无非就是“minimizeyour error while regularizing your parameters”，也就是在规则化参数的同时最小化误差。
-最小化误差是为了让我们的模型拟合我们的训练数据，而规则化参数是防止我们的模型过分拟合我们的训练数据。
- 过拟合：参数过多会导致模型复杂度上升，产生过拟合，即训练误差很小，但测试误差很大，这和监督学习的目标是相违背的。所以需要采取措施，保证模型尽量简单的基础上，最小化训练误差，使模型具有更好的泛化能力。 泛化能力强：测试误差也很小 范数规则化有两个作用：
-1）保证模型尽可能的简单，避免过拟合。
-2）约束模型特性，加入一些先验知识，例如稀疏、低秩等。
-  目标函数 一般来说，监督学习可以看做最小化下面的目标函数：  第一项L(yi,f(xi;w)): 衡量我们的模型（分类或者回归）对第i个样本的预测值f(xi;w)和真实的标签yi之前的误差。
- 如果是Square loss,那就是最小二乘了； 如果是Hinge Loss，那就是著名的SVM了； 如果是exp-Loss，那就是牛逼的 Boosting了； 如果是log-Loss，那就是Logistic Regression了； 不同的loss函数，具有不同的拟合特性，这个也得就具体问题具体分析的。
-  第二项λΩ(w): 也就是对参数w的规则化函数Ω(w)去约束我们的模型尽量的简单。
- 本文讨论的即是“规则项Ω(w)”； 一般是模型复杂度的单调递增函数，模型越复杂，规则化值就越大。比如，规则化项可以是模型参数向量的范数； 论文中常见的都聚集在：零范数、一范数、二范数、迹范数、Frobenius范数和核范数等等；    L0范数与L1范数 L0范数 L0范数（||W||0）是指向量中非0的元素的个数。如果我们用L0范数来规则化一个参数矩阵W的话，就是希望W的大部分元素都是0。换句话说，让参数W是稀疏的。
-L1范数 L1范数（||W||1）是指向量中各个元素绝对值之和，也有个美称叫“稀疏规则算子”（Lasso regularization）。L1范数会使权值稀疏，它是L0范数的最优凸近似。
- Tips: 任何的规则化算子，如果他在Wi=0的地方不可微，并且可以分解为一个“求和”的形式，那么这个规则化算子就可以实现稀疏。这说是这么说，W的L1范数是绝对值，|w|在w=0处是不可微。  为什么不用L0，而用L1？  是因为L0范数很难优化求解（NP难问题）； 是L1范数是L0范数的最优凸近似，而且它比L0范数要容易优化求解。 总结：L1范数和L0范数可以实现稀疏，L1因具有比L0更好的优化求解特性而被广泛应用。  为什么要稀疏？  特征选择(Feature Selection)：去掉没有信息的特征，及将对应权重置0，防止无用特征对测试新样本的干扰； 可解释性(Interpretability)：如最初有1000个特征，回归模型：y=w1*x1+w2*x2+…+w1000*x1000+b，通过学习，如果最后学习到只有5个非零的wi，那么就可以说影响患病率的主要就是这5个特征，医生就好分析多了。  L2范数 L2范数（||W||2）是指向量各元素的平方和然后求平方根。它有两个美称，在回归里面，有人把有它的回归叫“岭回归”（Ridge Regression），有人也叫它“权值衰减”（weight decay）它的强大功效是改善机器学习里面一个非常重要的问题：过拟合。与L1范数不同，它不会让它等于0，而是接近于0。</description>
-    </item>
-    
-    <item>
-      <title>Hugo快速搭建博客</title>
-      <link>https://aileenxie.github.io/2018/01hugoblog/</link>
-      <pubDate>Fri, 05 Oct 2018 21:52:20 +0800</pubDate>
-      
-      <guid>https://aileenxie.github.io/2018/01hugoblog/</guid>
-      <description>简单记录一下mac下用Hugo搭建博客的过程，以便日后查阅。感谢renyijiu的安利和帮助。
-Hugo  一个用Go语言写的静态网站生成器 能把markdown转变成静态网页 内置web服务期，便于本地草稿调试  安装 Hugo  直接用Homebrew安装
-brew install hugo  完成之后查看版本，我目前装的是0.49
-hugo version  创建一个新站点 到你的目录下找个喜欢的地方执行语句
-hugo new site myblog   会在当前目录生成一个叫“myblog”的目录，里面包含若干文件夹和一个config.toml文件:
-▸ archetypes/
-▸ content/ -&amp;gt;你写的markdown文章
-▸ layouts/ -&amp;gt;网站的模板文件
-▸ static/ -&amp;gt;放的是一些图片、css、js等资源
-▸ data/
-▸ themes/ -&amp;gt;放的是你之后添加的主题
-config.toml -&amp;gt;网站的配置文件
-添加主题  进入目录页
-cd myblog  初始化为git项目，方便之后放入github或者任何仓库进行版本管理
-git init  添加主题, 以LeaveIt为例
-git submodule add https://github.com/liuzc/LeaveIt.git themes/LeaveIt  之后会在themes/目录下看到你添加的主题。
- 修改配置文件(直接打开config.toml文件修改也是一样的)
-echo &#39;theme = &amp;quot;LeaveIt&amp;quot;&#39; &amp;gt;&amp;gt; config.</description>
     </item>
     
   </channel>

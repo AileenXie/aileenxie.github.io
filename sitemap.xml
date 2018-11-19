@@ -3,7 +3,17 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
     <url>
-      <loc>https://aileenxie.github.io/2018/04t%E5%88%86%E5%B8%83%E5%8D%A1%E6%96%B9%E5%88%86%E5%B8%83/</loc>
+      <loc>https://aileenxie.github.io/2018/05fdr/</loc>
+      
+      <lastmod>2018-11-19T19:59:46+08:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://aileenxie.github.io/2018/04txf/</loc>
       
       <lastmod>2018-10-22T15:07:13+08:00</lastmod>
       
@@ -13,7 +23,7 @@
     </url>
   
     <url>
-      <loc>https://aileenxie.github.io/2018/02/</loc>
+      <loc>https://aileenxie.github.io/2018/02l_norm/</loc>
       
       <lastmod>2018-10-10T19:17:39+08:00</lastmod>
       
@@ -23,7 +33,7 @@
     </url>
   
     <url>
-      <loc>https://aileenxie.github.io/2018/01hugo%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</loc>
+      <loc>https://aileenxie.github.io/2018/01hugoblog/</loc>
       
       <lastmod>2018-10-05T21:52:20+08:00</lastmod>
       
@@ -43,7 +53,7 @@
     </url>
   
     <url>
-      <loc>https://aileenxie.github.io/2018/first-post/</loc>
+      <loc>https://aileenxie.github.io/2018/00first-post/</loc>
       
       <lastmod>2018-10-05T13:01:24+08:00</lastmod>
       
@@ -55,7 +65,7 @@
     <url>
       <loc>https://aileenxie.github.io/</loc>
       
-      <lastmod>2018-10-22T15:07:13+08:00</lastmod>
+      <lastmod>2018-11-19T19:59:46+08:00</lastmod>
       
       
       
@@ -77,7 +87,7 @@
     <url>
       <loc>https://aileenxie.github.io/posts/</loc>
       
-      <lastmod>2018-10-22T15:07:13+08:00</lastmod>
+      <lastmod>2018-11-19T19:59:46+08:00</lastmod>
       
       
       
@@ -99,7 +109,7 @@
     <url>
       <loc>https://aileenxie.github.io/categories/%E5%AD%A6%E4%B9%A0-%E7%AC%94%E8%AE%B0/</loc>
       
-      <lastmod>2018-10-22T15:07:13+08:00</lastmod>
+      <lastmod>2018-11-19T19:59:46+08:00</lastmod>
       
       
       
@@ -123,7 +133,7 @@
     <url>
       <loc>https://aileenxie.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</loc>
       
-      <lastmod>2018-10-22T15:07:13+08:00</lastmod>
+      <lastmod>2018-10-10T19:17:39+08:00</lastmod>
       
       
       
@@ -136,6 +146,18 @@
       <loc>https://aileenxie.github.io/tags/%E6%9D%82%E8%B0%88/</loc>
       
       <lastmod>2018-10-05T13:01:24+08:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://aileenxie.github.io/tags/%E7%BB%9F%E8%AE%A1%E5%88%86%E6%9E%90/</loc>
+      
+      <lastmod>2018-11-19T19:59:46+08:00</lastmod>
       
       
       

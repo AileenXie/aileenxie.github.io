@@ -6,20 +6,46 @@
     <description>Recent content in Aileen&#39;s Blog on Aileen&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ch-cn</language>
-    <lastBuildDate>Mon, 22 Oct 2018 15:07:13 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 19 Nov 2018 19:59:46 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>t分布, 卡方x分布，F分布（转载）</title>
-      <link>https://aileenxie.github.io/2018/04t%E5%88%86%E5%B8%83%E5%8D%A1%E6%96%B9%E5%88%86%E5%B8%83/</link>
+      <title>BH过程与FDR</title>
+      <link>https://aileenxie.github.io/2018/05fdr/</link>
+      <pubDate>Mon, 19 Nov 2018 19:59:46 +0800</pubDate>
+      
+      <guid>https://aileenxie.github.io/2018/05fdr/</guid>
+      <description>
+
+&lt;p&gt;最近导师让看的paper里用到了FDR的理念，借这个机会把FDR相关概念理解了一遍，整理出来。&lt;/p&gt;
+
+&lt;h2 id=&#34;统计相关基础知识&#34;&gt;统计相关基础知识&lt;/h2&gt;
+
+&lt;h3 id=&#34;假设检验&#34;&gt;假设检验&lt;/h3&gt;
+
+&lt;p&gt;假设检验的基本思想是&lt;strong&gt;小概率反证法&lt;/strong&gt;思想。小概率思想是指小概率事件（P&amp;lt;0.01或P&amp;lt;0.05）在一次试验中基本上不会发生。反证法思想是先提出假设(检验假设H0)，再用适当的统计方法确定假设成立的可能性大小，如可能性小，则认为假设不成立，若可能性大，则还不能认为假设不成立。&lt;/p&gt;
+
+&lt;p&gt;假设检验的种类包括：&lt;a href=&#34;https://aileenxie.github.io/2018/04txf/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;t检验，Z检验，卡方检验，F检验&lt;/a&gt;等等。&lt;/p&gt;
+
+&lt;h3 id=&#34;p值&#34;&gt;P值&lt;/h3&gt;
+
+&lt;p&gt;即概率，反映某一事件发生的可能性大小。统计学根据显著性检验方法所得到的P 值，一般以P &amp;lt; 0.05 为有统计学差异， P&amp;lt;0.01 为有显著统计学差异，P&amp;lt;0.001为有极其显著的统计学差异。其含义是样本间的差异由抽样误差所致的概率小于0.05 、0.01、0.001。实际上，P值不能赋予数据任何重要性，只能说明某事件发生的几率。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>t分布, 卡方x分布，F分布</title>
+      <link>https://aileenxie.github.io/2018/04txf/</link>
       <pubDate>Mon, 22 Oct 2018 15:07:13 +0800</pubDate>
       
-      <guid>https://aileenxie.github.io/2018/04t%E5%88%86%E5%B8%83%E5%8D%A1%E6%96%B9%E5%88%86%E5%B8%83/</guid>
+      <guid>https://aileenxie.github.io/2018/04txf/</guid>
       <description>
+
+&lt;script type=&#34;text/javascript&#34; src=&#34;https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default&#34;&gt;&lt;/script&gt;
 
 &lt;h1 id=&#34;t分布-温良宽厚&#34;&gt;T分布：温良宽厚&lt;/h1&gt;
 
-&lt;p&gt;本文由“医学统计分析精粹”小编“Hiu”原创完成，
+&lt;p&gt;本文转自“医学统计分析精粹”，小编“Hiu”原创完成，
 &lt;a href=&#34;https://www.cnblogs.com/think-and-do/p/6509239.html&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;原文链接&lt;/a&gt;
 &lt;a href=&#34;http://www.cnblogs.com/baiboy/p/tjx11.html&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;参考文章&lt;/a&gt;&lt;/p&gt;
 
@@ -569,8 +595,6 @@ $$v=(h-1) X (k-1)$$
 
 &lt;h1 id=&#34;f-分布&#34;&gt;F 分布&lt;/h1&gt;
 
-&lt;script type=&#34;text/javascript&#34; src=&#34;http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default&#34;&gt;&lt;/script&gt;
-
 &lt;p&gt;&lt;img src=&#34;https://ws4.sinaimg.cn/large/006tNbRwly1fwj5wlegi5j30hy0a7wib.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;研究A. B. C三种不同学校学生的阅读理解成绩找到一种解决的办法，有人可能会以为，只要多次使用Z检验或t检验，比较成对比较学校（或条件）即可。但是我们不会这样来处理。因为Z检验或t检验有其&lt;strong&gt;局限性&lt;/strong&gt;：&lt;/p&gt;
@@ -629,10 +653,10 @@ v1=组间自由度 = g-1 = 3-1 v2=组内自由度=N-g= 60-3 = 57，查F分布表
     
     <item>
       <title>L0,L1,L2以及核范数规则化</title>
-      <link>https://aileenxie.github.io/2018/02/</link>
+      <link>https://aileenxie.github.io/2018/02l_norm/</link>
       <pubDate>Wed, 10 Oct 2018 19:17:39 +0800</pubDate>
       
-      <guid>https://aileenxie.github.io/2018/02/</guid>
+      <guid>https://aileenxie.github.io/2018/02l_norm/</guid>
       <description>
 
 &lt;p&gt;看到一篇讲解很详细的&lt;a href=&#34;https://blog.csdn.net/zouxy09/article/details/24971995&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;文章&lt;/a&gt;，边看边做笔记整理要点。&lt;/p&gt;
@@ -828,10 +852,10 @@ L2. 没有这样的性质，因为没有角，所以第一次相交的地方出�
     
     <item>
       <title>Hugo快速搭建博客</title>
-      <link>https://aileenxie.github.io/2018/01hugo%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</link>
+      <link>https://aileenxie.github.io/2018/01hugoblog/</link>
       <pubDate>Fri, 05 Oct 2018 21:52:20 +0800</pubDate>
       
-      <guid>https://aileenxie.github.io/2018/01hugo%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</guid>
+      <guid>https://aileenxie.github.io/2018/01hugoblog/</guid>
       <description>
 
 &lt;p&gt;简单记录一下mac下用&lt;a href=&#34;https://gohugo.io/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;Hugo&lt;/a&gt;搭建博客的过程，以便日后查阅。感谢&lt;a href=&#34;https://blog.renyijiu.com/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;renyijiu&lt;/a&gt;的安利和帮助。&lt;/p&gt;
@@ -1038,10 +1062,10 @@ git push origin master
     
     <item>
       <title>New Start</title>
-      <link>https://aileenxie.github.io/2018/first-post/</link>
+      <link>https://aileenxie.github.io/2018/00first-post/</link>
       <pubDate>Fri, 05 Oct 2018 13:01:24 +0800</pubDate>
       
-      <guid>https://aileenxie.github.io/2018/first-post/</guid>
+      <guid>https://aileenxie.github.io/2018/00first-post/</guid>
       <description>
 
 &lt;p&gt;重新回到学校一个月，第一个国庆避开人山人海，在上海安安心心休息了几天。&lt;/p&gt;

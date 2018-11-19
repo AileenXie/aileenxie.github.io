@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ch-cn">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="Aileen.Xie">
+  
+  
+  
+  <link rel="prev" href="https://aileenxie.github.io/2018/04txf/" />
+  
+  <link rel="canonical" href="https://aileenxie.github.io/2018/05fdr/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           BH过程与FDR | Aileen&#39;s Blog
+       
+  </title>
+  <meta name="title" content="BH过程与FDR | Aileen&#39;s Blog">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https://aileenxie.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "BH过程与FDR",
+    "headline" : "BH过程与FDR",
+    "description" : "最近导师让看的paper里用到了FDR的理念，借这个机会把FDR相关概念理解了一遍，整理出来。
+统计相关基础知识 假设检验 假设检验的基本思想是小概率反证法思想。小概率思想是指小概率事件（P&lt;0.01或P&lt;0.05）在一次试验中基本上不会发生。反证法思想是先提出假设(检验假设H0)，再用适当的统计方法确定假设成立的可能性大小，如可能性小，则认为假设不成立，若可能性大，则还不能认为假设不成立。
+假设检验的种类包括：t检验，Z检验，卡方检验，F检验等等。
+P值 即概率，反映某一事件发生的可能性大小。统计学根据显著性检验方法所得到的P 值，一般以P &lt; 0.05 为有统计学差异， P&lt;0.01 为有显著统计学差异，P&lt;0.001为有极其显著的统计学差异。其含义是样本间的差异由抽样误差所致的概率小于0.05 、0.01、0.001。实际上，P值不能赋予数据任何重要性，只能说明某事件发生的几率。",
+    "inLanguage" : "ch-cn",
+    "author" : "Aileen.Xie",
+    "creator" : "Aileen.Xie",
+    "publisher": "Aileen.Xie",
+    "accountablePerson" : "Aileen.Xie",
+    "copyrightHolder" : "Aileen.Xie",
+    "copyrightYear" : "2018",
+    "datePublished": "2018-11-19 19:59:46 &#43;0800 CST",
+    "dateModified" : "2018-11-19 19:59:46 &#43;0800 CST",
+    "url" : "https://aileenxie.github.io/2018/05fdr/",
+    "wordCount" : "14",
+    "keywords" : [ "统计分析", "Aileen&#39;s Blog"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://aileenxie.github.io">Aileen&#39;s Blog</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://aileenxie.github.io">Aileen&#39;s Blog</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">BH过程与FDR</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="https://aileenxie.github.io" rel="author">Aileen.Xie</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2018-11-19 itemprop="datePublished">November 19, 2018</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="https://aileenxie.github.io/categories/%E5%AD%A6%E4%B9%A0-%E7%AC%94%E8%AE%B0/"> 学习 · 笔记 </a>
+                        
+                </span>
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          
+
+<p>最近导师让看的paper里用到了FDR的理念，借这个机会把FDR相关概念理解了一遍，整理出来。</p>
+
+<h2 id="统计相关基础知识">统计相关基础知识</h2>
+
+<h3 id="假设检验">假设检验</h3>
+
+<p>假设检验的基本思想是<strong>小概率反证法</strong>思想。小概率思想是指小概率事件（P&lt;0.01或P&lt;0.05）在一次试验中基本上不会发生。反证法思想是先提出假设(检验假设H0)，再用适当的统计方法确定假设成立的可能性大小，如可能性小，则认为假设不成立，若可能性大，则还不能认为假设不成立。</p>
+
+<p>假设检验的种类包括：<a href="https://aileenxie.github.io/2018/04txf/" rel="nofollow noreferrer" target="_blank">t检验，Z检验，卡方检验，F检验</a>等等。</p>
+
+<h3 id="p值">P值</h3>
+
+<p>即概率，反映某一事件发生的可能性大小。统计学根据显著性检验方法所得到的P 值，一般以P &lt; 0.05 为有统计学差异， P&lt;0.01 为有显著统计学差异，P&lt;0.001为有极其显著的统计学差异。其含义是样本间的差异由抽样误差所致的概率小于0.05 、0.01、0.001。实际上，P值不能赋予数据任何重要性，只能说明某事件发生的几率。</p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Aileen.Xie </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://aileenxie.github.io/2018/05fdr/>https://aileenxie.github.io/2018/05fdr/</span>
+            </p>
+            
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="https://aileenxie.github.io/tags/%E7%BB%9F%E8%AE%A1%E5%88%86%E6%9E%90/">
+                    #统计分析</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="https://aileenxie.github.io">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://aileenxie.github.io/2018/04txf/" class="prev" rel="prev" title="t分布, 卡方x分布，F分布"><i class="iconfont icon-left"></i>&nbsp;t分布, 卡方x分布，F分布</a>
+         
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2017 - 2018</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            
+            <span class="author" itemprop="copyrightHolder"><a href="https://aileenxie.github.io">Aileen.Xie</a> </span> 
+         
+
+         
+		  
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>
