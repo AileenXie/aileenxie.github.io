@@ -6,10 +6,25 @@
     <description>Recent content in 学习 · 笔记 on Aileen&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ch-cn</language>
-    <lastBuildDate>Mon, 19 Nov 2018 19:59:46 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 19 Nov 2018 20:00:38 +0800</lastBuildDate>
     
 	<atom:link href="https://aileenxie.github.io/categories/%E5%AD%A6%E4%B9%A0-%E7%AC%94%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>论文书写工具准备——MacTeX</title>
+      <link>https://aileenxie.github.io/2018/07use_mactex/</link>
+      <pubDate>Mon, 19 Nov 2018 20:00:38 +0800</pubDate>
+      
+      <guid>https://aileenxie.github.io/2018/07use_mactex/</guid>
+      <description>前言  TEX：斯坦福大学的教授Donald E.Knuth开发的一个功能强大的幕后排版系统。它是一种语言，类似于Java和C之类的计算机语言，但是它是为简单的排版操作设计的； LaTeX：是TEX的众多宏集之一，是由Leslie Lamport编写的。将一些常用到的功能整合为文档类型中的设置，简化了TEX排版的工作量及难度； CTEX：利用TEX排版系统的CTEX中文套装的简称。它集成了编辑器 、WinEdt和 PostScript处理软件 Ghostscript 和 GSview 等主要工具。 TeXLiv：是一个TeX发行版，它是一组程序的集合，主要作用就是将你写的TeX代码进行解析排版输出成PS或者PDF。“TeX发行版相对于TeX语言”大致可以理解为“C语言编译器(如GCC或Clang)相对于C语言”的关系； MacTeX：是Mac版的TeXLive。  本文MacTeX搭配Sublime(编辑器)和Skim(PDF阅读器)食用。
+MacTeX安装 官网：http://tug.org/mactex/ 安装好后会看到一串东西（我把它们放到了同一个文件夹里）： TeXShop：它是一个官配的编辑器，比较简单。我们这里用Sublime取代。
+Sublime和Skim安装 Sublime官网：https://www.sublimetext.com/ Skim官网：https://skim-app.sourceforge.io/ 图标长这样： 环境配置 Sublime配置 打开Sublime，我们需要安装LaTeX相关插件才能更好地使用，插件从Package Control官网下载，步骤如下： 1. 进入Sublime的终端：ctrl+ [esc下面那个顿号] 或 View &amp;gt; Show Consoles 2. 从Package Control官网复制灰色代码段输入Sublime的终端并回车运行，注意对应的版本号： 3. 等待安装完成后，退出重启Sublime; 4. 安装插件包：Command+Shift+P或Tools &amp;gt; Command Palette…&amp;mdash;&amp;gt;输入&amp;rdquo;install package&amp;rdquo;回车&amp;mdash;&amp;gt;输入“LaTeX Tools”，找到这一项并点击安装。完成后重启Sublime。 5. 新建一个文件test.tex(一定要有后缀.tex!!!)，复制以下内容进去：
+\documentclass{article} \begin{document} Hello LaTeX \end{document}  可看到Latex格式文件有彩色样式，完成！
+Skim配置 打开Skim后，Command+,或Skim &amp;gt; 选项（performance）&amp;mdash;&amp;gt;点到【同步（sync）】页&amp;mdash;&amp;gt;设置Preset为Sublime(不知道为什么我这边没有Sublime3选项，选了2也可行) 测试环境 回到Sublime刚才新建的test.tex文件，Command+B或Tools &amp;gt; Build编译tex文件，顺利的话，Skim会自动弹出PDF文件预览窗口。环境搭建成功！
+至此整个环境就搭完了，具体怎么用mactex写出漂亮的文章和公式参考LaTeX快速入门：一文浅谈TeX排版语法，还有些小技巧我会之后总结一篇文章。待续。
+参考文章1 参考文章2</description>
+    </item>
     
     <item>
       <title>FDR与BH过程</title>
@@ -39,7 +54,7 @@ Q值 衡量错误发现率FDR（false discovery rates）的指标。\(FDR=\frac{
       <pubDate>Mon, 22 Oct 2018 15:07:13 +0800</pubDate>
       
       <guid>https://aileenxie.github.io/2018/04txf/</guid>
-      <description>T分布：温良宽厚 本文转自“医学统计分析精粹”，小编“Hiu”原创完成， 原文链接 参考文章
+      <description>--  --  T分布：温良宽厚 本文转自“医学统计分析精粹”，小编“Hiu”原创完成， 原文链接 参考文章
 命名与源起 “t”，是伟大的Fisher为之取的名字。Fisher最早将这一分布命名为“Student&amp;rsquo;s distribution”，并以“t”为之标记。
 Student，则是William Sealy Gosset（戈塞特）的笔名。他当年在爱尔兰都柏林的一家酒厂工作，设计了一种后来被称为t检验的方法来评价酒的质量。因为行业机密，酒厂不允许他的工作内容外泄，所以当他后来将其发表到至今仍十分著名的一本杂志《Biometrika》时，就署了student的笔名。所以现在很多人知道student，知道t，却不知道Gosset。（相对而言，我们常说的正态分布，在国外更多的被称为高斯分布……高斯~泉下有知的话，说不定会打出V字手势~欧耶！）
 看懂概率密度图 这一点对于初学者尤为重要，相信还是有不少人对正态分布或者t分布的曲线没有确切的理解。
@@ -64,9 +79,7 @@ T分布的可视化 我们平常说的t分布，都是指小样本的分布。�
  点估计更准确。如果我们需要根据一个小样本数据来估计学生的平均身高。那么使用正态分布来拟合，很容易就受到离群异常值的影响而得到错误的估计。
  回归中应用t分布，可以得到更稳健的估计量（β值或OR值），这也是我们实现“稳健回归”的一个重要手段。
   通过下面一幅图，我们巩固一下t分布的“宽厚”： 与正态分布曲线（矮胖）比较，t分布以其高高的尾部（本图中不明显，参见上面自由度为1,2,3时所对应的图片），容忍了在横轴为9处的异常值，得到了更稳健的集中趋势估计值（均值1.11）和更紧凑的离散趋势估计值（标准差差0.15，又是正态分布的四分之一）。要知道，我们如果单单想通过增加样本量来将标准误（假设检验中使用的参数，标准差除以自由度的平方根）缩减到四分之一，需要16倍的样本量！可见，t分布当真是威力无穷！
-PS：上述两幅图中的t分布曲线并不是频率学派应用t分布的常规套路（更像是贝叶斯学派的用法）。细心者可以发现，我们使用的t分布的自由度明显低于n - 1的自由度计算方法。这里的自由度是根据最大似然法估计出来的，用以更恰当地拟合数据的分布。虽然这与我们平时的用法不同，但小编觉得，这一点点不同不仅无伤大雅，反而更有利于大家深入理解t分布的特征——温良宽厚。
-卡方分布的应用 本文来自http://www.cnblogs.com/baiboy/p/tjx11.html
-  提到统计学，很多人认为是经济学或者数学的专利，与计算机并没有交集。诚然在传统学科中，其在以上学科发挥作用很大。然而随着科学技术的发展和机器智能的普及，统计学在机器智能中的作用越来越重要。本系列统计学学习基于李航的《统计学习方法》一书和一些基本的概率知识。</description>
+PS：上述两幅图中的t分布曲线并不是频率学派应用t分布的常规套路（更像是贝叶斯学派的用法）。细心者可以发现，我们使用的t分布的自由度明显低于n - 1的自由度计算方法。这里的自由度是根据最大似然法估计出来的，用以更恰当地拟合数据的分布。虽然这与我们平时的用法不同，但小编觉得，这一点点不同不仅无伤大雅，反而更有利于大家深入理解t分布的特征——温良宽厚。</description>
     </item>
     
     <item>

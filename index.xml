@@ -6,8 +6,78 @@
     <description>Recent content in Aileen&#39;s Blog on Aileen&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ch-cn</language>
-    <lastBuildDate>Mon, 19 Nov 2018 19:59:46 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 19 Nov 2018 20:00:38 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>论文书写工具准备——MacTeX</title>
+      <link>https://aileenxie.github.io/2018/07use_mactex/</link>
+      <pubDate>Mon, 19 Nov 2018 20:00:38 +0800</pubDate>
+      
+      <guid>https://aileenxie.github.io/2018/07use_mactex/</guid>
+      <description>
+
+&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;TEX：斯坦福大学的教授Donald E.Knuth开发的一个功能强大的幕后排版系统。它是一种语言，类似于Java和C之类的计算机语言，但是它是为简单的排版操作设计的；&lt;/li&gt;
+&lt;li&gt;LaTeX：是TEX的众多宏集之一，是由Leslie Lamport编写的。将一些常用到的功能整合为文档类型中的设置，简化了TEX排版的工作量及难度；&lt;/li&gt;
+&lt;li&gt;CTEX：利用TEX排版系统的CTEX中文套装的简称。它集成了编辑器 、WinEdt和 PostScript处理软件 Ghostscript 和 GSview 等主要工具。&lt;/li&gt;
+&lt;li&gt;TeXLiv：是一个TeX发行版，它是一组程序的集合，主要作用就是将你写的TeX代码进行解析排版输出成PS或者PDF。“TeX发行版相对于TeX语言”大致可以理解为“C语言编译器(如GCC或Clang)相对于C语言”的关系；&lt;/li&gt;
+&lt;li&gt;MacTeX：是Mac版的TeXLive。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;本文MacTeX搭配Sublime(编辑器)和Skim(PDF阅读器)食用。&lt;/p&gt;
+
+&lt;h2 id=&#34;mactex安装&#34;&gt;MacTeX安装&lt;/h2&gt;
+
+&lt;p&gt;官网：&lt;a href=&#34;http://tug.org/mactex/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;http://tug.org/mactex/&lt;/a&gt;
+安装好后会看到一串东西（我把它们放到了同一个文件夹里）：
+&lt;img src=&#34;https://ws4.sinaimg.cn/large/006tNbRwly1fyb8xv9ri1j31c00u0wms.jpg&#34; alt=&#34;&#34; /&gt;
+TeXShop：它是一个官配的编辑器，比较简单。我们这里用Sublime取代。&lt;/p&gt;
+
+&lt;h2 id=&#34;sublime和skim安装&#34;&gt;Sublime和Skim安装&lt;/h2&gt;
+
+&lt;p&gt;Sublime官网：&lt;a href=&#34;https://www.sublimetext.com/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;https://www.sublimetext.com/&lt;/a&gt;
+Skim官网：&lt;a href=&#34;https://skim-app.sourceforge.io/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;https://skim-app.sourceforge.io/&lt;/a&gt;
+图标长这样：
+&lt;img src=&#34;https://ws2.sinaimg.cn/large/006tNbRwly1fyb93bewmtj30uu0ay0ud.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;环境配置&#34;&gt;环境配置&lt;/h2&gt;
+
+&lt;h3 id=&#34;sublime配置&#34;&gt;Sublime配置&lt;/h3&gt;
+
+&lt;p&gt;打开Sublime，我们需要安装LaTeX相关插件才能更好地使用，插件从&lt;a href=&#34;https://packagecontrol.io/installation&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;Package Control官网&lt;/a&gt;下载，步骤如下：
+1. 进入Sublime的终端：&lt;code&gt;ctrl+ [esc下面那个顿号]&lt;/code&gt; 或 &lt;code&gt;View &amp;gt; Show Consoles&lt;/code&gt;
+2. 从&lt;a href=&#34;https://packagecontrol.io/installation&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;Package Control官网&lt;/a&gt;复制灰色代码段输入Sublime的终端并回车运行，注意对应的版本号：
+&lt;img src=&#34;https://ws1.sinaimg.cn/large/006tNbRwly1fyb9armt3gj30hb0a9ju6.jpg&#34; alt=&#34;&#34; /&gt;
+3. 等待安装完成后，退出重启Sublime;
+4. 安装插件包：&lt;code&gt;Command+Shift+P&lt;/code&gt;或&lt;code&gt;Tools &amp;gt; Command Palette…&lt;/code&gt;&amp;mdash;&amp;gt;输入&amp;rdquo;install package&amp;rdquo;回车&amp;mdash;&amp;gt;输入“LaTeX Tools”，找到这一项并点击安装。完成后重启Sublime。
+5. 新建一个文件test.tex(一定要有后缀.tex!!!)，复制以下内容进去：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;\documentclass{article}
+\begin{document}
+Hello LaTeX
+\end{document}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;可看到Latex格式文件有彩色样式，完成！&lt;/p&gt;
+
+&lt;h3 id=&#34;skim配置&#34;&gt;Skim配置&lt;/h3&gt;
+
+&lt;p&gt;打开Skim后，&lt;code&gt;Command+,&lt;/code&gt;或&lt;code&gt;Skim &amp;gt; 选项（performance）&lt;/code&gt;&amp;mdash;&amp;gt;点到【同步（sync）】页&amp;mdash;&amp;gt;设置Preset为Sublime(不知道为什么我这边没有Sublime3选项，选了2也可行)
+&lt;img src=&#34;https://ws2.sinaimg.cn/large/006tNbRwly1fyb9qv8n1dj30u00nwdj9.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;测试环境&#34;&gt;测试环境&lt;/h3&gt;
+
+&lt;p&gt;回到Sublime刚才新建的test.tex文件，&lt;code&gt;Command+B&lt;/code&gt;或&lt;code&gt;Tools &amp;gt; Build&lt;/code&gt;编译tex文件，顺利的话，Skim会自动弹出PDF文件预览窗口。环境搭建成功！&lt;/p&gt;
+
+&lt;p&gt;至此整个环境就搭完了，具体怎么用mactex写出漂亮的文章和公式参考&lt;a href=&#34;http://www.voidcn.com/article/p-gkwzgucc-bru.html&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;LaTeX快速入门：一文浅谈TeX排版语法&lt;/a&gt;，还有些小技巧我会之后总结一篇文章。待续。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://blog.csdn.net/cs24k1993/article/details/78082437&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;参考文章1&lt;/a&gt;
+&lt;a href=&#34;https://www.jianshu.com/p/b1e3b029ded5&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;参考文章2&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>FDR与BH过程</title>
@@ -129,7 +199,11 @@
       <guid>https://aileenxie.github.io/2018/04txf/</guid>
       <description>
 
-&lt;script type=&#34;text/javascript&#34; src=&#34;https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=default&#34;&gt;&lt;/script&gt;
+&lt;!-- &lt;script type=&#34;text/javascript&#34; src=&#34;https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default&#34;&gt;&lt;/script&gt; --&gt;
+
+&lt;!-- &lt;script type=&#34;text/javascript&#34; src=&#34;https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=default&#34;&gt;&lt;/script&gt; --&gt;
+
+&lt;script type=&#34;text/javascript&#34; src=&#34;https://lib.baomitu.com/mathjax/2.7.5/MathJax.js?config=default&#34;&gt;&lt;/script&gt;
 
 &lt;h1 id=&#34;t分布-温良宽厚&#34;&gt;T分布：温良宽厚&lt;/h1&gt;
 
