@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="ch-cn">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="Aileen.Xie">
+  
+  
+  
+  <link rel="prev" href="https://aileenxie.github.io/2018/07use_mactex/" />
+  
+  <link rel="canonical" href="https://aileenxie.github.io/2019/08style2paints/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           AI线稿上色——Style2paints | Aileen&#39;s Blog
+       
+  </title>
+  <meta name="title" content="AI线稿上色——Style2paints | Aileen&#39;s Blog">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https://aileenxie.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "AI线稿上色——Style2paints",
+    "headline" : "AI线稿上色——Style2paints",
+    "description" : "快期末的时候喜得一个wacon的板子，很久没画画了，业务生疏还有点不习惯，画得很慢。偶然被推荐一个很有意思的开源项目Style2paints（源码地址），一个AI线稿上色工具，可以快速地进行线稿的智能上色。
+但是很不巧，1月18号Style2paints-V4版本的服务器就因为经费原因关闭了，我看到这个项目的时候已经无法在线访问了，只好尝试本地搭环境启动。目前代码只开源了V3版本，看官方描述V3和V4差别还蛮大的。V4是模拟人工上色流程对线稿进行分层上色，输出也是PSD分层的文件，V3输出的是单层的图片，操作也不太一样。
+V3页面（自截图）： V4页面（官方介绍视频里截的）：
+这里记录一下mac上Style2paints-V3本地搭建的过程。
+1. Python环境 首先要准备python3的环境，mac下的安装可以参考之前的blog，用homebrew直接安装。
+2. 依赖包 这里没有用gpu版本的tensorflow，安装以下依赖包：
+pip3 install tensorflow (安装需要翻墙，全局模式命令行安装)
+pip3 install keras
+pip3 install bottle
+pip3 install gevent
+pip3 install h5py
+pip3 install opencv-python
+pip3 install scikit-image
+pip3 install paste
+3.源码运行 拉取源码： git clone https://github.com/lllyasviel/style2paints
+到V3目录下执行server/server.py文件。正常运行的话可以直接本地打开 http://127.0.0.1:80/ 就能看到界面。但是我运行的过程中有以下几点异常。
+4. Q:Tensorflow编译警告  Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX
+原因是CPU支持AVX扩展(高级矢量扩展)，但是默认安装（pip install）的TensorFlow版本不支持使用扩展。其实用了扩展CPU也比GPU慢得多。解决办法有两个：
+1）忽略警告，直接在server.py代码中加入：
+import os os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'  2)源码编译tensorflow 从针对CPU优化的源去构建tensorflow，不仅可以去掉这个警告，还能提高CPU下的tensorflow的性能。具体参考tensorflow的issue8037",
+    "inLanguage" : "ch-cn",
+    "author" : "Aileen.Xie",
+    "creator" : "Aileen.Xie",
+    "publisher": "Aileen.Xie",
+    "accountablePerson" : "Aileen.Xie",
+    "copyrightHolder" : "Aileen.Xie",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-01-31 21:03:40 &#43;0800 CST",
+    "dateModified" : "2019-01-31 21:03:40 &#43;0800 CST",
+    "url" : "https://aileenxie.github.io/2019/08style2paints/",
+    "wordCount" : "84",
+    "keywords" : [ "教程","娱乐", "Aileen&#39;s Blog"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://aileenxie.github.io">Aileen&#39;s Blog</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://aileenxie.github.io">Aileen&#39;s Blog</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">AI线稿上色——Style2paints</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="https://aileenxie.github.io" rel="author">Aileen.Xie</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2019-01-31 itemprop="datePublished">January 31, 2019</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="https://aileenxie.github.io/categories/%E5%85%B4%E8%B6%A3-%E5%A8%B1%E4%B9%90/"> 兴趣 · 娱乐 </a>
+                        
+                </span>
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+            
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          
+
+<p>快期末的时候喜得一个wacon的板子，很久没画画了，业务生疏还有点不习惯，画得很慢。偶然被推荐一个很有意思的开源项目Style2paints（<a href="https://github.com/lllyasviel/style2paints" rel="nofollow noreferrer" target="_blank">源码地址</a>），一个AI线稿上色工具，可以快速地进行线稿的智能上色。</p>
+
+<p>但是很不巧，1月18号Style2paints-V4版本的服务器就因为经费原因关闭了，我看到这个项目的时候已经无法在线访问了，只好尝试本地搭环境启动。目前代码只开源了V3版本，看官方描述V3和V4差别还蛮大的。V4是模拟人工上色流程对线稿进行分层上色，输出也是PSD分层的文件，V3输出的是单层的图片，操作也不太一样。</p>
+
+<p>V3页面（自截图）：
+<figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://ws4.sinaimg.cn/large/006tNc79gy1fzq5xvqok0j31lr0u0qdu.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+
+<p>V4页面（官方介绍视频里截的）：</p>
+
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://ws4.sinaimg.cn/large/006tNc79gy1fzq3ie2zxpj31n30u0n9a.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+
+<p>这里记录一下mac上Style2paints-V3本地搭建的过程。</p>
+
+<h2 id="1-python环境">1. Python环境</h2>
+
+<p>首先要准备python3的环境，mac下的安装可以参考之前的blog，用homebrew直接安装。</p>
+
+<h2 id="2-依赖包">2. 依赖包</h2>
+
+<p>这里没有用gpu版本的tensorflow，安装以下依赖包：</p>
+
+<p>pip3 install tensorflow (安装需要翻墙，全局模式命令行安装)</p>
+
+<p>pip3 install keras</p>
+
+<p>pip3 install bottle</p>
+
+<p>pip3 install gevent</p>
+
+<p>pip3 install h5py</p>
+
+<p>pip3 install opencv-python</p>
+
+<p>pip3 install scikit-image</p>
+
+<p>pip3 install paste</p>
+
+<h2 id="3-源码运行">3.源码运行</h2>
+
+<p>拉取源码：
+<code>git clone https://github.com/lllyasviel/style2paints</code></p>
+
+<p>到V3目录下执行server/server.py文件。正常运行的话可以直接本地打开 <a href="http://127.0.0.1:80/" rel="nofollow noreferrer" target="_blank">http://127.0.0.1:80/</a> 就能看到界面。但是我运行的过程中有以下几点异常。</p>
+
+<h2 id="4-q-tensorflow编译警告">4. Q:Tensorflow编译警告</h2>
+
+<ul>
+<li><p><code>Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX</code></p>
+
+<p>原因是CPU支持AVX扩展(高级矢量扩展)，但是默认安装（pip install）的TensorFlow版本不支持使用扩展。其实用了扩展CPU也比GPU慢得多。解决办法有两个：</p>
+
+<p>1）忽略警告，直接在server.py代码中加入：</p>
+
+<pre><code>import os
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
+</code></pre>
+
+<p>2)源码编译tensorflow
+从针对CPU优化的源去构建tensorflow，不仅可以去掉这个警告，还能提高CPU下的tensorflow的性能。具体参考tensorflow的<a href="https://github.com/tensorflow/tensorflow/issues/8037" rel="nofollow noreferrer" target="_blank">issue8037</a></p></li>
+</ul>
+
+<h2 id="5-q-报错找不到文件">5. Q:报错找不到文件</h2>
+
+<p>拉的源码里少了几个文件：
+<figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://ws3.sinaimg.cn/large/006tNc79gy1fzq5q03ksoj30zw0i8gn8.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+
+<p><a href="https://drive.google.com/drive/folders/1fWi4wmNj-xr-nCzuWMsN2rcm0249_Aem" rel="nofollow noreferrer" target="_blank">文件云盘链接</a>,
+需要下载放到V3/server/目录下，再重新运行server.py文件，访问本地 <a href="http://127.0.0.1:80/" rel="nofollow noreferrer" target="_blank">http://127.0.0.1:80/</a> ，就可以看到这个页面：
+<figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://ws4.sinaimg.cn/large/006tNc79gy1fzq5l8c7wvj31im0u0tfo.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+
+<h2 id="6-简单教程">6. 简单教程</h2>
+
+<p>我是直接看的作者写的一篇<a href="https://zhuanlan.zhihu.com/p/36560034" rel="nofollow noreferrer" target="_blank">速成教程</a>。</p>
+
+<p>总体体验还是很不错的，虽然上色不一定如自己手工上色更能随心所欲，但是够快啊，我CPU跑的上色差不多十来秒。简单试了几个图。</p>
+
+<ul>
+<li>网上找的线稿上色：
+<figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://ws4.sinaimg.cn/large/006tNc79gy1fzq5udt3x7j31lv0u04ct.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></li>
+</ul>
+
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://ws2.sinaimg.cn/large/006tNc79gy1fzq5w5dd94j31ly0u0dy7.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+
+<ul>
+<li>自己的图重上色：
+<figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://ws4.sinaimg.cn/large/006tNc79gy1fzq3ge412wj31lc0u04aq.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></li>
+<li>第一个是原图，第二个是去色的底图，后两个是重上色效果。
+<figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://ws4.sinaimg.cn/large/006tNc79gy1fzq6d0q7rkj31h80d6786.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Aileen.Xie </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://aileenxie.github.io/2019/08style2paints/>https://aileenxie.github.io/2019/08style2paints/</span>
+            </p>
+            
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="https://aileenxie.github.io/tags/%E6%95%99%E7%A8%8B/">
+                    #教程</a></span>
+            
+            <span class="tag"><a href="https://aileenxie.github.io/tags/%E5%A8%B1%E4%B9%90/">
+                    #娱乐</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="https://aileenxie.github.io">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://aileenxie.github.io/2018/07use_mactex/" class="prev" rel="prev" title="论文书写工具准备——MacTeX"><i class="iconfont icon-left"></i>&nbsp;论文书写工具准备——MacTeX</a>
+         
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2017 - 2019</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            
+            <span class="author" itemprop="copyrightHolder"><a href="https://aileenxie.github.io">Aileen.Xie</a> </span> 
+         
+
+         
+		  
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

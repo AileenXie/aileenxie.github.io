@@ -6,8 +6,108 @@
     <description>Recent content in Aileen&#39;s Blog on Aileen&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ch-cn</language>
-    <lastBuildDate>Mon, 19 Nov 2018 20:00:38 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 31 Jan 2019 21:03:40 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>AI线稿上色——Style2paints</title>
+      <link>https://aileenxie.github.io/2019/08style2paints/</link>
+      <pubDate>Thu, 31 Jan 2019 21:03:40 +0800</pubDate>
+      
+      <guid>https://aileenxie.github.io/2019/08style2paints/</guid>
+      <description>
+
+&lt;p&gt;快期末的时候喜得一个wacon的板子，很久没画画了，业务生疏还有点不习惯，画得很慢。偶然被推荐一个很有意思的开源项目Style2paints（&lt;a href=&#34;https://github.com/lllyasviel/style2paints&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;源码地址&lt;/a&gt;），一个AI线稿上色工具，可以快速地进行线稿的智能上色。&lt;/p&gt;
+
+&lt;p&gt;但是很不巧，1月18号Style2paints-V4版本的服务器就因为经费原因关闭了，我看到这个项目的时候已经无法在线访问了，只好尝试本地搭环境启动。目前代码只开源了V3版本，看官方描述V3和V4差别还蛮大的。V4是模拟人工上色流程对线稿进行分层上色，输出也是PSD分层的文件，V3输出的是单层的图片，操作也不太一样。&lt;/p&gt;
+
+&lt;p&gt;V3页面（自截图）：
+&lt;img src=&#34;https://ws4.sinaimg.cn/large/006tNc79gy1fzq5xvqok0j31lr0u0qdu.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;V4页面（官方介绍视频里截的）：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://ws4.sinaimg.cn/large/006tNc79gy1fzq3ie2zxpj31n30u0n9a.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;这里记录一下mac上Style2paints-V3本地搭建的过程。&lt;/p&gt;
+
+&lt;h2 id=&#34;1-python环境&#34;&gt;1. Python环境&lt;/h2&gt;
+
+&lt;p&gt;首先要准备python3的环境，mac下的安装可以参考之前的blog，用homebrew直接安装。&lt;/p&gt;
+
+&lt;h2 id=&#34;2-依赖包&#34;&gt;2. 依赖包&lt;/h2&gt;
+
+&lt;p&gt;这里没有用gpu版本的tensorflow，安装以下依赖包：&lt;/p&gt;
+
+&lt;p&gt;pip3 install tensorflow (安装需要翻墙，全局模式命令行安装)&lt;/p&gt;
+
+&lt;p&gt;pip3 install keras&lt;/p&gt;
+
+&lt;p&gt;pip3 install bottle&lt;/p&gt;
+
+&lt;p&gt;pip3 install gevent&lt;/p&gt;
+
+&lt;p&gt;pip3 install h5py&lt;/p&gt;
+
+&lt;p&gt;pip3 install opencv-python&lt;/p&gt;
+
+&lt;p&gt;pip3 install scikit-image&lt;/p&gt;
+
+&lt;p&gt;pip3 install paste&lt;/p&gt;
+
+&lt;h2 id=&#34;3-源码运行&#34;&gt;3.源码运行&lt;/h2&gt;
+
+&lt;p&gt;拉取源码：
+&lt;code&gt;git clone https://github.com/lllyasviel/style2paints&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;到V3目录下执行server/server.py文件。正常运行的话可以直接本地打开 &lt;a href=&#34;http://127.0.0.1:80/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;http://127.0.0.1:80/&lt;/a&gt; 就能看到界面。但是我运行的过程中有以下几点异常。&lt;/p&gt;
+
+&lt;h2 id=&#34;4-q-tensorflow编译警告&#34;&gt;4. Q:Tensorflow编译警告&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;原因是CPU支持AVX扩展(高级矢量扩展)，但是默认安装（pip install）的TensorFlow版本不支持使用扩展。其实用了扩展CPU也比GPU慢得多。解决办法有两个：&lt;/p&gt;
+
+&lt;p&gt;1）忽略警告，直接在server.py代码中加入：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;import os
+os.environ[&#39;TF_CPP_MIN_LOG_LEVEL&#39;] = &#39;2&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;2)源码编译tensorflow
+从针对CPU优化的源去构建tensorflow，不仅可以去掉这个警告，还能提高CPU下的tensorflow的性能。具体参考tensorflow的&lt;a href=&#34;https://github.com/tensorflow/tensorflow/issues/8037&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;issue8037&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;5-q-报错找不到文件&#34;&gt;5. Q:报错找不到文件&lt;/h2&gt;
+
+&lt;p&gt;拉的源码里少了几个文件：
+&lt;img src=&#34;https://ws3.sinaimg.cn/large/006tNc79gy1fzq5q03ksoj30zw0i8gn8.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://drive.google.com/drive/folders/1fWi4wmNj-xr-nCzuWMsN2rcm0249_Aem&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;文件云盘链接&lt;/a&gt;,
+需要下载放到V3/server/目录下，再重新运行server.py文件，访问本地 &lt;a href=&#34;http://127.0.0.1:80/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;http://127.0.0.1:80/&lt;/a&gt; ，就可以看到这个页面：
+&lt;img src=&#34;https://ws4.sinaimg.cn/large/006tNc79gy1fzq5l8c7wvj31im0u0tfo.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;6-简单教程&#34;&gt;6. 简单教程&lt;/h2&gt;
+
+&lt;p&gt;我是直接看的作者写的一篇&lt;a href=&#34;https://zhuanlan.zhihu.com/p/36560034&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;速成教程&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;总体体验还是很不错的，虽然上色不一定如自己手工上色更能随心所欲，但是够快啊，我CPU跑的上色差不多十来秒。简单试了几个图。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;网上找的线稿上色：
+&lt;img src=&#34;https://ws4.sinaimg.cn/large/006tNc79gy1fzq5udt3x7j31lv0u04ct.jpg&#34; alt=&#34;&#34; /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://ws2.sinaimg.cn/large/006tNc79gy1fzq5w5dd94j31ly0u0dy7.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;自己的图重上色：
+&lt;img src=&#34;https://ws4.sinaimg.cn/large/006tNc79gy1fzq3ge412wj31lc0u04aq.jpg&#34; alt=&#34;&#34; /&gt;&lt;/li&gt;
+&lt;li&gt;第一个是原图，第二个是去色的底图，后两个是重上色效果。
+&lt;img src=&#34;https://ws4.sinaimg.cn/large/006tNc79gy1fzq6d0q7rkj31h80d6786.jpg&#34; alt=&#34;&#34; /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
     
     <item>
       <title>论文书写工具准备——MacTeX</title>
@@ -76,6 +176,63 @@ Hello LaTeX
 
 &lt;p&gt;&lt;a href=&#34;https://blog.csdn.net/cs24k1993/article/details/78082437&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;参考文章1&lt;/a&gt;
 &lt;a href=&#34;https://www.jianshu.com/p/b1e3b029ded5&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;参考文章2&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Mac下安装Python3</title>
+      <link>https://aileenxie.github.io/2018/06python_mac/</link>
+      <pubDate>Mon, 19 Nov 2018 20:00:13 +0800</pubDate>
+      
+      <guid>https://aileenxie.github.io/2018/06python_mac/</guid>
+      <description>
+
+&lt;p&gt;简单记录mac下Python3安装步骤。&lt;/p&gt;
+
+&lt;h2 id=&#34;安装python3&#34;&gt;安装Python3&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;应先安装C编译器。最快的方式是运行&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;xcode-select --install 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;来安装Xcode命令行工具。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;安装一个包管理工具Homebrew&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ /usr/bin/ruby -e &amp;quot; $ (curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&amp;quot; 
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;插入PATH（在~/.profile文件末尾加）&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;export PATH=/usr/local/bin:/usr/local/sbin:$PATH
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;(source .profile 一下使之生效)&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;安装Python3&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;brew install python
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;查看&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;python3 --version
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;确定pip是否安装&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;pip3 --version
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;若未安装&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;python3 -m ensurepip --default-pip
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;pip的使用详见&lt;a href=&#34;https://packaging.python.org/tutorials/installing-packages/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;相关参考文档&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
 </description>
     </item>
     

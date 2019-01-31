@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="ch-cn">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="Aileen.Xie">
+  
+  
+  
+  <link rel="prev" href="https://aileenxie.github.io/2018/05fdr/" />
+  <link rel="next" href="https://aileenxie.github.io/2018/07use_mactex/" />
+  <link rel="canonical" href="https://aileenxie.github.io/2018/06python_mac/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           Mac下安装Python3 | Aileen&#39;s Blog
+       
+  </title>
+  <meta name="title" content="Mac下安装Python3 | Aileen&#39;s Blog">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https://aileenxie.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "Mac下安装Python3",
+    "headline" : "Mac下安装Python3",
+    "description" : " 简单记录mac下Python3安装步骤。
+安装Python3  应先安装C编译器。最快的方式是运行
+xcode-select --install  来安装Xcode命令行工具。
+ 安装一个包管理工具Homebrew
+$ /usr/bin/ruby -e &quot; $ (curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;  插入PATH（在~/.profile文件末尾加）
+export PATH=/usr/local/bin:/usr/local/sbin:$PATH  (source .profile 一下使之生效)
+ 安装Python3
+brew install python  查看
+python3 --version  确定pip是否安装
+pip3 --version  若未安装
+python3 -m ensurepip --default-pip  pip的使用详见相关参考文档
+  ",
+    "inLanguage" : "ch-cn",
+    "author" : "Aileen.Xie",
+    "creator" : "Aileen.Xie",
+    "publisher": "Aileen.Xie",
+    "accountablePerson" : "Aileen.Xie",
+    "copyrightHolder" : "Aileen.Xie",
+    "copyrightYear" : "2018",
+    "datePublished": "2018-11-19 20:00:13 &#43;0800 CST",
+    "dateModified" : "2018-11-19 20:00:13 &#43;0800 CST",
+    "url" : "https://aileenxie.github.io/2018/06python_mac/",
+    "wordCount" : "37",
+    "keywords" : [ "教程", "Aileen&#39;s Blog"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://aileenxie.github.io">Aileen&#39;s Blog</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://aileenxie.github.io">Aileen&#39;s Blog</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Mac下安装Python3</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="https://aileenxie.github.io" rel="author">Aileen.Xie</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2018-11-19 itemprop="datePublished">November 19, 2018</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="https://aileenxie.github.io/categories/%E5%AD%A6%E4%B9%A0-%E7%AC%94%E8%AE%B0/"> 学习 · 笔记 </a>
+                        
+                </span>
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          
+
+<p>简单记录mac下Python3安装步骤。</p>
+
+<h2 id="安装python3">安装Python3</h2>
+
+<ol>
+<li><p>应先安装C编译器。最快的方式是运行</p>
+
+<pre><code>xcode-select --install 
+</code></pre>
+
+<p>来安装Xcode命令行工具。</p></li>
+
+<li><p>安装一个包管理工具Homebrew</p>
+
+<pre><code>$ /usr/bin/ruby -e &quot; $ (curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot; 
+</code></pre></li>
+
+<li><p>插入PATH（在~/.profile文件末尾加）</p>
+
+<pre><code>export PATH=/usr/local/bin:/usr/local/sbin:$PATH
+</code></pre></li>
+
+<li><p>(source .profile 一下使之生效)</p></li>
+
+<li><p>安装Python3</p>
+
+<pre><code>brew install python
+</code></pre></li>
+
+<li><p>查看</p>
+
+<pre><code>python3 --version
+</code></pre></li>
+
+<li><p>确定pip是否安装</p>
+
+<pre><code>pip3 --version
+</code></pre>
+
+<p>若未安装</p>
+
+<pre><code>python3 -m ensurepip --default-pip
+</code></pre>
+
+<p>pip的使用详见<a href="https://packaging.python.org/tutorials/installing-packages/" rel="nofollow noreferrer" target="_blank">相关参考文档</a></p></li>
+</ol>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Aileen.Xie </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://aileenxie.github.io/2018/06python_mac/>https://aileenxie.github.io/2018/06python_mac/</span>
+            </p>
+            
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="https://aileenxie.github.io/tags/%E6%95%99%E7%A8%8B/">
+                    #教程</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="https://aileenxie.github.io">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://aileenxie.github.io/2018/05fdr/" class="prev" rel="prev" title="FDR与BH过程"><i class="iconfont icon-left"></i>&nbsp;FDR与BH过程</a>
+         
+        
+        <a href="https://aileenxie.github.io/2018/07use_mactex/" class="next" rel="next" title="论文书写工具准备——MacTeX">论文书写工具准备——MacTeX&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2017 - 2019</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            
+            <span class="author" itemprop="copyrightHolder"><a href="https://aileenxie.github.io">Aileen.Xie</a> </span> 
+         
+
+         
+		  
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

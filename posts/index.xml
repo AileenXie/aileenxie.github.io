@@ -6,10 +6,38 @@
     <description>Recent content in Posts on Aileen&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ch-cn</language>
-    <lastBuildDate>Mon, 19 Nov 2018 20:00:38 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 31 Jan 2019 21:03:40 +0800</lastBuildDate>
     
 	<atom:link href="https://aileenxie.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>AI线稿上色——Style2paints</title>
+      <link>https://aileenxie.github.io/2019/08style2paints/</link>
+      <pubDate>Thu, 31 Jan 2019 21:03:40 +0800</pubDate>
+      
+      <guid>https://aileenxie.github.io/2019/08style2paints/</guid>
+      <description>快期末的时候喜得一个wacon的板子，很久没画画了，业务生疏还有点不习惯，画得很慢。偶然被推荐一个很有意思的开源项目Style2paints（源码地址），一个AI线稿上色工具，可以快速地进行线稿的智能上色。
+但是很不巧，1月18号Style2paints-V4版本的服务器就因为经费原因关闭了，我看到这个项目的时候已经无法在线访问了，只好尝试本地搭环境启动。目前代码只开源了V3版本，看官方描述V3和V4差别还蛮大的。V4是模拟人工上色流程对线稿进行分层上色，输出也是PSD分层的文件，V3输出的是单层的图片，操作也不太一样。
+V3页面（自截图）： V4页面（官方介绍视频里截的）：
+这里记录一下mac上Style2paints-V3本地搭建的过程。
+1. Python环境 首先要准备python3的环境，mac下的安装可以参考之前的blog，用homebrew直接安装。
+2. 依赖包 这里没有用gpu版本的tensorflow，安装以下依赖包：
+pip3 install tensorflow (安装需要翻墙，全局模式命令行安装)
+pip3 install keras
+pip3 install bottle
+pip3 install gevent
+pip3 install h5py
+pip3 install opencv-python
+pip3 install scikit-image
+pip3 install paste
+3.源码运行 拉取源码： git clone https://github.com/lllyasviel/style2paints
+到V3目录下执行server/server.py文件。正常运行的话可以直接本地打开 http://127.0.0.1:80/ 就能看到界面。但是我运行的过程中有以下几点异常。
+4. Q:Tensorflow编译警告  Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX
+原因是CPU支持AVX扩展(高级矢量扩展)，但是默认安装（pip install）的TensorFlow版本不支持使用扩展。其实用了扩展CPU也比GPU慢得多。解决办法有两个：
+1）忽略警告，直接在server.py代码中加入：
+import os os.environ[&#39;TF_CPP_MIN_LOG_LEVEL&#39;] = &#39;2&#39;  2)源码编译tensorflow 从针对CPU优化的源去构建tensorflow，不仅可以去掉这个警告，还能提高CPU下的tensorflow的性能。具体参考tensorflow的issue8037</description>
+    </item>
     
     <item>
       <title>论文书写工具准备——MacTeX</title>
@@ -24,6 +52,26 @@ Sublime和Skim安装 Sublime官网：https://www.sublimetext.com/ Skim官网：h
 Skim配置 打开Skim后，Command+,或Skim &amp;gt; 选项（performance）&amp;mdash;&amp;gt;点到【同步（sync）】页&amp;mdash;&amp;gt;设置Preset为Sublime(不知道为什么我这边没有Sublime3选项，选了2也可行) 测试环境 回到Sublime刚才新建的test.tex文件，Command+B或Tools &amp;gt; Build编译tex文件，顺利的话，Skim会自动弹出PDF文件预览窗口。环境搭建成功！
 至此整个环境就搭完了，具体怎么用mactex写出漂亮的文章和公式参考LaTeX快速入门：一文浅谈TeX排版语法，还有些小技巧我会之后总结一篇文章。待续。
 参考文章1 参考文章2</description>
+    </item>
+    
+    <item>
+      <title>Mac下安装Python3</title>
+      <link>https://aileenxie.github.io/2018/06python_mac/</link>
+      <pubDate>Mon, 19 Nov 2018 20:00:13 +0800</pubDate>
+      
+      <guid>https://aileenxie.github.io/2018/06python_mac/</guid>
+      <description> 简单记录mac下Python3安装步骤。
+安装Python3  应先安装C编译器。最快的方式是运行
+xcode-select --install  来安装Xcode命令行工具。
+ 安装一个包管理工具Homebrew
+$ /usr/bin/ruby -e &amp;quot; $ (curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&amp;quot;  插入PATH（在~/.profile文件末尾加）
+export PATH=/usr/local/bin:/usr/local/sbin:$PATH  (source .profile 一下使之生效)
+ 安装Python3
+brew install python  查看
+python3 --version  确定pip是否安装
+pip3 --version  若未安装
+python3 -m ensurepip --default-pip  pip的使用详见相关参考文档
+  </description>
     </item>
     
     <item>

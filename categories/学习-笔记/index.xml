@@ -27,6 +27,26 @@ Skim配置 打开Skim后，Command+,或Skim &amp;gt; 选项（performance）&amp
     </item>
     
     <item>
+      <title>Mac下安装Python3</title>
+      <link>https://aileenxie.github.io/2018/06python_mac/</link>
+      <pubDate>Mon, 19 Nov 2018 20:00:13 +0800</pubDate>
+      
+      <guid>https://aileenxie.github.io/2018/06python_mac/</guid>
+      <description> 简单记录mac下Python3安装步骤。
+安装Python3  应先安装C编译器。最快的方式是运行
+xcode-select --install  来安装Xcode命令行工具。
+ 安装一个包管理工具Homebrew
+$ /usr/bin/ruby -e &amp;quot; $ (curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&amp;quot;  插入PATH（在~/.profile文件末尾加）
+export PATH=/usr/local/bin:/usr/local/sbin:$PATH  (source .profile 一下使之生效)
+ 安装Python3
+brew install python  查看
+python3 --version  确定pip是否安装
+pip3 --version  若未安装
+python3 -m ensurepip --default-pip  pip的使用详见相关参考文档
+  </description>
+    </item>
+    
+    <item>
       <title>FDR与BH过程</title>
       <link>https://aileenxie.github.io/2018/05fdr/</link>
       <pubDate>Mon, 19 Nov 2018 19:59:46 +0800</pubDate>
