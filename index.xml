@@ -1182,7 +1182,8 @@ L2. 没有这样的性质，因为没有角，所以第一次相交的地方出�
       <guid>https://aileenxie.github.io/2018/01hugoblog/</guid>
       <description>
 
-&lt;p&gt;简单记录一下mac下用&lt;a href=&#34;https://gohugo.io/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;Hugo&lt;/a&gt;搭建博客的过程，以便日后查阅。感谢&lt;a href=&#34;https://blog.renyijiu.com/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;renyijiu&lt;/a&gt;的安利和帮助。&lt;/p&gt;
+&lt;p&gt;&lt;meta name=&#34;referrer&#34; content=&#34;no-referrer&#34; /&gt;
+简单记录一下mac下用&lt;a href=&#34;https://gohugo.io/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;Hugo&lt;/a&gt;搭建博客的过程，以便日后查阅。感谢&lt;a href=&#34;https://blog.renyijiu.com/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;renyijiu&lt;/a&gt;的安利和帮助。&lt;/p&gt;
 
 &lt;h2 id=&#34;hugo&#34;&gt;Hugo&lt;/h2&gt;
 
@@ -1359,29 +1360,31 @@ git push origin master
 
 &lt;h3 id=&#34;博客&#34;&gt;博客&lt;/h3&gt;
 
-&lt;p&gt;记录一些学习笔记和心得感悟
-&amp;lt;!&amp;ndash;&lt;/p&gt;
+&lt;p&gt;记录一些学习笔记和心得感悟&lt;/p&gt;
 
-&lt;h3 id=&#34;用过的&#34;&gt;用过的&lt;/h3&gt;
+&lt;!-- ### 用过的 --&gt;
 
-&lt;ul&gt;
-&lt;li&gt;Java/Groovy+Spock&lt;/li&gt;
-&lt;li&gt;Ruby+Cucumber+Capybara&lt;/li&gt;
-&lt;li&gt;Selenium/Appium/Jmeter&lt;/li&gt;
-&lt;li&gt;MySQL/PostgreSQL&lt;/li&gt;
-&lt;li&gt;Git&lt;/li&gt;
-&lt;/ul&gt;
+&lt;!-- + Java/Groovy+Spock --&gt;
 
-&lt;h3 id=&#34;在学的&#34;&gt;在学的&lt;/h3&gt;
+&lt;!-- + Ruby+Cucumber+Capybara --&gt;
 
-&lt;p&gt;机器学习、深度学习、计算机视觉相关&lt;/p&gt;
+&lt;!-- + Selenium/Appium/Jmeter --&gt;
 
-&lt;ul&gt;
-&lt;li&gt;Python&lt;/li&gt;
-&lt;li&gt;Pytorch/TensorFlow&lt;/li&gt;
-&lt;li&gt;RNN/CNN/DNN&lt;/li&gt;
-&lt;li&gt;&amp;hellip; &amp;ndash;&amp;gt;&lt;/li&gt;
-&lt;/ul&gt;
+&lt;!-- + MySQL/PostgreSQL --&gt;
+
+&lt;!-- + Git --&gt;
+
+&lt;!-- ### 在学的 --&gt;
+
+&lt;!-- 机器学习、深度学习、计算机视觉相关 --&gt;
+
+&lt;!-- + Python --&gt;
+
+&lt;!-- + Pytorch/TensorFlow --&gt;
+
+&lt;!-- + RNN/CNN/DNN --&gt;
+
+&lt;!-- + ...  --&gt;
 </description>
     </item>
     
