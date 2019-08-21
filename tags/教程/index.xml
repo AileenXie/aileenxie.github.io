@@ -60,7 +60,7 @@ Skim配置 打开Skim后，Command+,或Skim &amp;gt; 选项（performance）&amp
       <pubDate>Mon, 19 Nov 2018 20:00:13 +0800</pubDate>
       
       <guid>https://aileenxie.github.io/2018/06python_mac/</guid>
-      <description> 简单记录mac下Python3安装步骤。
+      <description> -- 简单记录mac下Python3安装步骤。
 安装Python3  应先安装C编译器。最快的方式是运行
 xcode-select --install  来安装Xcode命令行工具。
  安装一个包管理工具Homebrew
@@ -80,7 +80,7 @@ python3 -m ensurepip --default-pip  pip的使用详见相关参考文档
       <pubDate>Fri, 05 Oct 2018 21:52:20 +0800</pubDate>
       
       <guid>https://aileenxie.github.io/2018/01hugoblog/</guid>
-      <description>简单记录一下mac下用Hugo搭建博客的过程，以便日后查阅。感谢renyijiu的安利和帮助。
+      <description>-- 简单记录一下mac下用Hugo搭建博客的过程，以便日后查阅。感谢renyijiu的安利和帮助。
 Hugo  一个用Go语言写的静态网站生成器 能把markdown转变成静态网页 内置web服务期，便于本地草稿调试  安装 Hugo  直接用Homebrew安装
 brew install hugo  完成之后查看版本，我目前装的是0.49
 hugo version  创建一个新站点 到你的目录下找个喜欢的地方执行语句
