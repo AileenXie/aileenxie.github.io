@@ -17,7 +17,8 @@
       <guid>https://aileenxie.github.io/2019/08style2paints/</guid>
       <description>
 
-&lt;p&gt;快期末的时候喜得一个wacon的板子，很久没画画了，业务生疏还有点不习惯，画得很慢。偶然被推荐一个很有意思的开源项目Style2paints（&lt;a href=&#34;https://github.com/lllyasviel/style2paints&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;源码地址&lt;/a&gt;），一个AI线稿上色工具，可以快速地进行线稿的智能上色。&lt;/p&gt;
+&lt;p&gt;&lt;meta name=&#34;referrer&#34; content=&#34;no-referrer&#34; /&gt;
+快期末的时候喜得一个wacon的板子，很久没画画了，业务生疏还有点不习惯，画得很慢。偶然被推荐一个很有意思的开源项目Style2paints（&lt;a href=&#34;https://github.com/lllyasviel/style2paints&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;源码地址&lt;/a&gt;），一个AI线稿上色工具，可以快速地进行线稿的智能上色。&lt;/p&gt;
 
 &lt;p&gt;但是很不巧，1月18号Style2paints-V4版本的服务器就因为经费原因关闭了，我看到这个项目的时候已经无法在线访问了，只好尝试本地搭环境启动。目前代码只开源了V3版本，看官方描述V3和V4差别还蛮大的。V4是模拟人工上色流程对线稿进行分层上色，输出也是PSD分层的文件，V3输出的是单层的图片，操作也不太一样。&lt;/p&gt;
 
@@ -117,6 +118,8 @@ os.environ[&#39;TF_CPP_MIN_LOG_LEVEL&#39;] = &#39;2&#39;
       <guid>https://aileenxie.github.io/2018/07use_mactex/</guid>
       <description>
 
+&lt;p&gt;&lt;meta name=&#34;referrer&#34; content=&#34;no-referrer&#34; /&gt;&lt;/p&gt;
+
 &lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 
 &lt;ul&gt;
@@ -187,7 +190,8 @@ Hello LaTeX
       <guid>https://aileenxie.github.io/2018/06python_mac/</guid>
       <description>
 
-&lt;p&gt;简单记录mac下Python3安装步骤。&lt;/p&gt;
+&lt;p&gt;&lt;meta name=&#34;referrer&#34; content=&#34;no-referrer&#34; /&gt;
+简单记录mac下Python3安装步骤。&lt;/p&gt;
 
 &lt;h2 id=&#34;安装python3&#34;&gt;安装Python3&lt;/h2&gt;
 
@@ -244,9 +248,9 @@ Hello LaTeX
       <guid>https://aileenxie.github.io/2018/05fdr/</guid>
       <description>
 
+&lt;p&gt;&lt;meta name=&#34;referrer&#34; content=&#34;no-referrer&#34; /&gt;
 &lt;!-- &lt;script type=&#34;text/javascript&#34; src=&#34;https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default&#34;&gt;&lt;/script&gt; --&gt;
-
-&lt;script type=&#34;text/javascript&#34; src=&#34;https://lib.baomitu.com/mathjax/2.7.5/MathJax.js?config=default&#34;&gt;&lt;/script&gt;
+&lt;script type=&#34;text/javascript&#34; src=&#34;https://lib.baomitu.com/mathjax/2.7.5/MathJax.js?config=default&#34;&gt;&lt;/script&gt;&lt;/p&gt;
 
 &lt;p&gt;最近导师让看的paper里用到了FDR的理念，借这个机会把FDR相关概念理解了一遍，整理出来。&lt;/p&gt;
 
@@ -356,11 +360,10 @@ Hello LaTeX
       <guid>https://aileenxie.github.io/2018/04txf/</guid>
       <description>
 
+&lt;p&gt;&lt;meta name=&#34;referrer&#34; content=&#34;no-referrer&#34; /&gt;
 &lt;!-- &lt;script type=&#34;text/javascript&#34; src=&#34;https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default&#34;&gt;&lt;/script&gt; --&gt;
-
 &lt;!-- &lt;script type=&#34;text/javascript&#34; src=&#34;https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=default&#34;&gt;&lt;/script&gt; --&gt;
-
-&lt;script type=&#34;text/javascript&#34; src=&#34;https://lib.baomitu.com/mathjax/2.7.5/MathJax.js?config=default&#34;&gt;&lt;/script&gt;
+&lt;script type=&#34;text/javascript&#34; src=&#34;https://lib.baomitu.com/mathjax/2.7.5/MathJax.js?config=default&#34;&gt;&lt;/script&gt;&lt;/p&gt;
 
 &lt;h1 id=&#34;t分布-温良宽厚&#34;&gt;T分布：温良宽厚&lt;/h1&gt;
 
@@ -978,6 +981,8 @@ v1=组间自由度 = g-1 = 3-1 v2=组内自由度=N-g= 60-3 = 57，查F分布表
       <guid>https://aileenxie.github.io/2018/02l_norm/</guid>
       <description>
 
+&lt;p&gt;&lt;meta name=&#34;referrer&#34; content=&#34;no-referrer&#34; /&gt;&lt;/p&gt;
+
 &lt;p&gt;看到一篇讲解很详细的&lt;a href=&#34;https://blog.csdn.net/zouxy09/article/details/24971995&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;文章&lt;/a&gt;，边看边做笔记整理要点。&lt;/p&gt;
 
 &lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
@@ -1354,7 +1359,8 @@ git push origin master
 
 &lt;h3 id=&#34;博客&#34;&gt;博客&lt;/h3&gt;
 
-&lt;p&gt;记录一些学习笔记和心得感悟&lt;/p&gt;
+&lt;p&gt;记录一些学习笔记和心得感悟
+&amp;lt;!&amp;ndash;&lt;/p&gt;
 
 &lt;h3 id=&#34;用过的&#34;&gt;用过的&lt;/h3&gt;
 
@@ -1374,7 +1380,7 @@ git push origin master
 &lt;li&gt;Python&lt;/li&gt;
 &lt;li&gt;Pytorch/TensorFlow&lt;/li&gt;
 &lt;li&gt;RNN/CNN/DNN&lt;/li&gt;
-&lt;li&gt;&amp;hellip;&lt;/li&gt;
+&lt;li&gt;&amp;hellip; &amp;ndash;&amp;gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>
@@ -1386,6 +1392,8 @@ git push origin master
       
       <guid>https://aileenxie.github.io/2018/00first-post/</guid>
       <description>
+
+&lt;p&gt;&lt;meta name=&#34;referrer&#34; content=&#34;no-referrer&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;重新回到学校一个月，第一个国庆避开人山人海，在上海安安心心休息了几天。&lt;/p&gt;
 
