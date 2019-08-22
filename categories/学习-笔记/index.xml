@@ -108,7 +108,7 @@ PS：上述两幅图中的t分布曲线并不是频率学派应用t分布的常�
       <pubDate>Wed, 10 Oct 2018 19:17:39 +0800</pubDate>
       
       <guid>https://aileenxie.github.io/2018/02l_norm/</guid>
-      <description>-- 看到一篇讲解很详细的文章，边看边做笔记整理要点。
+      <description>看到一篇讲解很详细的文章，边看边做笔记整理要点。
 前言 监督机器学习问题无非就是“minimizeyour error while regularizing your parameters”，也就是在规则化参数的同时最小化误差。
 最小化误差是为了让我们的模型拟合我们的训练数据，而规则化参数是防止我们的模型过分拟合我们的训练数据。
  过拟合：参数过多会导致模型复杂度上升，产生过拟合，即训练误差很小，但测试误差很大，这和监督学习的目标是相违背的。所以需要采取措施，保证模型尽量简单的基础上，最小化训练误差，使模型具有更好的泛化能力。 泛化能力强：测试误差也很小 范数规则化有两个作用：
@@ -128,7 +128,7 @@ L1范数 L1范数（||W||1）是指向量中各个元素绝对值之和，也有
       <pubDate>Fri, 05 Oct 2018 21:52:20 +0800</pubDate>
       
       <guid>https://aileenxie.github.io/2018/01hugoblog/</guid>
-      <description>-- 简单记录一下mac下用Hugo搭建博客的过程，以便日后查阅。感谢renyijiu的安利和帮助。
+      <description>简单记录一下mac下用Hugo搭建博客的过程，以便日后查阅。感谢renyijiu的安利和帮助。
 Hugo  一个用Go语言写的静态网站生成器 能把markdown转变成静态网页 内置web服务期，便于本地草稿调试  安装 Hugo  直接用Homebrew安装
 brew install hugo  完成之后查看版本，我目前装的是0.49
 hugo version  创建一个新站点 到你的目录下找个喜欢的地方执行语句

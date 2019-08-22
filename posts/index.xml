@@ -136,7 +136,7 @@ PS：上述两幅图中的t分布曲线并不是频率学派应用t分布的常�
       <pubDate>Wed, 10 Oct 2018 19:17:39 +0800</pubDate>
       
       <guid>https://aileenxie.github.io/2018/02l_norm/</guid>
-      <description>-- 看到一篇讲解很详细的文章，边看边做笔记整理要点。
+      <description>看到一篇讲解很详细的文章，边看边做笔记整理要点。
 前言 监督机器学习问题无非就是“minimizeyour error while regularizing your parameters”，也就是在规则化参数的同时最小化误差。
 最小化误差是为了让我们的模型拟合我们的训练数据，而规则化参数是防止我们的模型过分拟合我们的训练数据。
  过拟合：参数过多会导致模型复杂度上升，产生过拟合，即训练误差很小，但测试误差很大，这和监督学习的目标是相违背的。所以需要采取措施，保证模型尽量简单的基础上，最小化训练误差，使模型具有更好的泛化能力。 泛化能力强：测试误差也很小 范数规则化有两个作用：
@@ -156,7 +156,7 @@ L1范数 L1范数（||W||1）是指向量中各个元素绝对值之和，也有
       <pubDate>Fri, 05 Oct 2018 21:52:20 +0800</pubDate>
       
       <guid>https://aileenxie.github.io/2018/01hugoblog/</guid>
-      <description>-- 简单记录一下mac下用Hugo搭建博客的过程，以便日后查阅。感谢renyijiu的安利和帮助。
+      <description>简单记录一下mac下用Hugo搭建博客的过程，以便日后查阅。感谢renyijiu的安利和帮助。
 Hugo  一个用Go语言写的静态网站生成器 能把markdown转变成静态网页 内置web服务期，便于本地草稿调试  安装 Hugo  直接用Homebrew安装
 brew install hugo  完成之后查看版本，我目前装的是0.49
 hugo version  创建一个新站点 到你的目录下找个喜欢的地方执行语句
@@ -182,7 +182,7 @@ echo &#39;theme = &amp;quot;LeaveIt&amp;quot;&#39; &amp;gt;&amp;gt; config.</des
       <pubDate>Fri, 05 Oct 2018 13:01:24 +0800</pubDate>
       
       <guid>https://aileenxie.github.io/2018/00first-post/</guid>
-      <description>-- 重新回到学校一个月，第一个国庆避开人山人海，在上海安安心心休息了几天。
+      <description>重新回到学校一个月，第一个国庆避开人山人海，在上海安安心心休息了几天。
 之前工作的时候一直想要搭一个博客，把每天零零碎碎记录的笔记整理出来放在一起，但一直没能着手开始行动（大概是又忙又懒。。）直到笔记随手记了一大堆，越来越不想整理。
 回到学校自由时间多了很多，又在学习新东西，想着这是个好的时机开始写博客，终于在这个国庆开始了这项活动。
 关于笔记  最开始一年我用的ubuntu系统，被安利了cherrytree，试用了一下，马上被这种可以“遍地开花”随手快速记录的树状结构笔记软件所吸引。 那年我刚工作，又是从通信跨到互联网行业，很多东西对我来说都是新知识：数据库(Mysql/Postgres)、编程语言（JAVA/Groov/Python)、测试框架（Spock/Selenium/Appium/rf/jmeter)、版本管理系统（Git）、持续集成（Gradle/Jenkins）包括Linux系统本身&amp;hellip; 用cherrytree记了相当多的笔记，这一年也是我收获颇丰的一年。 第二年换了macOS系统，cherrytree用不了（用模拟器打开页面很丑），先后换了有道云笔记，为知笔记，最后定格在了bootsnote（页面简洁好看，支持markdown和snippet）。又陆续做了关于ruby系测试框架（Cucumber/Capybara）、mac系统等的笔记。直到开学，我作为测试开发的工作告一段落。笔记也就此暂停。  关于博客  终于展开新的研究生生活，投身于机器学习、深度学习和计算机视觉方向研究。有种可以大展拳脚的感觉略兴奋。从开学前到现在，看过了CS229吴恩达的机器学习基础课程，CS231n斯坦福卷积神经网络课程，学了pytorch框架，开始看导师给的paper。开始看的很细致做的手写的笔记，现在想来还是要有个地方集中放置一下，就从现在开始重新规划一下之后的笔记。预计会放一些paper的阅读笔记，学习的知识点，或许是任何想记下来的东西吧hhh&amp;hellip;  七天假期马上要过去啦，搭好了博客算是一个很好的开始，希望能我好好充实这个博客，记录整个研究生阶段以及未来和以后更远更远的学习旅程，(๑•̀ㅂ•́)و✧加油！！</description>

@@ -191,7 +191,7 @@ Q值 衡量错误发现率FDR（false discovery rates）的指标。\(FDR=\frac{
 <p>即概率，反映某一事件发生的可能性大小。统计学根据显著性检验方法（<a href="https://aileenxie.github.io/2018/04txf/" rel="nofollow noreferrer" target="_blank">t检验，Z检验，卡方检验，F检验</a>等等）所得到的P 值，一般以 P&lt;0.05 为有统计学差异， P&lt;0.01 为有显著统计学差异，P&lt;0.001 为有极其显著的统计学差异。其含义是样本间的差异由抽样误差所致的概率小于0.05 、0.01、0.001。实际上，P值不能赋予数据任何重要性，只能说明某事件发生的几率。</p>
 
 <p>给定显著性水准alpha时，可得出对应的拒绝域；根据当前试验，可以计算出P值。当P值越小时，表示此时试验得到的统计量t越落在拒绝域。因此基于P值的结果等价于基于t值的结果。因此，<strong>P值越小，拒绝原假设的信心越大</strong>。
-<figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://ws2.sinaimg.cn/large/006tNbRwly1fxdp9u4qhnj30ji0fsju3.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<figure><img src="/images/ring.svg" data-sizes="auto" data-src="/img/05fdr_23.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
 
 <h3 id="原假设-h0-备择假设-h1">原假设(H0) &amp; 备择假设(H1)</h3>
 
@@ -207,7 +207,7 @@ Q值 衡量错误发现率FDR（false discovery rates）的指标。\(FDR=\frac{
 <ul>
 <li>第一类错误（假阳性）又称“Ⅰ型错误”、“拒真错误”，是指拒绝了实际上成立的、正确的假设，为“弃真”的错误，其概率通常用α（显著性水平）表示。</li>
 <li>第二类错误（假阴性）又称“口错误”、“纳伪错误”、“第Ⅱ型错误”。假设检验术语。与“第一类错误”相对。在零假设H0本来不真的情况下，检验统计量的观测值落入接受域而接受Ho而犯的错误。用字母β表示。
-<figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://ws1.sinaimg.cn/large/006tNbRwly1fxdo1qahx9j30jn05qgo2.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></li>
+<figure><img src="/images/ring.svg" data-sizes="auto" data-src="/img/05fdr_35.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></li>
 </ul>
 
 <h4 id="举个栗子">🌰举个栗子</h4>
@@ -265,7 +265,7 @@ Q值 衡量错误发现率FDR（false discovery rates）的指标。\(FDR=\frac{
 <p>注：实际上，BH法的原始算法是找到一个最大的i，满足P≤i/m*FDR阈值，此时，所有小于i的数据就都可以认为是显著的。在实践中，为了能够在比较方便的用不同的FDR阈值对数据进行分析，采用了步骤3里的方法。这个方法可以保证，不论FDR阈值选择多少，都可以直接根据FDR的数值来直接找到所有显著的数据。</p>
 
 <p>下面我们以一个包含10个数据的例子来看一下FDR计算的过程
-<figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://ws1.sinaimg.cn/large/006tNbRwly1fxds9xp58qj30jm0b90wm.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure>
+<figure><img src="/images/ring.svg" data-sizes="auto" data-src="/img/05fdr_80.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure>
 在这个例子中，第一列是原始的P-value，第二列是排序后的序号，第三列是根据P-value校正得到的初始FDR，第四列是最终用于筛选数据的FDR数值。如果我们设定FDR&lt;0.05，那么绿色高亮的两个数据就是最终分析认为显著的数据。</p>
 
 <hr />

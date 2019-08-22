@@ -209,14 +209,14 @@ PS：上述两幅图中的t分布曲线并不是频率学派应用t分布的常�
 <p>这一点对于初学者尤为重要，相信还是有不少人对正态分布或者t分布的曲线没有确切的理解。</p>
 
 <p>首先，我们看一下频率分布直方图，histogram：
-<figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://ws3.sinaimg.cn/large/006tNbRwly1fwj2h4ydkwj30ha0dx0wh.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<figure><img src="/images/ring.svg" data-sizes="auto" data-src="/img/04txf_33.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
 
 <p>上图，最关键的就是横轴了，柱高，即，对于横轴上每一个点，发生的频次。图中横轴为4处，次数最多，大约12次；依次类推，横坐标为10处，发生1次……</p>
 
 <p>我们做单变量的探索性数据分析，最喜欢做柱状图了，或者再额外绘制一条Density曲线于其上（见下图）。很容易就可以看出数据的分布（集中趋势. 离散趋势），图中，数据大多集中在4左右（均数. 众数），有一点点右偏态，但基本还是正态分布。</p>
 
 <p>下图，手绘曲线，即密度曲线，英文全称<strong>Probability Density Function/Curve</strong>。实际上是对上面柱状图的一个平滑，但它的纵坐标变为了概率，区别于柱状图的频次。但理解起来意义差不多。
-<figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://ws2.sinaimg.cn/large/006tNbRwly1fwj2i19tu1j30fe0b7n28.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<figure><img src="/images/ring.svg" data-sizes="auto" data-src="/img/04txf_40.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
 
 <p>以下，我们就用Density曲线来讲解T分布的特征。</p>
 
@@ -230,8 +230,8 @@ PS：上述两幅图中的t分布曲线并不是频率学派应用t分布的常�
 
 <p>相对于正态分布，t分布额外多了一个参数，自由度。自由度  = n - 1。我们先看几个例子，主观感受一下t分布。</p>
 
-<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://ws1.sinaimg.cn/large/006tNbRwly1fwj2roq8ilj30ft0m5jwf.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure>
- <figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://ws1.sinaimg.cn/large/006tNbRwly1fwj2qfkui4j30f40lvjwh.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="/img/04txf_57.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure>
+ <figure><img src="/images/ring.svg" data-sizes="auto" data-src="/img/04txf_58.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
 
 <p>可见，随着样本量n / 自由度的增加，t分布越来越接近正态分布。正态分布，可以看做只是t分布的一个特例而已。</p>
 
@@ -239,7 +239,7 @@ PS：上述两幅图中的t分布曲线并不是频率学派应用t分布的常�
 
 <p>大家仔细比较一下下图。t分布（红色）虽然也是钟型曲线，但是中间较低. 两侧尾巴却很高。</p>
 
-<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://ws1.sinaimg.cn/large/006tNbRwly1fwj31zalhhj30ku0a7tar.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="/img/04txf_67.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
 
 <p>这就是t分布的优势！这个特征相当重要，百年来，t分布就指着这个特征活着的！</p>
 
@@ -247,7 +247,7 @@ PS：上述两幅图中的t分布曲线并不是频率学派应用t分布的常�
 
 <p>大家都说重要的事要重复三遍，我们再重复一下，<strong>样本量越小（自由度越小），t分布的尾部越高</strong>。</p>
 
-<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://ws3.sinaimg.cn/large/006tNbRwly1fwj2wz661mj30pm0bqaco.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="/img/04txf_75.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
 
 <h3 id="尾部的高度-有十分重要的统计学意义">尾部的高度，有十分重要的统计学意义。</h3>
 
@@ -257,7 +257,7 @@ PS：上述两幅图中的t分布曲线并不是频率学派应用t分布的常�
 <li>我们首先看一下那条矮的. 正态分布的曲线。我们前面说过，正态分布的曲线不具备“宽厚”的特征。它的尾部很低，尾部与横轴之间高度很“狭窄”。也就是说，正态分布不能够容忍它长长的尾部出现大概率的事件（图中横轴值为15处一圆点出现概率为六分之一），所以正态分布就很无奈地，将这一点纳入它的胸膛而非留在尾部。于是乎，恶果就出现了：图中正态分布的均数，<strong>远远偏离了大多数点所在的位置，标准差也极大</strong>。总之，与我们所期待的很不一致。</li>
 </ul>
 
-<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://ws1.sinaimg.cn/large/006tNbRwly1fwj2xxsm20j30jj098acl.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="/img/04txf_86.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
 
 <ul>
 <li>再看一下那条高高的t分布曲线。我们前面说过了，t分布“温良宽厚”，它的尾巴很高（本图中不明显，参见上面自由度为1,2,3时所对应的图片），高高的长尾让它有“容人的雅量”。所以，这条t分布的曲线，很好的捕捉到了数据点的集中趋势（横坐标：0附近）和离散趋势（标准差：只是那条正态分布曲线标准差的四分之一）。</li>
@@ -279,7 +279,7 @@ PS：上述两幅图中的t分布曲线并不是频率学派应用t分布的常�
 
 <h3 id="通过下面一幅图-我们巩固一下t分布的-宽厚">通过下面一幅图，我们巩固一下t分布的<strong>“宽厚”</strong>：</h3>
 
-<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://ws4.sinaimg.cn/large/006tNbRwly1fwj300epppj30je09aabp.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="/img/04txf_110.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
 
 <p>与正态分布曲线（矮胖）比较，t分布以其高高的尾部（本图中不明显，参见上面自由度为1,2,3时所对应的图片），容忍了在横轴为9处的异常值，得到了更稳健的集中趋势估计值（均值1.11）和更紧凑的离散趋势估计值（标准差差0.15，又是正态分布的四分之一）。要知道，我们如果单单想通过增加样本量来将标准误（假设检验中使用的参数，标准差除以自由度的平方根）缩减到四分之一，需要16倍的样本量！可见，t分布当真是威力无穷！</p>
 
@@ -319,7 +319,7 @@ PS：上述两幅图中的t分布曲线并不是频率学派应用t分布的常�
 
 <p>构成一新的随机变量，其卡方分布规律称为<strong>\(\chi ^{2}\)分布（chi-square distribution）</strong>，其中参数<strong>n称为自由度</strong>，正如正态分布中均值或方差不同就是另一个\(\chi ^{2}\)正态分布一样，自由度不同就是另一个分布。记为 Q ~ \(\chi ^{2}(k)\). 卡方分布是由正态分布构造而成的一个新的分布，当自由度n很大时，\(\chi ^{2}\)分布近似为正态分布。 对于任意正整数k， 自由度为 k的卡方分布是一个随机变量X的机率分布。</p>
 
-<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://ws1.sinaimg.cn/large/006tNbRwly1fwj3kg4cijj30qn0k07wh.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="/img/04txf_150.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
 
 <h3 id="2-为什么要引用卡方分布">2 为什么要引用卡方分布?</h3>
 
@@ -334,9 +334,9 @@ PS：上述两幅图中的t分布曲线并不是频率学派应用t分布的常�
 <h4 id="问题一-卡方检验拟合优度案例">问题一：卡方检验拟合优度案例</h4>
 
 <p>下面是某台抽奖机的期望分布，其中X代表每局游戏的净收益（每局独立事件）：
- <figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://ws1.sinaimg.cn/large/006tNbRwly1fwj3ltp6t5j30jt02swf3.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure>
+ <figure><img src="/images/ring.svg" data-sizes="auto" data-src="/img/04txf_162.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure>
 实际中人们收益的频数为：
- <figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://ws2.sinaimg.cn/large/006tNbRwly1fwj3m3wnxkj30j502974k.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure>
+ <figure><img src="/images/ring.svg" data-sizes="auto" data-src="/img/04txf_164.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure>
 在5%的显著性水平下，看看能否有足够证据证明判定抽奖机被人动了手脚。</p>
 
 <blockquote>
@@ -356,7 +356,7 @@ PS：上述两幅图中的t分布曲线并不是频率学派应用t分布的常�
 <h4 id="问题二-卡方检验独立性案例">问题二：卡方检验独立性案例</h4>
 
 <p>下表显示各位庄家的观察频数，
-<figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://ws1.sinaimg.cn/large/006tNbRwly1fwj3nhqma9j30ke03zjsa.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure>
+<figure><img src="/images/ring.svg" data-sizes="auto" data-src="/img/04txf_179.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure>
 以1%的显著性水平进行假设检验，看看赌局结果是否独立于坐庄庄家。</p>
 
 <blockquote>
@@ -390,7 +390,7 @@ PS：上述两幅图中的t分布曲线并不是频率学派应用t分布的常�
 <h4 id="1-算出每个x值的实际频率与根据概率分布得出的期望频率进行比较">1. 算出每个x值的实际频率与根据概率分布得出的期望频率进行比较？</h4>
 
 <p>解答：
- <figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://ws3.sinaimg.cn/large/006tNbRwly1fwj3tdxfdkj30ie04iwfd.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure>   </p>
+ <figure><img src="/images/ring.svg" data-sizes="auto" data-src="/img/04txf_205.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure>   </p>
 
 <h3 id="2-知识储备-卡方检验评估差异">2 知识储备：卡方检验评估差异</h3>
 
@@ -414,7 +414,7 @@ $$\chi ^{2}=\sum \frac{(O-E)^{2}}{E}$$
 <h4 id="2-利用抽奖机的观察频率和期望频率表计算检验统计量">2. 利用抽奖机的观察频率和期望频率表计算检验统计量？</h4>
 
 <p>解答：
-    <figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://ws2.sinaimg.cn/large/006tNbRwly1fwj4t4358rj30en046glz.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+    <figure><img src="/images/ring.svg" data-sizes="auto" data-src="/img/04txf_221.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
 
 <h3 id="3-知识储备-卡方假设检验">3 知识储备：卡方假设检验</h3>
 
@@ -434,11 +434,11 @@ $$\chi ^{2}=\sum \frac{(O-E)^{2}}{E}$$
 <ol>
 <li>自由度希腊字母V，读作“纽”，v影响概率分布</li>
 <li>当v等于1或者2时：卡方分布先高后低的平滑曲线，检验统计量等于较小值的概率远远大于较大值的概率，即观察频数有可能接近期望频数。图形：
-<figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://ws3.sinaimg.cn/large/006tNbRwly1fwj4xphm8sj309v0480sv.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></li>
+<figure><img src="/images/ring.svg" data-sizes="auto" data-src="/img/04txf_233.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></li>
 <li>当v大于2时：卡方分布先低后高再低，其外形沿着正向扭曲，但当v很大时，图形接近正态分布。图形：
-<figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://ws3.sinaimg.cn/large/006tNbRwly1fwj4y1wrkej30ab04f0t0.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></li>
+<figure><img src="/images/ring.svg" data-sizes="auto" data-src="/img/04txf_235.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></li>
 <li>特定参数v（缪）的卡方分布以及检验统计量可以记作：
-<figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://ws1.sinaimg.cn/large/006tNbRwly1fwj4yclfwgj30b302oglq.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></li>
+<figure><img src="/images/ring.svg" data-sizes="auto" data-src="/img/04txf_237.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></li>
 <li>v的计算： (如例子：v=5-1)
      $$v=(组数) - (限制数)$$</li>
 </ol></li>
@@ -448,12 +448,12 @@ $$\chi ^{2}=\sum \frac{(O-E)^{2}}{E}$$
 
 <ol>
 <li>显性水平α进行检验，则写作：（<strong>常用的显著性水平1%和5%</strong>）
-<figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://ws2.sinaimg.cn/large/006tNbRwly1fwj4yni87gj304q01ot8j.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></li>
+<figure><img src="/images/ring.svg" data-sizes="auto" data-src="/img/04txf_244.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></li>
 <li>检测标准：卡方分布检验是单尾检验且是右尾，右尾被作为拒绝域。于是通过查看检验统计量是否位于右尾的拒绝域以内，来判定期望分布得出结果的可能性。
-<figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://ws2.sinaimg.cn/large/006tNbRwly1fwj4z1yrjpj309m04t3yw.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></li>
+<figure><img src="/images/ring.svg" data-sizes="auto" data-src="/img/04txf_246.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></li>
 <li>卡方概率表的使用：卡方临界值表是给定可以查询的
 例如： 5%的显著性水平，8的自由度进行检验。查出15.51，因此只要检验统计量大于15.51，检验统计量就位于拒绝域内。  
-<figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://ws1.sinaimg.cn/large/006tNbRwly1fwj4zogtvpj30lk07zacn.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure>  
+<figure><img src="/images/ring.svg" data-sizes="auto" data-src="/img/04txf_249.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure>  
   </li>
 </ol>
 
@@ -477,19 +477,19 @@ $$\chi ^{2}=\sum \frac{(O-E)^{2}}{E}$$
 <h4 id="3-要检验的原假设是什么-备择假设是什么">3. 要检验的原假设是什么？备择假设是什么？</h4>
 
 <p>解答：
-  <figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://ws2.sinaimg.cn/large/006tNbRwly1fwj53tke4tj30g203waak.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+  <figure><img src="/images/ring.svg" data-sizes="auto" data-src="/img/04txf_266.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
 
 <h3 id="4-知识储备-拒绝域求解">4 知识储备：拒绝域求解</h3>
 
 <blockquote>
-<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://ws4.sinaimg.cn/large/006tNbRwly1fwj55a4jlxj30gu077773.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="/img/04txf_270.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure>
 例如： 5%的显著性水平，8的自由度进行检验。查出15.51，因此只要检验统计量大于15.51，检验统计量就位于拒绝域内。         </p>
 </blockquote>
 
 <h4 id="4-自由度为4-5-水平的拒绝域是多少">4. 自由度为4,5%水平的拒绝域是多少？</h4>
 
 <p>解答：
-  <figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://ws4.sinaimg.cn/large/006tNbRwly1fwj55ubss8j30ba014749.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+  <figure><img src="/images/ring.svg" data-sizes="auto" data-src="/img/04txf_275.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
 
 <h3 id="5-知识储备-计算检验统计量">5 知识储备:计算检验统计量</h3>
 
@@ -498,7 +498,7 @@ $$\chi ^{2}=\sum \frac{(O-E)^{2}}{E}$$
 <h4 id="5-检验统计量是多少">5. 检验统计量是多少？</h4>
 
 <p>解答：
- <figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://ws2.sinaimg.cn/large/006tNbRwly1fwj56zf0vaj3094012dfs.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+ <figure><img src="/images/ring.svg" data-sizes="auto" data-src="/img/04txf_282.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
 
 <h3 id="6-知识储备-检验统计量拒绝域内外判定">6 知识储备：检验统计量拒绝域内外判定</h3>
 
@@ -513,7 +513,7 @@ $$\chi ^{2}=\sum \frac{(O-E)^{2}}{E}$$
 <h4 id="6-检验统计量是在拒绝域以内还是拒绝域以外">6. 检验统计量是在拒绝域以内还是拒绝域以外？</h4>
 
 <p>解答：
-  <figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://ws4.sinaimg.cn/large/006tNbRwly1fwj57tirw2j30d000xjre.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+  <figure><img src="/images/ring.svg" data-sizes="auto" data-src="/img/04txf_292.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
 
 <h3 id="7-知识储备-决策原则">7 知识储备：决策原则</h3>
 
@@ -525,7 +525,7 @@ $$\chi ^{2}=\sum \frac{(O-E)^{2}}{E}$$
 <h4 id="7-你将接受还是拒绝原假设">7. 你将接受还是拒绝原假设？</h4>
 
 <p>解答：
-  <figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://ws4.sinaimg.cn/large/006tNbRwly1fwj5874cy5j30hv01rmxf.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+  <figure><img src="/images/ring.svg" data-sizes="auto" data-src="/img/04txf_301.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
 
 <p>注：只有能得到一组观察频数且算出期望频数，卡方可以检验任何概率分布的拟合优度。</p>
 
@@ -541,7 +541,7 @@ $$\chi ^{2}=\sum \frac{(O-E)^{2}}{E}$$
 </ul>
 
 <p>【问题二】下表显示各位庄家的观察频数，
-     <figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://ws1.sinaimg.cn/large/006tNbRwly1fwj3nhqma9j30ke03zjsa.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure>
+     <figure><img src="/images/ring.svg" data-sizes="auto" data-src="/img/04txf_313.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure>
 以1%的显著性水平进行假设检验，看看赌局结果是否独立于坐庄庄家。</p>
 
 <h3 id="1-知识储备-利用概率求期望频数">1 知识储备：利用概率求期望频数</h3>
@@ -553,14 +553,14 @@ $$\chi ^{2}=\sum \frac{(O-E)^{2}}{E}$$
 
 <ol>
 <li>算出赌局结果和庄家频数以及各项总和，如下表称为列联表
-<figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://ws1.sinaimg.cn/large/006tNbRwly1fwj3nhqma9j30ke03zjsa.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></li>
+<figure><img src="/images/ring.svg" data-sizes="auto" data-src="/img/04txf_321.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></li>
 <li>算出庄家A的赢局期望。
 
 <ol>
 <li>求出赢局概率：P(赢)=赢局合计/总和</li>
 <li>庄家A坐庄概率：P(A)=合计A/总和</li>
 <li>假设庄家A和赌局结果独立，其坐庄出现赢局概率：P(A坐庄赢局)=P(赢) X P(A)</li>
-<li>赢局的期望频数=总和*P(A坐庄赢局) 即： <figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://ws1.sinaimg.cn/large/006tNbRwly1fwj5bqh1kdj309802qq31.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></li>
+<li>赢局的期望频数=总和*P(A坐庄赢局) 即： <figure><img src="/images/ring.svg" data-sizes="auto" data-src="/img/04txf_326.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></li>
 </ol></li>
 <li>推广：期望频数= 行合计 X 列合计 / 总和</li>
 <li>求出检验统计量：（与前面一样）
@@ -572,48 +572,48 @@ $$\chi ^{2}=\sum \frac{(O-E)^{2}}{E}$$</li>
 <h4 id="1-你是任务是算出所有期望频数">1. 你是任务是算出所有期望频数。</h4>
 
 <p>解答：
-<figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://ws4.sinaimg.cn/large/006tNbRwly1fwj5dkej1wj30h7036gmk.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<figure><img src="/images/ring.svg" data-sizes="auto" data-src="/img/04txf_334.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
 
 <h4 id="2-根据上面所求期望频数-计算检验统计量x-2">2. 根据上面所求期望频数，计算检验统计量X^2.</h4>
 
 <p>解答：
-<figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://ws1.sinaimg.cn/large/006tNbRwly1fwj5dtot2vj30hp0afq5r.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<figure><img src="/images/ring.svg" data-sizes="auto" data-src="/img/04txf_338.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
 
 <h4 id="3-确定要进行检验的假设以及备择假设">3. 确定要进行检验的假设以及备择假设。</h4>
 
 <p>解答：
- <figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://ws1.sinaimg.cn/large/006tNbRwly1fwj5e43yqoj309g02q3yt.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure> </p>
+ <figure><img src="/images/ring.svg" data-sizes="auto" data-src="/img/04txf_342.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure> </p>
 
 <h4 id="4-求出期望频率和自由度">4. 求出期望频率和自由度？</h4>
 
 <p>解答：
-   <figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://ws2.sinaimg.cn/large/006tNbRwly1fwj5eforkyj308n01d0sp.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+   <figure><img src="/images/ring.svg" data-sizes="auto" data-src="/img/04txf_346.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
 
 <h4 id="5-确定用于做决策的拒绝域">5. 确定用于做决策的拒绝域。</h4>
 
 <p>解答：
-  <figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://ws1.sinaimg.cn/large/006tNbRwly1fwj5f0vn8rj309q01dmx6.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure> </p>
+  <figure><img src="/images/ring.svg" data-sizes="auto" data-src="/img/04txf_350.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure> </p>
 
 <h4 id="6-计算检验统计量x-2">6. 计算检验统计量X^2</h4>
 
 <p>解答：
-   <figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://ws1.sinaimg.cn/large/006tNbRwly1fwj5f7nkpuj308101emx4.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+   <figure><img src="/images/ring.svg" data-sizes="auto" data-src="/img/04txf_354.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
 
 <h4 id="7-看看检验统计量是否位于拒绝域内">7. 看看检验统计量是否位于拒绝域内。</h4>
 
 <p>解答：
-   <figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://ws3.sinaimg.cn/large/006tNbRwly1fwj5fdtvx0j308n01idft.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+   <figure><img src="/images/ring.svg" data-sizes="auto" data-src="/img/04txf_358.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
 
 <h4 id="8-作出决策">8. 作出决策。</h4>
 
 <p>解答：
-   <figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://ws2.sinaimg.cn/large/006tNbRwly1fwj5fk6g7ej30fo01g74i.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+   <figure><img src="/images/ring.svg" data-sizes="auto" data-src="/img/04txf_362.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
 
 <h3 id="2-自由度计算方法归纳">2 自由度计算方法归纳：</h3>
 
 <blockquote>
 <p>列联表自由度计算，表如下k列，h行
-<figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://ws1.sinaimg.cn/large/006tNbRwly1fwj5gbdvk6j30ix04rwfo.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure>
+<figure><img src="/images/ring.svg" data-sizes="auto" data-src="/img/04txf_366.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure>
 $$v=(h-1) X (k-1)$$
  注释：每行计算到最后一个，可直接用（总数 - 本行其他值），故同一行中限制数只有一个，列同理。故如上式。</p>
 </blockquote>
@@ -718,7 +718,7 @@ $$\chi ^{2}=\sum \frac{(O-E)^{2}}{E}$$
 <li>庄家A坐庄概率：P(A)=合计A/总和</li>
 <li>假设庄家A和赌局结果独立，其坐庄出现赢局概率：P(A坐庄赢局)=P(赢) X P(A)</li>
 <li>赢局的期望频数=总和*P(A坐庄赢局)
-即：<figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://ws1.sinaimg.cn/large/006tNbRwly1fwj5bqh1kdj309802qq31.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure>
+即：<figure><img src="/images/ring.svg" data-sizes="auto" data-src="/img/04txf_452.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure>
     </li>
 </ol></li>
 </ol>
@@ -734,7 +734,7 @@ $$\chi ^{2}=\sum \frac{(O-E)^{2}}{E}$$
 <h4 id="自由度计算方法归纳">+ 自由度计算方法归纳：</h4>
 
 <p>  列联表自由度计算，表如下k列，h行
-  <figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://ws1.sinaimg.cn/large/006tNbRwly1fwj5gbdvk6j30ix04rwfo.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure>        
+  <figure><img src="/images/ring.svg" data-sizes="auto" data-src="/img/04txf_466.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure>        
 $$v=(h-1) X (k-1)$$
 注释：每行计算到最后一个，用总数-其他之后，故一个数限制，同列一列限制。故如上式。</p>
 
@@ -744,7 +744,7 @@ $$v=(h-1) X (k-1)$$
 
 <h1 id="f-分布">F 分布</h1>
 
-<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://ws4.sinaimg.cn/large/006tNbRwly1fwj5wlegi5j30hy0a7wib.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="/img/04txf_478.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
 
 <p>研究A. B. C三种不同学校学生的阅读理解成绩找到一种解决的办法，有人可能会以为，只要多次使用Z检验或t检验，比较成对比较学校（或条件）即可。但是我们不会这样来处理。因为Z检验或t检验有其<strong>局限性</strong>：</p>
 
@@ -758,17 +758,17 @@ $$v=(h-1) X (k-1)$$
 <p>【例子】</p>
 
 <p>某医生为研究一种四类降糖新药的疗效，以统一的纳入标准和排除标准选择了60名2型糖尿病患者，按完全随机设计方案将患者分为三组进行双盲临床试验。其中，降糖新药高剂量组21人. 低剂量组19人. 对照组20人。对照组服用公认的降糖药物，治疗4周后测得其餐后2小时血糖的下降值(mmol/L)，结果如表9-1所示。问治疗4周后，餐后2小时血糖下降值的三组总体平均水平是否不同？
- <figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://ws3.sinaimg.cn/large/006tNbRwly1fwj5xfwrjrj30kz0870ug.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+ <figure><img src="/images/ring.svg" data-sizes="auto" data-src="/img/04txf_494.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
 
 <ul>
 <li><p>总平均数：
-<figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://ws2.sinaimg.cn/large/006tNbRwly1fwjbx4ktuij305m02ejrb.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p></li>
+<figure><img src="/images/ring.svg" data-sizes="auto" data-src="/img/04txf_497.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p></li>
 
 <li><p>各处理组平均数：
-<figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://ws1.sinaimg.cn/large/006tNbRwly1fwjby28knaj306k01yt8l.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p></li>
+<figure><img src="/images/ring.svg" data-sizes="auto" data-src="/img/04txf_500.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p></li>
 
 <li><p>总例数：
-<figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://ws2.sinaimg.cn/large/006tNbRwly1fwjbyp1rrfj306x01nq2s.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure>
+<figure><img src="/images/ring.svg" data-sizes="auto" data-src="/img/04txf_504.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure>
 g为处理组数</p></li>
 </ul>
 
@@ -776,24 +776,24 @@ g为处理组数</p></li>
 <p>定义</p>
 
 <ol>
-<li>总变异：全部测量值各不相同，这种变异称为总变异。总变异的大小可以用均差平方和SS来表示，即各测量值Xij与总平均数差值的平方和，SS总，反映那个了所有测量值之间总的变异程度。<figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://ws4.sinaimg.cn/large/006tNbRwly1fwjc0wopjtj30ip09vtbs.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></li>
-<li>组内变异（误差变异）：同一处理组中的受试对象接受相同的处理，其测量值间各不相同。这种变异称为组内变异。SS组内 组内各测量值Xij与其所在组的均数的差值的平方和，表示随机误差的影响。<figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://ws3.sinaimg.cn/large/006tNbRwly1fwjc1a4k0tj30iq0blq5s.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></li>
-<li>组间变异，各处理组接受处理的水平不同，各组的样本均数各不相同，这种变异称为组间变异。其大小可以用各组均数与总均数的离均差平方和SS组间，反应了三组用药不同的影响（如果处理确实有作用），同时也包括了随机误差。<figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://ws1.sinaimg.cn/large/006tNbRwly1fwjc1kajkxj30ja08aq51.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure>
+<li>总变异：全部测量值各不相同，这种变异称为总变异。总变异的大小可以用均差平方和SS来表示，即各测量值Xij与总平均数差值的平方和，SS总，反映那个了所有测量值之间总的变异程度。<figure><img src="/images/ring.svg" data-sizes="auto" data-src="/img/04txf_510.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></li>
+<li>组内变异（误差变异）：同一处理组中的受试对象接受相同的处理，其测量值间各不相同。这种变异称为组内变异。SS组内 组内各测量值Xij与其所在组的均数的差值的平方和，表示随机误差的影响。<figure><img src="/images/ring.svg" data-sizes="auto" data-src="/img/04txf_511.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></li>
+<li>组间变异，各处理组接受处理的水平不同，各组的样本均数各不相同，这种变异称为组间变异。其大小可以用各组均数与总均数的离均差平方和SS组间，反应了三组用药不同的影响（如果处理确实有作用），同时也包括了随机误差。<figure><img src="/images/ring.svg" data-sizes="auto" data-src="/img/04txf_512.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure>
 存在组间变异的原因：
 （1）随机误差
 （2）不同处理水平可能对实验结果的影响</li>
 </ol>
 
 <ul>
-<li><strong>方差分析的基本思想：</strong>总变异分解为多个部分，每个部分由某因素的作用来解释，通过将某因素所致的变异与随机误差比较，从而推断该因素对测定结果有无影响。变异程度除与离均差平方和的大小有关外，还与自由度有关，将各部分离均差平方和除以自由度，比值称为均方差MS：<figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://ws2.sinaimg.cn/large/006tNbRwly1fwjc4clestj30k10ertcx.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure>
+<li><strong>方差分析的基本思想：</strong>总变异分解为多个部分，每个部分由某因素的作用来解释，通过将某因素所致的变异与随机误差比较，从而推断该因素对测定结果有无影响。变异程度除与离均差平方和的大小有关外，还与自由度有关，将各部分离均差平方和除以自由度，比值称为均方差MS：<figure><img src="/images/ring.svg" data-sizes="auto" data-src="/img/04txf_517.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure>
 如果各组样本来自<strong>相同总体</strong>，无处理因素的作用，则组间变异同组内变异一样，<strong>只反应随机误差作用的大小</strong>。</li>
-<li>组间均方与组内均方的比值称为<strong>F统计量</strong>：<figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://ws3.sinaimg.cn/large/006tNbRwly1fwjc68cstjj30ik08mn17.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure>
+<li>组间均方与组内均方的比值称为<strong>F统计量</strong>：<figure><img src="/images/ring.svg" data-sizes="auto" data-src="/img/04txf_519.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure>
 F值接近于1，就没有理由拒绝H0（来自相同总体），反之，F值越大，拒绝H0的理由越充分。当H0成立时，F统计量服从F分布，自由度v1和v2，Fv1,v2</li>
 </ul>
 </blockquote>
 
-<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://ws4.sinaimg.cn/large/006tNbRwly1fwjc7oql4qj30j50e3whs.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure>
-<figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://ws3.sinaimg.cn/large/006tNbRwly1fwjc7y21eij30is0egteh.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="/img/04txf_522.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure>
+<figure><img src="/images/ring.svg" data-sizes="auto" data-src="/img/04txf_523.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure>
 v1=组间自由度 = g-1 = 3-1 v2=组内自由度=N-g= 60-3 = 57，查F分布表得到P&lt;0.01，按α=0.05水准，拒绝H0，接受H1有统计学意义，可认为2型糖尿病患者治疗4周，其餐后2小时血糖的总体平均水平不全相同。</p>
 
 <p>方差分析的结果若拒绝H0，接受H1，不能说明各组总体均数两两间都有差别。如果要分析哪些两组间有差别，要进行多个均数间的多重比较（<strong>卡方检验</strong>）。当g =2时，方差分析的结果与两样本均数比较的t 检验等价 t=sqrt(F)。</p>
