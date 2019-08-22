@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="ch-cn">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="Aileen.Xie">
+  
+  
+  
+  <link rel="prev" href="https://aileenxie.github.io/2018/02l_norm/" />
+  <link rel="next" href="https://aileenxie.github.io/2018/04txf/" />
+  <link rel="canonical" href="https://aileenxie.github.io/2018/03pg/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           近端梯度（Proximal Gradient, PG）算法详解 | Aileen&#39;s Blog
+       
+  </title>
+  <meta name="title" content="近端梯度（Proximal Gradient, PG）算法详解 | Aileen&#39;s Blog">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https://aileenxie.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "近端梯度（Proximal Gradient, PG）算法详解",
+    "headline" : "近端梯度（Proximal Gradient, PG）算法详解",
+    "description" : "--  --  --  PG算法 简介 Proximal算法是用于求解凸优化问题的方法之一。用于求解目标函数形如f(x)=g(x)+h(x)（其中g(x)可微而h(x)不可微）形式无约束问题的下降算法。
+ 当无约束的凸优化问题可微，我们可以用梯度下降算法求解； 当无约束的凸优化目标函数不可微，我们可以采用次梯度(subgradient)算法求解(该算法时间复杂度较高,且不会产生稀疏)； 当存在约束时，我们可以采用proximal相关梯度算法求解(可降低复杂度至O(1/ϵ));  这是因为，当目标函数存在约束时，我们可以把约束写入目标函数，但是这时候往往目标函数就从可微变成不可微，例如线性回归加入L−1norm，记为\( ∥y−xβ∥_2^2+λ∥β∥_1\) ，那么很明显，目标函数前半部分为凸且连续可微，但后半部分为凸但不连续可微。
+算法模型 其中g(x)为凸函数，可微。h(x)也是凸函数，但不可微。其中g(x),h(x)是由F(x) 分离出来的两项，当F(x) 分离的结果不同，即使是同一个问题，算法的实现方式也不尽相同，
+基本概念 【临近算子】（proximity operator） &gt; 当h(x)=0,则prox\(h\)(x)=\(arg \min _{u}\)(\(\frac{1}{2}||u−x||_2^2\))=x; &gt; 当h(x)=Ic，则prox\(h\)(x)=\(arg \min _{u∈c}\)(\(\frac{1}{2}||u−x||_2^2\))=Pc(x); &gt; 当h(x)=\(t||X||_1\)，则prox\(h(x)\) 为软阈值算法。 临近算子是对梯度的延伸，只与h(x)有关，当函数h(x)为光滑函数时，该临近算子就是梯度。
+F(x)的【近端梯度】（proximal gradient） 近端梯度就是对F(x)梯度的近似，其中： 集合X的【指示函数】（indicator function） 其中X是一个凸集合。利用指示函数，我们可以将有约束问题写成无约束问题,如下：
+当x不在X中，等式为无穷大，因此x肯定不是最优值。因此就等于限定了x在凸集合X中。
+变量x在集合X上的【投影算子】（projection operator） 投影的含义：一个点x在集合X上的投影，就是X上离x的欧几里得距离最近的点。
+Tips:
+ 2个在集合外的点x，y之间的距离，一定大于这两点在凸集合X上的投影的距离 当h(x)=\(l_{X}(x)\)时，\(proj_x(x)=prox_h(x)\)。  算法实现 迭代计算最优解x，直到F(x)在最小值附近收敛。
+算法伪代码： 资料：
+Proximal Algorithms
+Projected Gradient Method and LASSO 
+CSDN-Proximal Gradient Method近端梯度算法
+近端梯度法(Proximal Gradient Method, PG)",
+    "inLanguage" : "ch-cn",
+    "author" : "Aileen.Xie",
+    "creator" : "Aileen.Xie",
+    "publisher": "Aileen.Xie",
+    "accountablePerson" : "Aileen.Xie",
+    "copyrightHolder" : "Aileen.Xie",
+    "copyrightYear" : "2018",
+    "datePublished": "2018-10-19 15:07:13 &#43;0800 CST",
+    "dateModified" : "2018-10-19 15:07:13 &#43;0800 CST",
+    "url" : "https://aileenxie.github.io/2018/03pg/",
+    "wordCount" : "62",
+    "keywords" : [  "Aileen&#39;s Blog"]
+}
+</script>
+
+</head>
+
+  
+
+
+  
+  <script async src="//cdn.busuanzi.ibruce.info/cdn/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+  
+  
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://aileenxie.github.io">Aileen&#39;s Blog</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://aileenxie.github.io">Aileen&#39;s Blog</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">近端梯度（Proximal Gradient, PG）算法详解</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="https://aileenxie.github.io" rel="author">Aileen.Xie</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2018-10-19 itemprop="datePublished">October 19, 2018</time>
+                </span>
+                in
+                
+                <span id="busuanzi_container_page_pv">
+                  | 本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+                </span>
+                
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+            
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          
+
+<!-- <meta name="referrer" content="no-referrer" /> -->
+
+<!-- <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script> -->
+
+<!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=default"></script> -->
+
+<script type="text/javascript" src="https://lib.baomitu.com/mathjax/2.7.5/MathJax.js?config=default"></script>
+
+<h1 id="pg算法">PG算法</h1>
+
+<h2 id="简介">简介</h2>
+
+<p>Proximal算法是用于求解凸优化问题的方法之一。用于求解目标函数形如f(x)=g(x)+h(x)（其中g(x)可微而h(x)不可微）形式无约束问题的下降算法。</p>
+
+<ul>
+<li>当无约束的凸优化问题可微，我们可以用梯度下降算法求解；</li>
+<li>当无约束的凸优化目标函数不可微，我们可以采用次梯度(subgradient)算法求解(该算法时间复杂度较高,且不会产生稀疏)；</li>
+<li>当存在约束时，我们可以采用proximal相关梯度算法求解(可降低复杂度至O(1/ϵ));</li>
+</ul>
+
+<p>这是因为，当目标函数存在约束时，我们可以把约束写入目标函数，但是这时候往往目标函数就从可微变成不可微，例如线性回归加入L−1norm，记为\( ∥y−xβ∥_2^2+λ∥β∥_1\) ，那么很明显，目标函数前半部分为凸且连续可微，但后半部分为凸但不连续可微。</p>
+
+<h2 id="算法模型">算法模型</h2>
+
+<p><img src="/img/03pg_24.jpg"width="30%" height="30%">
+其中g(x)为<a href="https://blog.csdn.net/feilong_csdn/article/details/83476277" rel="nofollow noreferrer" target="_blank">凸函数</a>，可微。h(x)也是凸函数，但不可微。其中g(x),h(x)是由F(x) 分离出来的两项，当F(x) 分离的结果不同，即使是同一个问题，算法的实现方式也不尽相同，</p>
+
+<h2 id="基本概念">基本概念</h2>
+
+<h3 id="临近算子-proximity-operator">【临近算子】（proximity operator）</h3>
+
+<p><img src="/img/03pg_29.jpg"width="50%" height="50%"></p>
+
+<h4 id="当h-x-0-则prox-h-x-arg-min-u-frac-1-2-u-x-2-2-x">&gt; 当h(x)=0,则prox\(h\)(x)=\(arg \min _{u}\)(\(\frac{1}{2}||u−x||_2^2\))=x;</h4>
+
+<h4 id="当h-x-ic-则prox-h-x-arg-min-u-c-frac-1-2-u-x-2-2-pc-x">&gt; 当h(x)=Ic，则prox\(h\)(x)=\(arg \min _{u∈c}\)(\(\frac{1}{2}||u−x||_2^2\))=Pc(x);</h4>
+
+<h4 id="当h-x-t-x-1-则prox-h-x-为-软阈值-https-blog-csdn-net-jbb0523-article-details-52103257-算法">&gt; 当h(x)=\(t||X||_1\)，则prox\(h(x)\) 为<a href="https://blog.csdn.net/jbb0523/article/details/52103257" rel="nofollow noreferrer" target="_blank">软阈值</a>算法。</h4>
+
+<p>临近算子是对梯度的延伸，只与h(x)有关，当函数h(x)为光滑函数时，该临近算子就是梯度。</p>
+
+<h3 id="f-x-的-近端梯度-proximal-gradient">F(x)的【近端梯度】（proximal gradient）</h3>
+
+<p><img src="/img/03pg_40.jpg" width="40%" height="40%">
+近端梯度就是对F(x)梯度的近似，其中：
+<img src="/img/03pg_42.jpg" width="50%" height="50%"></p>
+
+<h3 id="集合x的-指示函数-indicator-function">集合X的【指示函数】（indicator function）</h3>
+
+<p><img src="/img/03pg_45.jpg" width="30%" height="30%"></p>
+
+<p>其中X是一个凸集合。利用指示函数，我们可以将有约束问题写成无约束问题,如下：</p>
+
+<p><img src="/img/03pg_49.jpg" width="40%" height="40%"></p>
+
+<p>当x不在X中，等式为无穷大，因此x肯定不是最优值。因此就等于限定了x在凸集合X中。</p>
+
+<h3 id="变量x在集合x上的-投影算子-projection-operator">变量x在集合X上的【投影算子】（projection operator）</h3>
+
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="/img/03pg_54.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+
+<p>投影的含义：一个点x在集合X上的投影，就是X上离x的欧几里得距离最近的点。</p>
+
+<p>Tips:</p>
+
+<ul>
+<li>2个在集合外的点x，y之间的距离，一定大于这两点在凸集合X上的投影的距离</li>
+<li>当h(x)=\(l_{X}(x)\)时，\(proj_x(x)=prox_h(x)\)。</li>
+</ul>
+
+<h2 id="算法实现">算法实现</h2>
+
+<p>迭代计算最优解x，直到F(x)在最小值附近收敛。</p>
+
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="/img/03pg_67.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+
+<p>算法伪代码：
+<figure><img src="/images/ring.svg" data-sizes="auto" data-src="/img/03pg_70.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+
+<p>资料：</p>
+
+<p><a href="https://web.stanford.edu/~boyd/papers/pdf/prox_algs.pdf" rel="nofollow noreferrer" target="_blank">Proximal Algorithms</a></p>
+
+<p><a href="http://freemind.pluskid.org/machine-learning/projected-gradient-method-and-lasso/" rel="nofollow noreferrer" target="_blank">Projected Gradient Method and LASSO
+</a></p>
+
+<p><a href="https://blog.csdn.net/lanyanchenxi/article/details/50448640" rel="nofollow noreferrer" target="_blank">CSDN-Proximal Gradient Method近端梯度算法</a></p>
+
+<p><a href="https://blog.csdn.net/qq547276542/article/details/78251779" rel="nofollow noreferrer" target="_blank">近端梯度法(Proximal Gradient Method, PG)</a></p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Aileen.Xie </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://aileenxie.github.io/2018/03pg/>https://aileenxie.github.io/2018/03pg/</span>
+            </p>
+            
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="https://aileenxie.github.io">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://aileenxie.github.io/2018/02l_norm/" class="prev" rel="prev" title="L0,L1,L2以及核范数规则化"><i class="iconfont icon-left"></i>&nbsp;L0,L1,L2以及核范数规则化</a>
+         
+        
+        <a href="https://aileenxie.github.io/2018/04txf/" class="next" rel="next" title="t分布, 卡方x分布，F分布">t分布, 卡方x分布，F分布&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2017 - 2019</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            
+            <span class="author" itemprop="copyrightHolder">
+                <a href="https://aileenxie.github.io">Aileen.Xie</a> 
+            </span> 
+            <span id="busuanzi_container_site_pv">
+                |  本站访问量：<span id="busuanzi_value_site_pv"></span>次
+            </span>
+            <span id="busuanzi_container_site_uv">
+                |  您是本站第 <span id="busuanzi_value_site_uv"></span> 位访问者
+            </span>
+         
+
+         
+		  
+    </div>
+
+
+
+
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

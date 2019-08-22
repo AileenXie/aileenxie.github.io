@@ -977,6 +977,106 @@ v1=组间自由度 = g-1 = 3-1 v2=组内自由度=N-g= 60-3 = 57，查F分布表
     </item>
     
     <item>
+      <title>近端梯度（Proximal Gradient, PG）算法详解</title>
+      <link>https://aileenxie.github.io/2018/03pg/</link>
+      <pubDate>Fri, 19 Oct 2018 15:07:13 +0800</pubDate>
+      
+      <guid>https://aileenxie.github.io/2018/03pg/</guid>
+      <description>
+
+&lt;!-- &lt;meta name=&#34;referrer&#34; content=&#34;no-referrer&#34; /&gt; --&gt;
+
+&lt;!-- &lt;script type=&#34;text/javascript&#34; src=&#34;https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default&#34;&gt;&lt;/script&gt; --&gt;
+
+&lt;!-- &lt;script type=&#34;text/javascript&#34; src=&#34;https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=default&#34;&gt;&lt;/script&gt; --&gt;
+
+&lt;script type=&#34;text/javascript&#34; src=&#34;https://lib.baomitu.com/mathjax/2.7.5/MathJax.js?config=default&#34;&gt;&lt;/script&gt;
+
+&lt;h1 id=&#34;pg算法&#34;&gt;PG算法&lt;/h1&gt;
+
+&lt;h2 id=&#34;简介&#34;&gt;简介&lt;/h2&gt;
+
+&lt;p&gt;Proximal算法是用于求解凸优化问题的方法之一。用于求解目标函数形如f(x)=g(x)+h(x)（其中g(x)可微而h(x)不可微）形式无约束问题的下降算法。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;当无约束的凸优化问题可微，我们可以用梯度下降算法求解；&lt;/li&gt;
+&lt;li&gt;当无约束的凸优化目标函数不可微，我们可以采用次梯度(subgradient)算法求解(该算法时间复杂度较高,且不会产生稀疏)；&lt;/li&gt;
+&lt;li&gt;当存在约束时，我们可以采用proximal相关梯度算法求解(可降低复杂度至O(1/ϵ));&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;这是因为，当目标函数存在约束时，我们可以把约束写入目标函数，但是这时候往往目标函数就从可微变成不可微，例如线性回归加入L−1norm，记为\( ∥y−xβ∥_2^2+λ∥β∥_1\) ，那么很明显，目标函数前半部分为凸且连续可微，但后半部分为凸但不连续可微。&lt;/p&gt;
+
+&lt;h2 id=&#34;算法模型&#34;&gt;算法模型&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://aileenxie.github.io/img/03pg_24.jpg&#34;width=&#34;30%&#34; height=&#34;30%&#34;&gt;
+其中g(x)为&lt;a href=&#34;https://blog.csdn.net/feilong_csdn/article/details/83476277&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;凸函数&lt;/a&gt;，可微。h(x)也是凸函数，但不可微。其中g(x),h(x)是由F(x) 分离出来的两项，当F(x) 分离的结果不同，即使是同一个问题，算法的实现方式也不尽相同，&lt;/p&gt;
+
+&lt;h2 id=&#34;基本概念&#34;&gt;基本概念&lt;/h2&gt;
+
+&lt;h3 id=&#34;临近算子-proximity-operator&#34;&gt;【临近算子】（proximity operator）&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://aileenxie.github.io/img/03pg_29.jpg&#34;width=&#34;50%&#34; height=&#34;50%&#34;&gt;&lt;/p&gt;
+
+&lt;h4 id=&#34;当h-x-0-则prox-h-x-arg-min-u-frac-1-2-u-x-2-2-x&#34;&gt;&amp;gt; 当h(x)=0,则prox\(h\)(x)=\(arg \min _{u}\)(\(\frac{1}{2}||u−x||_2^2\))=x;&lt;/h4&gt;
+
+&lt;h4 id=&#34;当h-x-ic-则prox-h-x-arg-min-u-c-frac-1-2-u-x-2-2-pc-x&#34;&gt;&amp;gt; 当h(x)=Ic，则prox\(h\)(x)=\(arg \min _{u∈c}\)(\(\frac{1}{2}||u−x||_2^2\))=Pc(x);&lt;/h4&gt;
+
+&lt;h4 id=&#34;当h-x-t-x-1-则prox-h-x-为-软阈值-https-blog-csdn-net-jbb0523-article-details-52103257-算法&#34;&gt;&amp;gt; 当h(x)=\(t||X||_1\)，则prox\(h(x)\) 为&lt;a href=&#34;https://blog.csdn.net/jbb0523/article/details/52103257&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;软阈值&lt;/a&gt;算法。&lt;/h4&gt;
+
+&lt;p&gt;临近算子是对梯度的延伸，只与h(x)有关，当函数h(x)为光滑函数时，该临近算子就是梯度。&lt;/p&gt;
+
+&lt;h3 id=&#34;f-x-的-近端梯度-proximal-gradient&#34;&gt;F(x)的【近端梯度】（proximal gradient）&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://aileenxie.github.io/img/03pg_40.jpg&#34; width=&#34;40%&#34; height=&#34;40%&#34;&gt;
+近端梯度就是对F(x)梯度的近似，其中：
+&lt;img src=&#34;https://aileenxie.github.io/img/03pg_42.jpg&#34; width=&#34;50%&#34; height=&#34;50%&#34;&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;集合x的-指示函数-indicator-function&#34;&gt;集合X的【指示函数】（indicator function）&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://aileenxie.github.io/img/03pg_45.jpg&#34; width=&#34;30%&#34; height=&#34;30%&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;其中X是一个凸集合。利用指示函数，我们可以将有约束问题写成无约束问题,如下：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://aileenxie.github.io/img/03pg_49.jpg&#34; width=&#34;40%&#34; height=&#34;40%&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;当x不在X中，等式为无穷大，因此x肯定不是最优值。因此就等于限定了x在凸集合X中。&lt;/p&gt;
+
+&lt;h3 id=&#34;变量x在集合x上的-投影算子-projection-operator&#34;&gt;变量x在集合X上的【投影算子】（projection operator）&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://aileenxie.github.io/img/03pg_54.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;投影的含义：一个点x在集合X上的投影，就是X上离x的欧几里得距离最近的点。&lt;/p&gt;
+
+&lt;p&gt;Tips:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;2个在集合外的点x，y之间的距离，一定大于这两点在凸集合X上的投影的距离&lt;/li&gt;
+&lt;li&gt;当h(x)=\(l_{X}(x)\)时，\(proj_x(x)=prox_h(x)\)。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;算法实现&#34;&gt;算法实现&lt;/h2&gt;
+
+&lt;p&gt;迭代计算最优解x，直到F(x)在最小值附近收敛。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://aileenxie.github.io/img/03pg_67.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;算法伪代码：
+&lt;img src=&#34;https://aileenxie.github.io/img/03pg_70.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;资料：&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://web.stanford.edu/~boyd/papers/pdf/prox_algs.pdf&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;Proximal Algorithms&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://freemind.pluskid.org/machine-learning/projected-gradient-method-and-lasso/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;Projected Gradient Method and LASSO
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://blog.csdn.net/lanyanchenxi/article/details/50448640&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;CSDN-Proximal Gradient Method近端梯度算法&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://blog.csdn.net/qq547276542/article/details/78251779&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;近端梯度法(Proximal Gradient Method, PG)&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>L0,L1,L2以及核范数规则化</title>
       <link>https://aileenxie.github.io/2018/02l_norm/</link>
       <pubDate>Wed, 10 Oct 2018 19:17:39 +0800</pubDate>
