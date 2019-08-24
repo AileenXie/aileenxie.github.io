@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="ch-cn">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="Aileen.Xie">
+  
+  
+  
+  <link rel="prev" href="https://aileenxie.github.io/2019/08style2paints/" />
+  
+  <link rel="canonical" href="https://aileenxie.github.io/2019/09essay/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel='shortcut icon' type='image/x-icon' href='/favicon.ico' />
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           研一总结 | Aileen&#39;s Blog
+       
+  </title>
+  <meta name="title" content="研一总结 | Aileen&#39;s Blog">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https://aileenxie.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "研一总结",
+    "headline" : "研一总结",
+    "description" : "忙完了论文，在暑假的最后两周才真正开始了暑期模式。
+研一这一年上完了所有课程从0开始完成了一篇论文并投稿，成长挺大的。博客空了很久没更，趁这两周把之前的零碎知识点整理一下放上博客。这篇作为研一一年的学习记录。
+课程 除了统修的政治课（中特社、辩证法）和英语课，专业相关课程及结课作业统计如下：
+ 【算法设计与分析】：考试 【大规模非线性规划】：论文汇报Faster Derivative-Free Stochastic Algorithm for Shared Memory Machines新的异步随机零阶算法（AsySZO+）； 【图形图像处理技术】：论文汇报Taskonomy: Disentangling Task Transfer Learning； 【数据管理系统实现】：论文汇报Impala: A Modern, Open-Source SQL Engine for Hadoop，论文复现Adaptive Cardinality Estimation自适应查询优化aqo；
+ 【机器学习】：论文汇报Snap ML: A Hierarchical Framework for Machine Learning；
+ 【专业外语】：论文汇报——密码学新方向；
+ 【云计算安全】：论文汇报Multi-Kernel, Deep Neural Network and Hybrid Models for Privacy Preserving Machine Learning用于隐私保护机器学习的多核，深层神经网络和混合模型；
+ 【计算机视觉】：深度估计方向论文总结，图像检测方向综述，论文复现 RetinaNet。
+  论文 论文研究的是传统机器学习的特征工程 &amp; 优化问题，记录一下整个过程。
+ 最初参考的文献是以下四篇:①Statistical Estimation and Testing via the Sorted l1 Norm, ②Group SLOPE - adaptive selection of groups of predictors, ③Discriminative Structured Feature Engineering for Macroscale Brain Connectomes, ④Support Matrix Machines。涉及到统计学的假设检验、多重假设检验矫正（BHq过程），这些知识点我在之前的博客有整理过。前两篇论文则是借鉴这些统计学方法，提出了针对线性回归的新的机器学习方法。后两篇则是针对矩阵数据的结构性特征工程方法。在反复研读这几篇文章之后，我对其中的思路和推导都有一定了解后，又陆续看了更多的相关论文，加深认识，进而提出了新的方法，并对该方法的解析解进行了推导。",
+    "inLanguage" : "ch-cn",
+    "author" : "Aileen.Xie",
+    "creator" : "Aileen.Xie",
+    "publisher": "Aileen.Xie",
+    "accountablePerson" : "Aileen.Xie",
+    "copyrightHolder" : "Aileen.Xie",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-08-24 12:56:56 &#43;0800 CST",
+    "dateModified" : "2019-08-24 12:56:56 &#43;0800 CST",
+    "url" : "https://aileenxie.github.io/2019/09essay/",
+    "wordCount" : "93",
+    "keywords" : [ "杂谈", "Aileen&#39;s Blog"]
+}
+</script>
+
+</head>
+
+  
+
+
+  
+  <script async src="//cdn.busuanzi.ibruce.info/cdn/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+  <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  <script>
+      $(document).ready(function() {
+          var int = setInterval(fixCount, 50);
+          var busuanziSiteOffset =  300 
+          var busuanziUvOffset =  100 
+          var busuanziPageOffset =  50 
+          function fixCount() {
+              if ($("#busuanzi_container_site_pv").css("display") != "none") {
+                  clearInterval(int);
+                  $("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html()) + busuanziSiteOffset);
+                  $("#busuanzi_value_site_uv").html(parseInt($("#busuanzi_value_site_uv").html()) + busuanziUvOffset);
+                  $("#busuanzi_value_page_pv").html(parseInt($("#busuanzi_value_page_pv").html()) + busuanziPageOffset);
+              }
+          }
+      });
+  </script>
+  
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://aileenxie.github.io">Aileen&#39;s Blog</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://aileenxie.github.io">Aileen&#39;s Blog</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">研一总结</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="https://aileenxie.github.io" rel="author">Aileen.Xie</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2019-08-24 itemprop="datePublished">August 24, 2019</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="https://aileenxie.github.io/categories/%E9%9A%8F%E7%AC%94-%E6%9D%82%E8%B0%88/"> 随笔 · 杂谈 </a>
+                        
+                </span>
+                <span id="busuanzi_container_page_pv" style='display:none'>
+                  | 本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+                </span>
+                
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          
+
+<script type="text/javascript" src="https://lib.baomitu.com/mathjax/2.7.5/MathJax.js?config=default"></script>
+
+<p>忙完了论文，在暑假的最后两周才真正开始了暑期模式。</p>
+
+<p>研一这一年上完了所有课程从0开始完成了一篇论文并投稿，成长挺大的。博客空了很久没更，趁这两周把之前的零碎知识点整理一下放上博客。这篇作为研一一年的学习记录。</p>
+
+<h2 id="课程">课程</h2>
+
+<p>除了统修的政治课（中特社、辩证法）和英语课，专业相关课程及结课作业统计如下：</p>
+
+<ul>
+<li>【算法设计与分析】：考试</li>
+<li>【大规模非线性规划】：论文汇报<a href="http://proceedings.mlr.press/v80/gu18a/gu18a.pdf" rel="nofollow noreferrer" target="_blank">Faster Derivative-Free Stochastic Algorithm for Shared Memory Machines</a>新的异步随机零阶算法（AsySZO+）；</li>
+<li>【图形图像处理技术】：论文汇报<a href="https://arxiv.org/abs/1804.08328" rel="nofollow noreferrer" target="_blank">Taskonomy: Disentangling Task Transfer Learning</a>；</li>
+
+<li><p>【数据管理系统实现】：论文汇报<a href="http://cidrdb.org/cidr2015/Papers/CIDR15_Paper28.pdf" rel="nofollow noreferrer" target="_blank">Impala: A Modern, Open-Source SQL Engine for Hadoop</a>，论文复现<a href="https://arxiv.org/abs/1711.08330" rel="nofollow noreferrer" target="_blank">Adaptive Cardinality Estimation</a>自适应查询优化aqo；</p></li>
+
+<li><p>【机器学习】：论文汇报<a href="https://arxiv.org/abs/1803.06333" rel="nofollow noreferrer" target="_blank">Snap ML: A Hierarchical Framework for Machine Learning</a>；</p></li>
+
+<li><p>【专业外语】：论文汇报——密码学新方向；</p></li>
+
+<li><p>【云计算安全】：论文汇报<a href="https://ieeexplore.ieee.org/document/8462336" rel="nofollow noreferrer" target="_blank">Multi-Kernel, Deep Neural Network and Hybrid Models for Privacy Preserving Machine Learning</a>用于隐私保护机器学习的多核，深层神经网络和混合模型；</p></li>
+
+<li><p>【计算机视觉】：深度估计方向论文总结，图像检测方向综述，论文复现 RetinaNet。</p></li>
+</ul>
+
+<h2 id="论文">论文</h2>
+
+<p>论文研究的是传统机器学习的特征工程 &amp; 优化问题，记录一下整个过程。</p>
+
+<ol>
+<li><p>最初参考的文献是以下四篇:①<a href="https://arxiv.org/pdf/1310.1969.pdf" rel="nofollow noreferrer" target="_blank">Statistical Estimation and Testing via the Sorted l1 Norm</a>, ②<a href="https://arxiv.org/abs/1511.09078" rel="nofollow noreferrer" target="_blank">Group SLOPE - adaptive selection of groups of predictors</a>, ③<a href="https://ieeexplore.ieee.org/document/7104157?arnumber=7104157" rel="nofollow noreferrer" target="_blank">Discriminative Structured Feature Engineering for Macroscale Brain Connectomes</a>, ④<a href="http://proceedings.mlr.press/v37/luo15.pdf" rel="nofollow noreferrer" target="_blank">Support Matrix Machines</a>。涉及到统计学的假设检验、多重假设检验矫正（BHq过程），这些知识点我在之前的博客有整理过。前两篇论文则是借鉴这些统计学方法，提出了针对线性回归的新的机器学习方法。后两篇则是针对矩阵数据的结构性特征工程方法。在反复研读这几篇文章之后，我对其中的思路和推导都有一定了解后，又陆续看了更多的相关论文，加深认识，进而提出了新的方法，并对该方法的解析解进行了推导。</p></li>
+
+<li><p>接着就是代码阶段，用的是matlab，之前大学短暂用过，但是长时间没用几乎是重新学习。代码是在导师之前一篇论文中用的一套代码上写的，matlab的代码基本没用框架，求梯度、近端梯度（Proximal Gradient, PG））迭代训练、收敛判断、参数选择（AIC、Crossvalidation）、生成模拟数据&hellip;一个一个模块纯靠手码出来的，这部分感觉收获很大，比起用框架，更清楚地了解了每一个模块的详细逻辑。实验在模拟实验跑得差不多之后，再上真实数据。不过因为调参没经验，很长一段时间不得要领，调实验这一阶段耗时较久。</p></li>
+
+<li><p>实验调得差不多就开始写论文了，用的mactex+sublime套一个IEEE的框架，从Method部分开始写起。一开始还担心参考文献太少，后来写到related work部分，因为要理顺思路，自然而然看了很多文章，参考文献渐渐多了起来。实验部分除了本来的几个图和表，导师给了两个matlab的可视化工具让我自己研究，一个是<a href="https://www.nitrc.org/projects/bnv/" rel="nofollow noreferrer" target="_blank">BrainNet Viewer</a>（重建脑部ROI 3D连接图的，因为论文做的是脑连接体相关的），一个是<a href="https://github.com/paul-kassebaum-mathworks/circularGraph" rel="nofollow noreferrer" target="_blank">CircularGraph</a>（描述连接、相关、小世界网络）。第二个工具因为还不能完全满足理想环形图外观，还额外研究了一下怎么用matlab画圆环、打标注。</p></li>
+
+<li><p>调实验和写论文后期基本是重叠的，论文也是改到最后一刻，直到交稿还有不满意的地方。另外值得一提的是，投的会议截稿时间不是UTC，而是会议当地的时间，跟我们差了19个时区，一开始还弄错了，后来发现还有时间😂。截稿前论文可以重复提交，以最后一次提交为准。截稿后就是漫长等待了。</p></li>
+</ol>
+
+<p>还有一周多的时间开学，开学之后会接触新的领域。新的学期要保持更博的节奏，有时间多刷刷题，看看书，珍惜最后在学校的一年半时光吧。加油！</p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Aileen.Xie </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://aileenxie.github.io/2019/09essay/>https://aileenxie.github.io/2019/09essay/</span>
+            </p>
+            
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="https://aileenxie.github.io/tags/%E6%9D%82%E8%B0%88/">
+                    #杂谈</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="https://aileenxie.github.io">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://aileenxie.github.io/2019/08style2paints/" class="prev" rel="prev" title="AI线稿上色——Style2paints"><i class="iconfont icon-left"></i>&nbsp;AI线稿上色——Style2paints</a>
+         
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2017 - 2019</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            
+            <span class="author" itemprop="copyrightHolder">
+                <a href="https://aileenxie.github.io">Aileen.Xie</a> 
+            </span> 
+            <span id="busuanzi_container_site_pv" style='display:none'>
+                |  本站访问量：<span id="busuanzi_value_site_pv"></span>次
+            </span>
+            <span id="busuanzi_container_site_uv" style='display:none'>
+                |  您是本站第 <span id="busuanzi_value_site_uv"></span> 位访问者
+            </span>
+         
+
+         
+		  
+    </div>
+
+
+
+
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

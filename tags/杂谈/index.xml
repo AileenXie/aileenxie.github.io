@@ -6,10 +6,28 @@
     <description>Recent content in 杂谈 on Aileen&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ch-cn</language>
-    <lastBuildDate>Fri, 05 Oct 2018 13:01:24 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 24 Aug 2019 12:56:56 +0800</lastBuildDate>
     
 	<atom:link href="https://aileenxie.github.io/tags/%E6%9D%82%E8%B0%88/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>研一总结</title>
+      <link>https://aileenxie.github.io/2019/09essay/</link>
+      <pubDate>Sat, 24 Aug 2019 12:56:56 +0800</pubDate>
+      
+      <guid>https://aileenxie.github.io/2019/09essay/</guid>
+      <description>忙完了论文，在暑假的最后两周才真正开始了暑期模式。
+研一这一年上完了所有课程从0开始完成了一篇论文并投稿，成长挺大的。博客空了很久没更，趁这两周把之前的零碎知识点整理一下放上博客。这篇作为研一一年的学习记录。
+课程 除了统修的政治课（中特社、辩证法）和英语课，专业相关课程及结课作业统计如下：
+ 【算法设计与分析】：考试 【大规模非线性规划】：论文汇报Faster Derivative-Free Stochastic Algorithm for Shared Memory Machines新的异步随机零阶算法（AsySZO+）； 【图形图像处理技术】：论文汇报Taskonomy: Disentangling Task Transfer Learning； 【数据管理系统实现】：论文汇报Impala: A Modern, Open-Source SQL Engine for Hadoop，论文复现Adaptive Cardinality Estimation自适应查询优化aqo；
+ 【机器学习】：论文汇报Snap ML: A Hierarchical Framework for Machine Learning；
+ 【专业外语】：论文汇报——密码学新方向；
+ 【云计算安全】：论文汇报Multi-Kernel, Deep Neural Network and Hybrid Models for Privacy Preserving Machine Learning用于隐私保护机器学习的多核，深层神经网络和混合模型；
+ 【计算机视觉】：深度估计方向论文总结，图像检测方向综述，论文复现 RetinaNet。
+  论文 论文研究的是传统机器学习的特征工程 &amp;amp; 优化问题，记录一下整个过程。
+ 最初参考的文献是以下四篇:①Statistical Estimation and Testing via the Sorted l1 Norm, ②Group SLOPE - adaptive selection of groups of predictors, ③Discriminative Structured Feature Engineering for Macroscale Brain Connectomes, ④Support Matrix Machines。涉及到统计学的假设检验、多重假设检验矫正（BHq过程），这些知识点我在之前的博客有整理过。前两篇论文则是借鉴这些统计学方法，提出了针对线性回归的新的机器学习方法。后两篇则是针对矩阵数据的结构性特征工程方法。在反复研读这几篇文章之后，我对其中的思路和推导都有一定了解后，又陆续看了更多的相关论文，加深认识，进而提出了新的方法，并对该方法的解析解进行了推导。</description>
+    </item>
     
     <item>
       <title>New Start</title>
@@ -20,7 +38,7 @@
       <description>重新回到学校一个月，第一个国庆避开人山人海，在上海安安心心休息了几天。
 之前工作的时候一直想要搭一个博客，把每天零零碎碎记录的笔记整理出来放在一起，但一直没能着手开始行动（大概是又忙又懒。。）直到笔记随手记了一大堆，越来越不想整理。
 回到学校自由时间多了很多，又在学习新东西，想着这是个好的时机开始写博客，终于在这个国庆开始了这项活动。
-关于笔记  最开始一年我用的ubuntu系统，被安利了cherrytree，试用了一下，马上被这种可以“遍地开花”随手快速记录的树状结构笔记软件所吸引。 那年我刚工作，又是从通信跨到互联网行业，很多东西对我来说都是新知识：数据库(Mysql/Postgres)、编程语言（JAVA/Groov/Python)、测试框架（Spock/Selenium/Appium/rf/jmeter)、版本管理系统（Git）、持续集成（Gradle/Jenkins）包括Linux系统本身&amp;hellip; 用cherrytree记了相当多的笔记，这一年也是我收获颇丰的一年。 第二年换了macOS系统，cherrytree用不了（用模拟器打开页面很丑），先后换了有道云笔记，为知笔记，最后定格在了bootsnote（页面简洁好看，支持markdown和snippet）。又陆续做了关于ruby系测试框架（Cucumber/Capybara）、mac系统等的笔记。直到开学，我作为测试开发的工作告一段落。笔记也就此暂停。  关于博客  终于展开新的研究生生活，投身于机器学习、深度学习和计算机视觉方向研究。有种可以大展拳脚的感觉略兴奋。从开学前到现在，看过了CS229吴恩达的机器学习基础课程，CS231n斯坦福卷积神经网络课程，学了pytorch框架，开始看导师给的paper。开始看的很细致做的手写的笔记，现在想来还是要有个地方集中放置一下，就从现在开始重新规划一下之后的笔记。预计会放一些paper的阅读笔记，学习的知识点，或许是任何想记下来的东西吧hhh&amp;hellip;  七天假期马上要过去啦，搭好了博客算是一个很好的开始，希望能我好好充实这个博客，记录整个研究生阶段以及未来和以后更远更远的学习旅程，(๑•̀ㅂ•́)و✧加油！！</description>
+关于笔记  最开始一年我用的ubuntu系统，被安利了cherrytree，试用了一下，马上被这种可以“遍地开花”随手快速记录的树状结构笔记软件所吸引。 那年我刚工作，又是从通信跨到互联网行业，很多东西对我来说都是新知识：数据库(Mysql/Postgres)、编程语言（JAVA/Groov/Python)、测试框架（Spock/Selenium/Appium/rf/jmeter)、版本管理系统（Git）、持续集成（Gradle/Jenkins）包括Linux系统本身&amp;hellip; 用cherrytree记了相当多的笔记，这一年也是我收获颇丰的一年。 第二年换了macOS系统，cherrytree用不了（用模拟器打开页面很丑），先后换了有道云笔记，为知笔记，最后定格在了bootsnote（页面简洁好看，支持markdown和snippet）。又陆续做了关于ruby系测试框架（Cucumber/Capybara）、mac系统等的笔记。直到开学，我作为测试开发的工作告一段落。笔记也就此暂停。  关于博客  终于展开新的研究生生活，投身于机器学习、深度学习和计算机视觉方向研究。有种可以大展拳脚的感觉略兴奋。从开学前到现在，看过了CS229吴恩达的机器学习基础课程，CS231n斯坦福卷积神经网络课程，学了pytorch框架，开始看导师给的paper。最初看的很细致，还做了手写的笔记，现在想来还是要有个地方集中放置一下，就从现在开始重新规划一下之后的笔记。预计会放一些paper的阅读笔记，学习的知识点，或许是任何想记下来的东西吧hhh&amp;hellip;  七天假期马上要过去啦，搭好了博客算是一个很好的开始，希望能我好好充实这个博客，记录整个研究生阶段以及未来和以后更远更远的学习旅程，(๑•̀ㅂ•́)و✧加油！！</description>
     </item>
     
   </channel>
