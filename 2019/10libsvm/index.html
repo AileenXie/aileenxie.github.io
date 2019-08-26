@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="ch-cn">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="Aileen.Xie">
+  
+  
+  
+  <link rel="prev" href="https://aileenxie.github.io/2019/09essay/" />
+  
+  <link rel="canonical" href="https://aileenxie.github.io/2019/10libsvm/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel='shortcut icon' type='image/x-icon' href='/favicon.ico' />
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           Matlab下Libsvm安装使用 | Aileen&#39;s Blog
+       
+  </title>
+  <meta name="title" content="Matlab下Libsvm安装使用 | Aileen&#39;s Blog">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https://aileenxie.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "Matlab下Libsvm安装使用",
+    "headline" : "Matlab下Libsvm安装使用",
+    "description" : "下载 从github上拉取源码到你想放的目录（我放在matlab工作目录/toolbox/），源码地址：GitHub - cjlin1/libsvm。
+编译 文件windows/目录下有预先编译好的libsvmread.mexw64、libsvmwrite.mexw64、svmtrain.mexw64、svmpredict.mexw64文件。如果是windows 64位下的matlab可以直接使用这些编译文件。
+我的是mac版的matlab,需要重新编译相应的.mexmaci64文件，windows32的则是编译出.mexw32文件。具体来说：
+ 先确保电脑装了C/C++编译器，我电脑本身装了Xcode自带Clang，不需要再装编译器了，没装的随便装个编译器再进行下面的步骤。
+ 在Matlab中进入Libsvm根目录下的matlab目录（如:toolbox/libsvm-3.23/matlab），在命令窗口输入
+mex –setup  Matlab会提示你选择编译mex文件的C/C++编译器，就选择一个已安装的编译器，如Xcode with Clang。之后Matlab会提示确认选择的编译器，输入y进行确认。  输入以下命令进行编译:
+make  编译成功后，当前目录下会出现4个后缀为mexmaci64的文件。（tips:Matlab或VC版本过低可能会导致编译失败，建议使用最新的版本）。
+ 把编译出的这4个文件加入matlab的路径以便之后的调用。
+  重命名 编译好后，由于产生的文件svmtrain和svmpredict与Matlab中自带有SVM的工具箱中的函数同名，为了避免调用不了，可以把这两个文件的编译文件重命名一下。我是重命名成了libsvmtrain和libsvmpredict，然后用新的名字来调用函数即可。
+基本使用 libsvmread函数 用来读取以LIBSVM格式存储的数据文件。libsvm包根目录里有个示例数据文件heart-scale。
+[label_vector, instance_matrix] = libsvmread(&quot;heart-scale.txt&quot;);  函数输出：label_vector是数据标签，instance_matrix是数据矩阵。
+libsvmwrite函数 用来把matlab数据矩阵和标签存成LIBSVM格式数据文件data.txt:
+libsvmwrite(&quot;data.txt&quot;, label_vector, instance_matrix]  libsvmtrain函数 用来训练SVM分类器模型，具体参数如下：
+ 【输入】数据标签+数据矩阵+Parameters: 一个5 x 1的向量，从上到下依次表示：
+　-s SVM类型（默认0）:
+　0 &ndash; C-SVC,
+　1 &ndash; nu-SVC,
+　2 &ndash; one-class SVM,
+　3 &ndash; epsilon-SVR",
+    "inLanguage" : "ch-cn",
+    "author" : "Aileen.Xie",
+    "creator" : "Aileen.Xie",
+    "publisher": "Aileen.Xie",
+    "accountablePerson" : "Aileen.Xie",
+    "copyrightHolder" : "Aileen.Xie",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-08-26 23:34:14 &#43;0800 CST",
+    "dateModified" : "2019-08-26 23:34:14 &#43;0800 CST",
+    "url" : "https://aileenxie.github.io/2019/10libsvm/",
+    "wordCount" : "177",
+    "keywords" : [ "机器学习", "Aileen&#39;s Blog"]
+}
+</script>
+
+</head>
+
+  
+
+
+  
+  <script async src="//cdn.busuanzi.ibruce.info/cdn/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+  <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  <script>
+      $(document).ready(function() {
+          var int = setInterval(fixCount, 50);
+          var busuanziSiteOffset =  300 
+          var busuanziUvOffset =  100 
+          var busuanziPageOffset =  50 
+          function fixCount() {
+              if ($("#busuanzi_container_site_pv").css("display") != "none") {
+                  clearInterval(int);
+                  $("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html()) + busuanziSiteOffset);
+                  $("#busuanzi_value_site_uv").html(parseInt($("#busuanzi_value_site_uv").html()) + busuanziUvOffset);
+                  $("#busuanzi_value_page_pv").html(parseInt($("#busuanzi_value_page_pv").html()) + busuanziPageOffset);
+              }
+          }
+      });
+  </script>
+  
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://aileenxie.github.io">Aileen&#39;s Blog</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://aileenxie.github.io">Aileen&#39;s Blog</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Matlab下Libsvm安装使用</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="https://aileenxie.github.io" rel="author">Aileen.Xie</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2019-08-26 itemprop="datePublished">August 26, 2019</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="https://aileenxie.github.io/categories/%E5%AD%A6%E4%B9%A0-%E7%AC%94%E8%AE%B0/"> 学习 · 笔记 </a>
+                        
+                </span>
+                <span id="busuanzi_container_page_pv" style='display:none'>
+                  | 本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+                </span>
+                
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+            
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          
+
+<h1 id="下载">下载</h1>
+
+<p>从github上拉取源码到你想放的目录（我放在matlab工作目录/toolbox/），源码地址：<a href="https://github.com/cjlin1/libsvm" rel="nofollow noreferrer" target="_blank">GitHub - cjlin1/libsvm</a>。</p>
+
+<h1 id="编译">编译</h1>
+
+<p>文件windows/目录下有预先编译好的<strong>libsvmread.mexw64</strong>、<strong>libsvmwrite.mexw64</strong>、<strong>svmtrain.mexw64</strong>、<strong>svmpredict.mexw64</strong>文件。如果是windows 64位下的matlab可以直接使用这些编译文件。</p>
+
+<p>我的是mac版的matlab,需要重新编译相应的<code>.mexmaci64</code>文件，windows32的则是编译出<code>.mexw32</code>文件。具体来说：</p>
+
+<ol>
+<li><p>先确保电脑装了C/C++编译器，我电脑本身装了Xcode自带Clang，不需要再装编译器了，没装的随便装个编译器再进行下面的步骤。</p></li>
+
+<li><p>在Matlab中进入Libsvm根目录下的matlab目录（如:toolbox/libsvm-3.23/matlab），在命令窗口输入</p>
+
+<pre><code class="language-c">mex –setup
+</code></pre></li>
+
+<li><p>Matlab会提示你选择编译mex文件的C/C++编译器，就选择一个已安装的编译器，如Xcode with Clang。之后Matlab会提示确认选择的编译器，输入y进行确认。
+<figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://ww1.sinaimg.cn/large/006y8mN6gy1g6cxnvunduj316o0dctcx.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p></li>
+
+<li><p>输入以下命令进行编译:</p>
+
+<pre><code class="language-c">make
+</code></pre>
+
+<p>编译成功后，当前目录下会出现4个后缀为mexmaci64的文件。（tips:Matlab或VC版本过低可能会导致编译失败，建议使用最新的版本）。</p></li>
+
+<li><p>把编译出的这4个文件加入matlab的路径以便之后的调用。</p></li>
+</ol>
+
+<h1 id="重命名">重命名</h1>
+
+<p>编译好后，由于产生的文件svmtrain和svmpredict与Matlab中自带有SVM的工具箱中的函数同名，为了避免调用不了，可以把这两个文件的编译文件重命名一下。我是重命名成了libsvmtrain和libsvmpredict，然后用新的名字来调用函数即可。</p>
+
+<h1 id="基本使用">基本使用</h1>
+
+<h2 id="libsvmread函数">libsvmread函数</h2>
+
+<p>用来读取以LIBSVM格式存储的数据文件。libsvm包根目录里有个示例数据文件<code>heart-scale</code>。</p>
+
+<pre><code class="language-c">[label_vector, instance_matrix] = libsvmread(&quot;heart-scale.txt&quot;);
+</code></pre>
+
+<p>函数输出：<code>label_vector</code>是数据标签，<code>instance_matrix</code>是数据矩阵。</p>
+
+<h2 id="libsvmwrite函数">libsvmwrite函数</h2>
+
+<p>用来把matlab数据矩阵和标签存成LIBSVM格式数据文件data.txt:</p>
+
+<pre><code class="language-c">libsvmwrite(&quot;data.txt&quot;, label_vector, instance_matrix]
+</code></pre>
+
+<h2 id="libsvmtrain函数">libsvmtrain函数</h2>
+
+<p>用来训练SVM分类器模型，具体参数如下：</p>
+
+<blockquote>
+<p>【输入】数据标签+数据矩阵+<strong>Parameters</strong>: 一个5 x 1的向量，从上到下依次表示：</p>
+
+<p>　　　-s SVM类型（默认0）:</p>
+
+<p>　　　　　　　0 &ndash; C-SVC,</p>
+
+<p>　　　　　　　1 &ndash; nu-SVC,</p>
+
+<p>　　　　　　　2 &ndash; one-class SVM,</p>
+
+<p>　　　　　　　3 &ndash; epsilon-SVR</p>
+
+<p>　　　-t 核函数类型（默认2）:　　</p>
+
+<p>　　　　　　　0 &ndash; linear: u&rsquo;*v,</p>
+
+<p>　　　　　　　1 &ndash; polynomial: (gamma*u&rsquo;*v + coef0)^degree,</p>
+
+<p>　　　　　　　2 &ndash; radial basis function: exp(-gamma*|u-v|^2),</p>
+
+<p>　　　　　　　3 &ndash; sigmoid: tanh(gamma*u&rsquo;*v + coef0)</p>
+
+<p>　　　-d 核函数中的degree设置(针对多项式核函数)(默认3)；</p>
+
+<p>　　　-g 核函数中的r(gamma）函数设置(针对多项式/rbf/sigmoid核函数) (默认类别数目的倒数)；</p>
+
+<p>　　　-r 核函数中的coef0设置(针对多项式/sigmoid核函数)(默认0)</p>
+</blockquote>
+
+<hr />
+
+<blockquote>
+<p>【输出】<strong><em>训练出来的model</em></strong>：包含11个字段的struct</p>
+
+<p>　　　　Parameters:5x1参数向量（如上）</p>
+
+<p>　　　　nr_class: 表示数据集中有多少类别，比如二分类时这个值即为2。</p>
+
+<p>　　　　totalSV: 表示支持向量的总数。</p>
+
+<p>　　　　rho: 决策函数wx+b中的常数项的相反数（-b）。</p>
+
+<p>　　　　Label: 表示数据集中类别的标签，比如二分类常见的1和-1。</p>
+
+<p>　　　　ProbA: 使用-b参数时用于概率估计的数值，否则为空。</p>
+
+<p>　　　　ProbB: 使用-b参数时用于概率估计的数值，否则为空。</p>
+
+<p>　　　　nSV: 表示每类样本的支持向量的数目，和Label的类别标签对应。如Label=[1; -1],nSV=[63; 67]，则标签为1的样本有63个支持向量，标签为-1的有67个。</p>
+
+<p>　　　　sv_coef: 表示每个支持向量在决策函数中的系数。</p>
+
+<p>　　　　SVs: 表示所有的支持向量，如果特征是n维的，支持向量一共有m个，则为m x n的稀疏矩阵。</p>
+</blockquote>
+
+<h2 id="libsvmpredict函数">libsvmpredict函数</h2>
+
+<blockquote>
+<p>【输入】数据标签+数据矩阵+model</p>
+</blockquote>
+
+<hr />
+
+<blockquote>
+<p>【输出】<strong><em>返回值</em></strong></p>
+
+<p>　　　　predicted_label：第一个返回值，表示样本的预测类标号。</p>
+
+<p>　　　　accuracy：第二个返回值，一个3 x 1的数组，表示分类的<code>正确率</code>、<code>回归的均方根误差</code>、<code>回归的平方相关系数</code>。</p>
+
+<p>　　　　decision_values/prob_estimates：第三个返回值，一个矩阵包含<code>决策的值</code>或者<code>概率估计</code>。对于n个预测样本、k类的问题，如果指定“-b 1”参数，则n x k的矩阵，每一行表示这个样本分别属于每一个类别的概率；如果没有指定“-b 1”参数，则为n x k*(k-1)/2的矩阵，每一行表示k(k-1)/2个二分类SVM的预测结果。</p>
+</blockquote>
+
+<h1 id="示例">示例</h1>
+
+<p>用libsvm包根目录里的示例数据文件<code>heart-scale</code>为例，运行以下脚本。</p>
+
+<pre><code class="language-c">[heart_scale_label, heart_scale_inst] = libsvmread('heart_scale');
+model = libsvmtrain(heart_scale_label, heart_scale_inst, '-c 1 -g 0.07');
+[predict_label, accuracy, dec_values] = libsvmpredict(heart_scale_label, heart_scale_inst, model);
+</code></pre>
+
+<p>得到训练模型：
+<figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://ww4.sinaimg.cn/large/006y8mN6gy1g6dho1rj7jj30km0fqac8.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+
+<p>预测结果：
+<figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://ww1.sinaimg.cn/large/006y8mN6gy1g6di1ta75vj30jo08040j.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+
+<pre><code class="language-matlab">*
+optimization finished, #iter = 134
+nu = 0.433785
+obj = -101.855060, rho = 0.426412
+nSV = 130, nBSV = 107
+Total nSV = 130
+Accuracy = 86.6667% (234/270) (classification)
+</code></pre>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Aileen.Xie </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://aileenxie.github.io/2019/10libsvm/>https://aileenxie.github.io/2019/10libsvm/</span>
+            </p>
+            
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="https://aileenxie.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                    #机器学习</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="https://aileenxie.github.io">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://aileenxie.github.io/2019/09essay/" class="prev" rel="prev" title="研一总结"><i class="iconfont icon-left"></i>&nbsp;研一总结</a>
+         
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2017 - 2019</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            
+            <span class="author" itemprop="copyrightHolder">
+                <a href="https://aileenxie.github.io">Aileen.Xie</a> 
+            </span> 
+            <span id="busuanzi_container_site_pv" style='display:none'>
+                |  本站访问量：<span id="busuanzi_value_site_pv"></span>次
+            </span>
+            <span id="busuanzi_container_site_uv" style='display:none'>
+                |  您是本站第 <span id="busuanzi_value_site_uv"></span> 位访问者
+            </span>
+         
+
+         
+		  
+    </div>
+
+
+
+
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

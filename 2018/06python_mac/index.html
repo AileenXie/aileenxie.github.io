@@ -194,41 +194,41 @@ python3 -m ensurepip --default-pip  pip的使用详见相关参考文档
 <ol>
 <li><p>应先安装C编译器。最快的方式是运行</p>
 
-<pre><code>xcode-select --install 
+<pre><code class="language-bash">xcode-select --install 
 </code></pre>
 
 <p>来安装Xcode命令行工具。</p></li>
 
 <li><p>安装一个包管理工具Homebrew</p>
 
-<pre><code>$ /usr/bin/ruby -e &quot; $ (curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot; 
+<pre><code class="language-bash">$ /usr/bin/ruby -e &quot; $ (curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot; 
 </code></pre></li>
 
 <li><p>插入PATH（在~/.profile文件末尾加）</p>
 
-<pre><code>export PATH=/usr/local/bin:/usr/local/sbin:$PATH
+<pre><code class="language-bash">export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 </code></pre></li>
 
 <li><p>(source .profile 一下使之生效)</p></li>
 
 <li><p>安装Python3</p>
 
-<pre><code>brew install python
+<pre><code class="language-bash">brew install python
 </code></pre></li>
 
 <li><p>查看</p>
 
-<pre><code>python3 --version
+<pre><code class="language-bash">python3 --version
 </code></pre></li>
 
 <li><p>确定pip是否安装</p>
 
-<pre><code>pip3 --version
+<pre><code class="language-bash">pip3 --version
 </code></pre>
 
 <p>若未安装</p>
 
-<pre><code>python3 -m ensurepip --default-pip
+<pre><code class="language-bash">python3 -m ensurepip --default-pip
 </code></pre>
 
 <p>pip的使用详见<a href="https://packaging.python.org/tutorials/installing-packages/" rel="nofollow noreferrer" target="_blank">相关参考文档</a></p></li>
