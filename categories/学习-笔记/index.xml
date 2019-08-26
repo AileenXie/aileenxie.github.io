@@ -27,26 +27,6 @@ Skim配置 打开Skim后，Command+,或Skim &amp;gt; 选项（performance）&amp
     </item>
     
     <item>
-      <title>Mac下安装Python3</title>
-      <link>https://aileenxie.github.io/2018/06python_mac/</link>
-      <pubDate>Mon, 19 Nov 2018 20:00:13 +0800</pubDate>
-      
-      <guid>https://aileenxie.github.io/2018/06python_mac/</guid>
-      <description> -- 简单记录mac下Python3安装步骤。
-安装Python3  应先安装C编译器。最快的方式是运行
-xcode-select --install  来安装Xcode命令行工具。
- 安装一个包管理工具Homebrew
-$ /usr/bin/ruby -e &amp;quot; $ (curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&amp;quot;  插入PATH（在~/.profile文件末尾加）
-export PATH=/usr/local/bin:/usr/local/sbin:$PATH  (source .profile 一下使之生效)
- 安装Python3
-brew install python  查看
-python3 --version  确定pip是否安装
-pip3 --version  若未安装
-python3 -m ensurepip --default-pip  pip的使用详见相关参考文档
-  </description>
-    </item>
-    
-    <item>
       <title>FDR与BH过程</title>
       <link>https://aileenxie.github.io/2018/05fdr/</link>
       <pubDate>Mon, 19 Nov 2018 19:59:46 +0800</pubDate>
@@ -142,32 +122,6 @@ CSDN-Proximal Gradient Method近端梯度算法
  本文讨论的即是“规则项Ω(w)”； 一般是模型复杂度的单调递增函数，模型越复杂，规则化值就越大。比如，规则化项可以是模型参数向量的范数； 论文中常见的都聚集在：零范数、一范数、二范数、迹范数、Frobenius范数和核范数等等；    L0范数与L1范数 L0范数 L0范数（||W||0）是指向量中非0的元素的个数。如果我们用L0范数来规则化一个参数矩阵W的话，就是希望W的大部分元素都是0。换句话说，让参数W是稀疏的。
 L1范数 L1范数（||W||1）是指向量中各个元素绝对值之和，也有个美称叫“稀疏规则算子”（Lasso regularization）。L1范数会使权值稀疏，它是L0范数的最优凸近似。
  Tips: 任何的规则化算子，如果他在Wi=0的地方不可微，并且可以分解为一个“求和”的形式，那么这个规则化算子就可以实现稀疏。这说是这么说，W的L1范数是绝对值，|w|在w=0处是不可微。  为什么不用L0，而用L1？  是因为L0范数很难优化求解（NP难问题）； 是L1范数是L0范数的最优凸近似，而且它比L0范数要容易优化求解。 总结：L1范数和L0范数可以实现稀疏，L1因具有比L0更好的优化求解特性而被广泛应用。  为什么要稀疏？  特征选择(Feature Selection)：去掉没有信息的特征，及将对应权重置0，防止无用特征对测试新样本的干扰； 可解释性(Interpretability)：如最初有1000个特征，回归模型：y=w1*x1+w2*x2+…+w1000*x1000+b，通过学习，如果最后学习到只有5个非零的wi，那么就可以说影响患病率的主要就是这5个特征，医生就好分析多了。  L2范数 L2范数（||W||2）是指向量各元素的平方和然后求平方根。它有两个美称，在回归里面，有人把有它的回归叫“岭回归”（Ridge Regression），有人也叫它“权值衰减”（weight decay）它的强大功效是改善机器学习里面一个非常重要的问题：过拟合。与L1范数不同，它不会让它等于0，而是接近于0。</description>
-    </item>
-    
-    <item>
-      <title>Hugo快速搭建博客</title>
-      <link>https://aileenxie.github.io/2018/01hugoblog/</link>
-      <pubDate>Fri, 05 Oct 2018 21:52:20 +0800</pubDate>
-      
-      <guid>https://aileenxie.github.io/2018/01hugoblog/</guid>
-      <description>简单记录一下mac下用Hugo搭建博客的过程，以便日后查阅。感谢renyijiu的安利和帮助。
-Hugo  一个用Go语言写的静态网站生成器 能把markdown转变成静态网页 内置web服务期，便于本地草稿调试  安装 Hugo  直接用Homebrew安装
-brew install hugo  完成之后查看版本，我目前装的是0.49
-hugo version  创建一个新站点 到你的目录下找个喜欢的地方执行语句
-hugo new site myblog   会在当前目录生成一个叫“myblog”的目录，里面包含若干文件夹和一个config.toml文件:
-▸ archetypes/
-▸ content/ -&amp;gt;你写的markdown文章
-▸ layouts/ -&amp;gt;网站的模板文件
-▸ static/ -&amp;gt;放的是一些图片、css、js等资源
-▸ data/
-▸ themes/ -&amp;gt;放的是你之后添加的主题
-config.toml -&amp;gt;网站的配置文件
-添加主题  进入目录页
-cd myblog  初始化为git项目，方便之后放入github或者任何仓库进行版本管理
-git init  添加主题, 以LeaveIt为例
-git submodule add https://github.com/liuzc/LeaveIt.git themes/LeaveIt  之后会在themes/目录下看到你添加的主题。
- 修改配置文件(直接打开config.toml文件修改也是一样的)
-echo &#39;theme = &amp;quot;LeaveIt&amp;quot;&#39; &amp;gt;&amp;gt; config.</description>
     </item>
     
   </channel>
