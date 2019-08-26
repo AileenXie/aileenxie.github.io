@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>工具 · 教程 on Aileen&#39;s Blog</title>
-    <link>https://aileenxie.github.io/categories/%E5%B7%A5%E5%85%B7-%E6%95%99%E7%A8%8B/</link>
-    <description>Recent content in 工具 · 教程 on Aileen&#39;s Blog</description>
+    <title>matlab on Aileen&#39;s Blog</title>
+    <link>https://aileenxie.github.io/tags/matlab/</link>
+    <description>Recent content in matlab on Aileen&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ch-cn</language>
     <lastBuildDate>Mon, 26 Aug 2019 23:34:14 +0800</lastBuildDate>
     
-	<atom:link href="https://aileenxie.github.io/categories/%E5%B7%A5%E5%85%B7-%E6%95%99%E7%A8%8B/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://aileenxie.github.io/tags/matlab/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -36,52 +36,6 @@ libsvmwrite(&amp;quot;data.txt&amp;quot;, label_vector, instance_matrix]  libsvm
 　1 &amp;ndash; nu-SVC,
 　2 &amp;ndash; one-class SVM,
 　3 &amp;ndash; epsilon-SVR</description>
-    </item>
-    
-    <item>
-      <title>Mac下安装Python3</title>
-      <link>https://aileenxie.github.io/2018/06python_mac/</link>
-      <pubDate>Mon, 19 Nov 2018 20:00:13 +0800</pubDate>
-      
-      <guid>https://aileenxie.github.io/2018/06python_mac/</guid>
-      <description> -- 简单记录mac下Python3安装步骤。
-安装Python3  应先安装C编译器。最快的方式是运行
-xcode-select --install  来安装Xcode命令行工具。
- 安装一个包管理工具Homebrew
-$ /usr/bin/ruby -e &amp;quot; $ (curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&amp;quot;  插入PATH（在~/.profile文件末尾加）
-export PATH=/usr/local/bin:/usr/local/sbin:$PATH  (source .profile 一下使之生效)
- 安装Python3
-brew install python  查看
-python3 --version  确定pip是否安装
-pip3 --version  若未安装
-python3 -m ensurepip --default-pip  pip的使用详见相关参考文档
-  </description>
-    </item>
-    
-    <item>
-      <title>Hugo快速搭建博客</title>
-      <link>https://aileenxie.github.io/2018/01hugoblog/</link>
-      <pubDate>Fri, 05 Oct 2018 21:52:20 +0800</pubDate>
-      
-      <guid>https://aileenxie.github.io/2018/01hugoblog/</guid>
-      <description>简单记录一下mac下用Hugo搭建博客的过程，以便日后查阅。感谢renyijiu的安利和帮助。
-Hugo  一个用Go语言写的静态网站生成器 能把markdown转变成静态网页 内置web服务期，便于本地草稿调试  安装 Hugo  直接用Homebrew安装
-brew install hugo  完成之后查看版本，我目前装的是0.49
-hugo version  创建一个新站点 到你的目录下找个喜欢的地方执行语句
-hugo new site myblog   会在当前目录生成一个叫“myblog”的目录，里面包含若干文件夹和一个config.toml文件:
-▸ archetypes/
-▸ content/ -&amp;gt;你写的markdown文章
-▸ layouts/ -&amp;gt;网站的模板文件
-▸ static/ -&amp;gt;放的是一些图片、css、js等资源
-▸ data/
-▸ themes/ -&amp;gt;放的是你之后添加的主题
-config.toml -&amp;gt;网站的配置文件
-添加主题  进入目录页
-cd myblog  初始化为git项目，方便之后放入github或者任何仓库进行版本管理
-git init  添加主题, 以LeaveIt为例
-git submodule add https://github.com/liuzc/LeaveIt.git themes/LeaveIt  之后会在themes/目录下看到你添加的主题。
- 修改配置文件(直接打开config.toml文件修改也是一样的)
-echo &#39;theme = &amp;quot;LeaveIt&amp;quot;&#39; &amp;gt;&amp;gt; config.</description>
     </item>
     
   </channel>

@@ -169,18 +169,6 @@
     </url>
   
     <url>
-      <loc>https://aileenxie.github.io/tags/mactex/</loc>
-      
-      <lastmod>2018-11-19T20:00:13+08:00</lastmod>
-      
-      
-      
-      <priority>0</priority>
-      
-      
-    </url>
-  
-    <url>
       <loc>https://aileenxie.github.io/tags/paper/</loc>
       
       <lastmod>2018-11-19T20:00:38+08:00</lastmod>
@@ -205,9 +193,45 @@
     </url>
   
     <url>
+      <loc>https://aileenxie.github.io/tags/python3/</loc>
+      
+      <lastmod>2018-11-19T20:00:13+08:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
       <loc>https://aileenxie.github.io/tags/</loc>
       
       <lastmod>2018-10-05T21:52:20+08:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://aileenxie.github.io/tags/libsvm/</loc>
+      
+      <lastmod>2019-08-26T23:34:14+08:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://aileenxie.github.io/tags/matlab/</loc>
+      
+      <lastmod>2019-08-26T23:34:14+08:00</lastmod>
       
       
       
@@ -243,7 +267,7 @@
     <url>
       <loc>https://aileenxie.github.io/categories/%E5%AD%A6%E4%B9%A0-%E7%AC%94%E8%AE%B0/</loc>
       
-      <lastmod>2019-08-26T23:34:14+08:00</lastmod>
+      <lastmod>2018-11-19T20:00:38+08:00</lastmod>
       
       
       
@@ -255,7 +279,7 @@
     <url>
       <loc>https://aileenxie.github.io/categories/%E5%B7%A5%E5%85%B7-%E6%95%99%E7%A8%8B/</loc>
       
-      <lastmod>2018-11-19T20:00:13+08:00</lastmod>
+      <lastmod>2019-08-26T23:34:14+08:00</lastmod>
       
       
       
@@ -267,7 +291,7 @@
     <url>
       <loc>https://aileenxie.github.io/tags/%E6%95%99%E7%A8%8B/</loc>
       
-      <lastmod>2019-01-31T21:03:40+08:00</lastmod>
+      <lastmod>2019-08-26T23:34:14+08:00</lastmod>
       
       
       
@@ -279,7 +303,7 @@
     <url>
       <loc>https://aileenxie.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</loc>
       
-      <lastmod>2019-08-26T23:34:14+08:00</lastmod>
+      <lastmod>2018-10-19T15:07:13+08:00</lastmod>
       
       
       

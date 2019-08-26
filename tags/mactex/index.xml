@@ -1,38 +1,23 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Mactex on Aileen&#39;s Blog</title>
+    <title>MacTex on Aileen&#39;s Blog</title>
     <link>https://aileenxie.github.io/tags/mactex/</link>
-    <description>Recent content in Mactex on Aileen&#39;s Blog</description>
+    <description>Recent content in MacTex on Aileen&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ch-cn</language>
-    <lastBuildDate>Mon, 19 Nov 2018 20:00:13 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 19 Nov 2018 20:00:38 +0800</lastBuildDate>
     
 	<atom:link href="https://aileenxie.github.io/tags/mactex/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Mac下安装Python3</title>
-      <link>https://aileenxie.github.io/2018/06python_mac/</link>
-      <pubDate>Mon, 19 Nov 2018 20:00:13 +0800</pubDate>
+      <title>论文书写工具准备——MacTeX</title>
+      <link>https://aileenxie.github.io/2018/07use_mactex/</link>
+      <pubDate>Mon, 19 Nov 2018 20:00:38 +0800</pubDate>
       
-      <guid>https://aileenxie.github.io/2018/06python_mac/</guid>
-      <description> -- 简单记录mac下Python3安装步骤。
-安装Python3  应先安装C编译器。最快的方式是运行
-xcode-select --install  来安装Xcode命令行工具。
- 安装一个包管理工具Homebrew
-$ /usr/bin/ruby -e &amp;quot; $ (curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&amp;quot;  插入PATH（在~/.profile文件末尾加）
-export PATH=/usr/local/bin:/usr/local/sbin:$PATH  (source .profile 一下使之生效)
- 安装Python3
-brew install python  查看
-python3 --version  确定pip是否安装
-pip3 --version  若未安装
-python3 -m ensurepip --default-pip  pip的使用详见相关参考文档
-  </description>
-    </item>
-    
-  </channel>
-</rss>�PS或者PDF。“TeX发行版相对于TeX语言”大致可以理解为“C语言编译器(如GCC或Clang)相对于C语言”的关系； MacTeX：是Mac版的TeXLive。  本文MacTeX搭配Sublime(编辑器)和Skim(PDF阅读器)食用。
+      <guid>https://aileenxie.github.io/2018/07use_mactex/</guid>
+      <description>前言  TEX：斯坦福大学的教授Donald E.Knuth开发的一个功能强大的幕后排版系统。它是一种语言，类似于Java和C之类的计算机语言，但是它是为简单的排版操作设计的； LaTeX：是TEX的众多宏集之一，是由Leslie Lamport编写的。将一些常用到的功能整合为文档类型中的设置，简化了TEX排版的工作量及难度； CTEX：利用TEX排版系统的CTEX中文套装的简称。它集成了编辑器 、WinEdt和 PostScript处理软件 Ghostscript 和 GSview 等主要工具。 TeXLiv：是一个TeX发行版，它是一组程序的集合，主要作用就是将你写的TeX代码进行解析排版输出成PS或者PDF。“TeX发行版相对于TeX语言”大致可以理解为“C语言编译器(如GCC或Clang)相对于C语言”的关系； MacTeX：是Mac版的TeXLive。  本文MacTeX搭配Sublime(编辑器)和Skim(PDF阅读器)食用。
 MacTeX安装 官网：http://tug.org/mactex/ 安装好后会看到一串东西（我把它们放到了同一个文件夹里）： TeXShop：它是一个官配的编辑器，比较简单。我们这里用Sublime取代。
 Sublime和Skim安装 Sublime官网：https://www.sublimetext.com/ Skim官网：https://skim-app.sourceforge.io/ 图标长这样： 环境配置 Sublime配置 打开Sublime，我们需要安装LaTeX相关插件才能更好地使用，插件从Package Control官网下载，步骤如下： 1. 进入Sublime的终端：ctrl+ [esc下面那个顿号] 或 View &amp;gt; Show Consoles 2. 从Package Control官网复制灰色代码段输入Sublime的终端并回车运行，注意对应的版本号： 3. 等待安装完成后，退出重启Sublime; 4. 安装插件包：Command+Shift+P或Tools &amp;gt; Command Palette…&amp;mdash;&amp;gt;输入&amp;rdquo;install package&amp;rdquo;回车&amp;mdash;&amp;gt;输入“LaTeX Tools”，找到这一项并点击安装。完成后重启Sublime。 5. 新建一个文件test.tex(一定要有后缀.tex!!!)，复制以下内容进去：
 \documentclass{article} \begin{document} Hello LaTeX \end{document}  可看到Latex格式文件有彩色样式，完成！
