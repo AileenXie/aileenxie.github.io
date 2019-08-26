@@ -110,9 +110,7 @@ CSDN-Proximal Gradient Method近端梯度算法
       <pubDate>Wed, 10 Oct 2018 19:17:39 +0800</pubDate>
       
       <guid>https://aileenxie.github.io/2018/02l_norm/</guid>
-      <description>看到一篇讲解很详细的文章，边看边做笔记整理要点。
-先放一张范数汇总图：
-前言 监督机器学习问题无非就是“minimizeyour error while regularizing your parameters”，也就是在规则化参数的同时最小化误差。
+      <description>看到一篇讲解很详细的文章，边看边做笔记整理要点。 先放一张范数汇总图： 前言 监督机器学习问题无非就是“minimizeyour error while regularizing your parameters”，也就是在规则化参数的同时最小化误差。
 最小化误差是为了让我们的模型拟合我们的训练数据，而规则化参数是防止我们的模型过分拟合我们的训练数据。
  过拟合：参数过多会导致模型复杂度上升，产生过拟合，即训练误差很小，但测试误差很大，这和监督学习的目标是相违背的。所以需要采取措施，保证模型尽量简单的基础上，最小化训练误差，使模型具有更好的泛化能力。 泛化能力强：测试误差也很小 范数规则化有两个作用：
 1）保证模型尽可能的简单，避免过拟合。
