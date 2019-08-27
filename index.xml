@@ -172,6 +172,11 @@ mex -setup
 
 &lt;p&gt;用来训练SVM分类器模型，具体参数如下：&lt;/p&gt;
 
+&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;model = svmtrain(label,inst,Parameters)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;其中：&lt;font color=#0099ff&gt;model.Paramaters = [-s,-t,-d,-g,-r]&lt;/font&gt;&lt;/p&gt;
+
 &lt;blockquote&gt;
 &lt;p&gt;【输入】数据标签+数据矩阵+&lt;strong&gt;Parameters&lt;/strong&gt;: 一个5 x 1的向量，从上到下依次表示：&lt;/p&gt;
 
@@ -229,6 +234,9 @@ mex -setup
 &lt;/blockquote&gt;
 
 &lt;h2 id=&#34;libsvmpredict函数&#34;&gt;libsvmpredict函数&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;[predict,accuracy,probabilityEstimates] = svmpredict(label,inst,model)
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;blockquote&gt;
 &lt;p&gt;【输入】数据标签+数据矩阵+model&lt;/p&gt;

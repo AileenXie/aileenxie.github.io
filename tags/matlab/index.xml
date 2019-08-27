@@ -51,12 +51,11 @@ make  编译成功后，当前目录下会出现4个后缀为mexmaci64的文件�
 [label_vector, instance_matrix] = libsvmread(&amp;quot;heart-scale.txt&amp;quot;);  函数输出：label_vector是数据标签，instance_matrix是数据矩阵。
 libsvmwrite函数 用来把matlab数据矩阵和标签存成LIBSVM格式数据文件data.txt:
 libsvmwrite(&amp;quot;data.txt&amp;quot;, label_vector, instance_matrix]  libsvmtrain函数 用来训练SVM分类器模型，具体参数如下：
+model = svmtrain(label,inst,Parameters)  其中：model.Paramaters = [-s,-t,-d,-g,-r]
  【输入】数据标签+数据矩阵+Parameters: 一个5 x 1的向量，从上到下依次表示：
 　-s SVM类型（默认0）:
 　0 &amp;ndash; C-SVC,
-　1 &amp;ndash; nu-SVC,
-　2 &amp;ndash; one-class SVM,
-　3 &amp;ndash; epsilon-SVR</description>
+　1 &amp;ndash; nu-SVC,</description>
     </item>
     
   </channel>
