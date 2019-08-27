@@ -6,8 +6,106 @@
     <description>Recent content in Aileen&#39;s Blog on Aileen&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ch-cn</language>
-    <lastBuildDate>Mon, 26 Aug 2019 23:34:14 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 27 Aug 2019 08:50:51 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Matlab配置Xcode编译</title>
+      <link>https://aileenxie.github.io/2019/11xcode/</link>
+      <pubDate>Tue, 27 Aug 2019 08:50:51 +0800</pubDate>
+      
+      <guid>https://aileenxie.github.io/2019/11xcode/</guid>
+      <description>
+
+&lt;p&gt;Matlab使用时经常需要编译一些其他语言的文件来调用，这需要相应的编译器来完成编译过程。Mac上编译C/C++可以选用Xcode。&lt;/p&gt;
+
+&lt;h1 id=&#34;安装xcode&#34;&gt;安装Xcode&lt;/h1&gt;
+
+&lt;p&gt;Appstores 就能直接下载安装Xcode&lt;/p&gt;
+
+&lt;h1 id=&#34;安装command-line-tools&#34;&gt;安装command line tools&lt;/h1&gt;
+
+&lt;p&gt;在终端上输入：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;xcode-select --install
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;然后会有弹窗提示安装，跟着向导一步步完成安装。&lt;/p&gt;
+
+&lt;p&gt;确认安装成功的方法是：打开Xcode -&amp;gt; New -&amp;gt; Project，看到Command line tools。
+&lt;img src=&#34;http://ww2.sinaimg.cn/large/006y8mN6gy1g6dylnelzlj314p0u0n27.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;打开matlab项目，运行命令，看是否成功检测到编译器。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;mex -setup
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;　&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;　&lt;/p&gt;
+
+&lt;h1 id=&#34;还不成功&#34;&gt;还不成功 ？&lt;/h1&gt;
+
+&lt;p&gt;&lt;strong&gt;可能需要进行的操作&amp;hellip;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;我在Matlab R2018a和Xcode v10.1环境下，安装完Command line tools之后再运行&lt;code&gt;mex -setup&lt;/code&gt;就能&lt;strong&gt;成功&lt;/strong&gt;找到编译器了！但是我看其他人有碰到需要更改配置文件的步骤，我还是记录一下，以便以后遇到问题多一条思路。具体方法是替换Matlab的启动和配置文件mexopts.sh和clang_maci64.xml里MacOSX版本号。&lt;/p&gt;
+
+&lt;h2 id=&#34;查看本机macosx-sdk版本号&#34;&gt;查看本机MacOSX SDK版本号&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;在&lt;code&gt;/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs&lt;/code&gt;中查看自己的版本号：
+&lt;img src=&#34;http://ww4.sinaimg.cn/large/006y8mN6gy1g6dz5p7rx0j311k0nmwhp.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;或者终端运行命令&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;xcrun -sdk macosx --show-sdk-path
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;或&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;xcrun -sdk macosx --show-sdk-version
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;更改mexopts-sh文件&#34;&gt;更改mexopts.sh文件&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;打开Matlab，命令行运行&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;edit ([matlabroot &#39;/bin/mexopts.sh&#39;])
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;打开mexopts.sh文件，以防万一提前备份一下该文件。把该文件中所有macosx10.x更改为本机MacOS版本号。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;让更改生效：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;cd (matlabroot) 
+cd bin 
+mex -setup 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;输入1，然后回车，输入y，回车。 详见&lt;a href=&#34;https://blog.csdn.net/bingshanqiao/article/details/48948065?utm_source=blogxgwz6&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;CSDN博文&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;更改clang-maci64-xml文件&#34;&gt;更改clang_maci64.xml文件&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;打开Matlab，命令行运行&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;edit ([matlabroot &#39;/bin/maci64/mexopts/clang_maci64.xml&#39;])
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;打开clang_maci64.xml文件（如果是编译C++，相应更改clang++_maci64.xml文件），以防万一提前备份一下该文件。更改方法&lt;a href=&#34;https://blog.csdn.net/sinat_38068956/article/details/80326877&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;CSDN博文&lt;/a&gt;，&lt;a href=&#34;https://ww2.mathworks.cn/matlabcentral/answers/243868-mex-can-t-find-compiler-after-xcode-7-update-r2015b?#comment_407066&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;MathWorks社区&lt;/a&gt;。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Tips: 我目前用的是Matlab R2018a，我打开这个文件已经和之前文章说要更改的文件不一样了，不知道还有没有更改这个文件的需要，反正我用的Xcode v10.1 (10B61)没改一切正常。
+&lt;img src=&#34;http://ww3.sinaimg.cn/large/006y8mN6gy1g6e0nvirr3j316g0hi45c.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;看到还有说Xcode没有接受协议也会有问题，放个&lt;a href=&#34;https://www.jianshu.com/p/35463964a361&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;简书文链&lt;/a&gt;结尾处有讲到这个问题。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Matlab下Libsvm安装使用</title>
@@ -28,7 +126,7 @@
 &lt;p&gt;我的是mac版的matlab,需要重新编译相应的&lt;code&gt;.mexmaci64&lt;/code&gt;文件，windows32的则是编译出&lt;code&gt;.mexw32&lt;/code&gt;文件。具体来说：&lt;/p&gt;
 
 &lt;ol&gt;
-&lt;li&gt;&lt;p&gt;先确保电脑装了C/C++编译器，我电脑本身装了Xcode自带Clang，不需要再装编译器了，没装的随便装个编译器再进行下面的步骤。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;先确保电脑装了C/C++编译器，我电脑本身装了Xcode自带Clang，不需要再装编译器了，没装的随便装个编译器再进行下面的步骤（参考&lt;a href=&#34;https://aileenxie.com/2019/11xcode/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;Matlab配置Xcode编译&lt;/a&gt;）。&lt;/p&gt;&lt;/li&gt;
 
 &lt;li&gt;&lt;p&gt;在Matlab中进入Libsvm根目录下的matlab目录（如:toolbox/libsvm-3.23/matlab），在命令窗口输入&lt;/p&gt;
 

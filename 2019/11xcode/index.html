@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="ch-cn">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="Aileen.Xie">
+  
+  
+  
+  <link rel="prev" href="https://aileenxie.github.io/2019/10libsvm/" />
+  
+  <link rel="canonical" href="https://aileenxie.github.io/2019/11xcode/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel='shortcut icon' type='image/x-icon' href='/favicon.ico' />
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           Matlab配置Xcode编译 | Aileen&#39;s Blog
+       
+  </title>
+  <meta name="title" content="Matlab配置Xcode编译 | Aileen&#39;s Blog">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https://aileenxie.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "Matlab配置Xcode编译",
+    "headline" : "Matlab配置Xcode编译",
+    "description" : "Matlab使用时经常需要编译一些其他语言的文件来调用，这需要相应的编译器来完成编译过程。Mac上编译C/C++可以选用Xcode。
+安装Xcode Appstores 就能直接下载安装Xcode
+安装command line tools 在终端上输入：
+xcode-select --install  然后会有弹窗提示安装，跟着向导一步步完成安装。
+确认安装成功的方法是：打开Xcode -&gt; New -&gt; Project，看到Command line tools。 打开matlab项目，运行命令，看是否成功检测到编译器。
+mex -setup  　　还不成功 ？ 可能需要进行的操作&hellip;
+我在Matlab R2018a和Xcode v10.1环境下，安装完Command line tools之后再运行mex -setup就能成功找到编译器了！但是我看其他人有碰到需要更改配置文件的步骤，我还是记录一下，以便以后遇到问题多一条思路。具体方法是替换Matlab的启动和配置文件mexopts.sh和clang_maci64.xml里MacOSX版本号。
+查看本机MacOSX SDK版本号  在/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs中查看自己的版本号：  或者终端运行命令
+xcrun -sdk macosx --show-sdk-path  或
+xcrun -sdk macosx --show-sdk-version   更改mexopts.sh文件  打开Matlab，命令行运行
+edit ([matlabroot '/bin/mexopts.sh'])  打开mexopts.sh文件，以防万一提前备份一下该文件。把该文件中所有macosx10.x更改为本机MacOS版本号。
+ 让更改生效：
+cd (matlabroot) cd bin mex -setup  输入1，然后回车，输入y，回车。 详见CSDN博文",
+    "inLanguage" : "ch-cn",
+    "author" : "Aileen.Xie",
+    "creator" : "Aileen.Xie",
+    "publisher": "Aileen.Xie",
+    "accountablePerson" : "Aileen.Xie",
+    "copyrightHolder" : "Aileen.Xie",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-08-27 08:50:51 &#43;0800 CST",
+    "dateModified" : "2019-08-27 08:50:51 &#43;0800 CST",
+    "url" : "https://aileenxie.github.io/2019/11xcode/",
+    "wordCount" : "70",
+    "keywords" : [ "matlab","教程", "Aileen&#39;s Blog"]
+}
+</script>
+
+</head>
+
+  
+
+
+  
+  <script async src="//cdn.busuanzi.ibruce.info/cdn/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+  <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  <script>
+      $(document).ready(function() {
+          var int = setInterval(fixCount, 50);
+          var busuanziSiteOffset =  300 
+          var busuanziUvOffset =  100 
+          var busuanziPageOffset =  50 
+          function fixCount() {
+              if ($("#busuanzi_container_site_pv").css("display") != "none") {
+                  clearInterval(int);
+                  $("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html()) + busuanziSiteOffset);
+                  $("#busuanzi_value_site_uv").html(parseInt($("#busuanzi_value_site_uv").html()) + busuanziUvOffset);
+                  $("#busuanzi_value_page_pv").html(parseInt($("#busuanzi_value_page_pv").html()) + busuanziPageOffset);
+              }
+          }
+      });
+  </script>
+  
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://aileenxie.github.io">Aileen&#39;s Blog</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://aileenxie.github.io">Aileen&#39;s Blog</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">Blog</a>
+                
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Matlab配置Xcode编译</h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="https://aileenxie.github.io" rel="author">Aileen.Xie</a> with ♥ 
+                <span class="post-time">
+                on <time datetime=2019-08-27 itemprop="datePublished">August 27, 2019</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="https://aileenxie.github.io/categories/%E5%B7%A5%E5%85%B7-%E6%95%99%E7%A8%8B/"> 工具 · 教程 </a>
+                        
+                </span>
+                <span id="busuanzi_container_page_pv" style='display:none'>
+                  | 本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+                </span>
+                
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+            
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          
+
+<p>Matlab使用时经常需要编译一些其他语言的文件来调用，这需要相应的编译器来完成编译过程。Mac上编译C/C++可以选用Xcode。</p>
+
+<h1 id="安装xcode">安装Xcode</h1>
+
+<p>Appstores 就能直接下载安装Xcode</p>
+
+<h1 id="安装command-line-tools">安装command line tools</h1>
+
+<p>在终端上输入：</p>
+
+<pre><code class="language-bash">xcode-select --install
+</code></pre>
+
+<p>然后会有弹窗提示安装，跟着向导一步步完成安装。</p>
+
+<p>确认安装成功的方法是：打开Xcode -&gt; New -&gt; Project，看到Command line tools。
+<figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://ww2.sinaimg.cn/large/006y8mN6gy1g6dylnelzlj314p0u0n27.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p>
+
+<p>打开matlab项目，运行命令，看是否成功检测到编译器。</p>
+
+<pre><code class="language-bash">mex -setup
+</code></pre>
+
+<p>　</p>
+
+<hr />
+
+<p>　</p>
+
+<h1 id="还不成功">还不成功 ？</h1>
+
+<p><strong>可能需要进行的操作&hellip;</strong></p>
+
+<p>我在Matlab R2018a和Xcode v10.1环境下，安装完Command line tools之后再运行<code>mex -setup</code>就能<strong>成功</strong>找到编译器了！但是我看其他人有碰到需要更改配置文件的步骤，我还是记录一下，以便以后遇到问题多一条思路。具体方法是替换Matlab的启动和配置文件mexopts.sh和clang_maci64.xml里MacOSX版本号。</p>
+
+<h2 id="查看本机macosx-sdk版本号">查看本机MacOSX SDK版本号</h2>
+
+<ol>
+<li><p>在<code>/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs</code>中查看自己的版本号：
+<figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://ww4.sinaimg.cn/large/006y8mN6gy1g6dz5p7rx0j311k0nmwhp.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p></li>
+
+<li><p>或者终端运行命令</p>
+
+<pre><code class="language-bash">xcrun -sdk macosx --show-sdk-path
+</code></pre></li>
+
+<li><p>或</p>
+
+<pre><code class="language-bash">xcrun -sdk macosx --show-sdk-version
+</code></pre></li>
+</ol>
+
+<h2 id="更改mexopts-sh文件">更改mexopts.sh文件</h2>
+
+<ol>
+<li><p>打开Matlab，命令行运行</p>
+
+<pre><code class="language-bash">edit ([matlabroot '/bin/mexopts.sh'])
+</code></pre>
+
+<p>打开mexopts.sh文件，以防万一提前备份一下该文件。把该文件中所有macosx10.x更改为本机MacOS版本号。</p></li>
+
+<li><p>让更改生效：</p>
+
+<pre><code class="language-bash">cd (matlabroot) 
+cd bin 
+mex -setup 
+</code></pre>
+
+<p>输入1，然后回车，输入y，回车。 详见<a href="https://blog.csdn.net/bingshanqiao/article/details/48948065?utm_source=blogxgwz6" rel="nofollow noreferrer" target="_blank">CSDN博文</a></p></li>
+</ol>
+
+<h2 id="更改clang-maci64-xml文件">更改clang_maci64.xml文件</h2>
+
+<ol>
+<li><p>打开Matlab，命令行运行</p>
+
+<pre><code class="language-bash">edit ([matlabroot '/bin/maci64/mexopts/clang_maci64.xml'])
+</code></pre>
+
+<p>打开clang_maci64.xml文件（如果是编译C++，相应更改clang++_maci64.xml文件），以防万一提前备份一下该文件。更改方法<a href="https://blog.csdn.net/sinat_38068956/article/details/80326877" rel="nofollow noreferrer" target="_blank">CSDN博文</a>，<a href="https://ww2.mathworks.cn/matlabcentral/answers/243868-mex-can-t-find-compiler-after-xcode-7-update-r2015b?#comment_407066" rel="nofollow noreferrer" target="_blank">MathWorks社区</a>。</p></li>
+
+<li><p>Tips: 我目前用的是Matlab R2018a，我打开这个文件已经和之前文章说要更改的文件不一样了，不知道还有没有更改这个文件的需要，反正我用的Xcode v10.1 (10B61)没改一切正常。
+<figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://ww3.sinaimg.cn/large/006y8mN6gy1g6e0nvirr3j316g0hi45c.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></p></li>
+</ol>
+
+<p>看到还有说Xcode没有接受协议也会有问题，放个<a href="https://www.jianshu.com/p/35463964a361" rel="nofollow noreferrer" target="_blank">简书文链</a>结尾处有讲到这个问题。</p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>Aileen.Xie </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://aileenxie.github.io/2019/11xcode/>https://aileenxie.github.io/2019/11xcode/</span>
+            </p>
+            
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>Tag(s): 
+            
+            <span class="tag"><a href="https://aileenxie.github.io/tags/matlab/">
+                    #matlab</a></span>
+            
+            <span class="tag"><a href="https://aileenxie.github.io/tags/%E6%95%99%E7%A8%8B/">
+                    #教程</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="https://aileenxie.github.io">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://aileenxie.github.io/2019/10libsvm/" class="prev" rel="prev" title="Matlab下Libsvm安装使用"><i class="iconfont icon-left"></i>&nbsp;Matlab下Libsvm安装使用</a>
+         
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2017 - 2019</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            
+            <span class="author" itemprop="copyrightHolder">
+                <a href="https://aileenxie.github.io">Aileen.Xie</a> 
+            </span> 
+            <span id="busuanzi_container_site_pv" style='display:none'>
+                |  本站访问量：<span id="busuanzi_value_site_pv"></span>次
+            </span>
+            <span id="busuanzi_container_site_uv" style='display:none'>
+                |  您是本站第 <span id="busuanzi_value_site_uv"></span> 位访问者
+            </span>
+         
+
+         
+		  
+    </div>
+
+
+
+
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

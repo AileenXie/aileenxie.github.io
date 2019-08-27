@@ -6,10 +6,31 @@
     <description>Recent content in matlab on Aileen&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ch-cn</language>
-    <lastBuildDate>Mon, 26 Aug 2019 23:34:14 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 27 Aug 2019 08:50:51 +0800</lastBuildDate>
     
 	<atom:link href="https://aileenxie.github.io/tags/matlab/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Matlab配置Xcode编译</title>
+      <link>https://aileenxie.github.io/2019/11xcode/</link>
+      <pubDate>Tue, 27 Aug 2019 08:50:51 +0800</pubDate>
+      
+      <guid>https://aileenxie.github.io/2019/11xcode/</guid>
+      <description>Matlab使用时经常需要编译一些其他语言的文件来调用，这需要相应的编译器来完成编译过程。Mac上编译C/C++可以选用Xcode。
+安装Xcode Appstores 就能直接下载安装Xcode
+安装command line tools 在终端上输入：
+xcode-select --install  然后会有弹窗提示安装，跟着向导一步步完成安装。
+确认安装成功的方法是：打开Xcode -&amp;gt; New -&amp;gt; Project，看到Command line tools。 打开matlab项目，运行命令，看是否成功检测到编译器。
+mex -setup  　　还不成功 ？ 可能需要进行的操作&amp;hellip;
+我在Matlab R2018a和Xcode v10.1环境下，安装完Command line tools之后再运行mex -setup就能成功找到编译器了！但是我看其他人有碰到需要更改配置文件的步骤，我还是记录一下，以便以后遇到问题多一条思路。具体方法是替换Matlab的启动和配置文件mexopts.sh和clang_maci64.xml里MacOSX版本号。
+查看本机MacOSX SDK版本号  在/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs中查看自己的版本号：  或者终端运行命令
+xcrun -sdk macosx --show-sdk-path  或
+xcrun -sdk macosx --show-sdk-version   更改mexopts.sh文件  打开Matlab，命令行运行
+edit ([matlabroot &#39;/bin/mexopts.sh&#39;])  打开mexopts.sh文件，以防万一提前备份一下该文件。把该文件中所有macosx10.x更改为本机MacOS版本号。
+ 让更改生效：
+cd (matlabroot) cd bin mex -setup  输入1，然后回车，输入y，回车。 详见CSDN博文</description>
+    </item>
     
     <item>
       <title>Matlab下Libsvm安装使用</title>
@@ -20,7 +41,7 @@
       <description>下载 从github上拉取源码到你想放的目录（我放在matlab工作目录/toolbox/），源码地址：GitHub - cjlin1/libsvm。
 编译 文件windows/目录下有预先编译好的libsvmread.mexw64、libsvmwrite.mexw64、svmtrain.mexw64、svmpredict.mexw64文件。如果是windows 64位下的matlab可以直接使用这些编译文件。
 我的是mac版的matlab,需要重新编译相应的.mexmaci64文件，windows32的则是编译出.mexw32文件。具体来说：
- 先确保电脑装了C/C++编译器，我电脑本身装了Xcode自带Clang，不需要再装编译器了，没装的随便装个编译器再进行下面的步骤。
+ 先确保电脑装了C/C++编译器，我电脑本身装了Xcode自带Clang，不需要再装编译器了，没装的随便装个编译器再进行下面的步骤（参考Matlab配置Xcode编译）。
  在Matlab中进入Libsvm根目录下的matlab目录（如:toolbox/libsvm-3.23/matlab），在命令窗口输入
 mex –setup  Matlab会提示你选择编译mex文件的C/C++编译器，就选择一个已安装的编译器，如Xcode with Clang。之后Matlab会提示确认选择的编译器，输入y进行确认。  输入以下命令进行编译:
 make  编译成功后，当前目录下会出现4个后缀为mexmaci64的文件。（tips:Matlab或VC版本过低可能会导致编译失败，建议使用最新的版本）。

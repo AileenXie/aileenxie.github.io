@@ -10,7 +10,7 @@
   
   
   <link rel="prev" href="https://aileenxie.github.io/2019/09essay/" />
-  
+  <link rel="next" href="https://aileenxie.github.io/2019/11xcode/" />
   <link rel="canonical" href="https://aileenxie.github.io/2019/10libsvm/" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -50,7 +50,7 @@
     "description" : "下载 从github上拉取源码到你想放的目录（我放在matlab工作目录/toolbox/），源码地址：GitHub - cjlin1/libsvm。
 编译 文件windows/目录下有预先编译好的libsvmread.mexw64、libsvmwrite.mexw64、svmtrain.mexw64、svmpredict.mexw64文件。如果是windows 64位下的matlab可以直接使用这些编译文件。
 我的是mac版的matlab,需要重新编译相应的.mexmaci64文件，windows32的则是编译出.mexw32文件。具体来说：
- 先确保电脑装了C/C++编译器，我电脑本身装了Xcode自带Clang，不需要再装编译器了，没装的随便装个编译器再进行下面的步骤。
+ 先确保电脑装了C/C++编译器，我电脑本身装了Xcode自带Clang，不需要再装编译器了，没装的随便装个编译器再进行下面的步骤（参考Matlab配置Xcode编译）。
  在Matlab中进入Libsvm根目录下的matlab目录（如:toolbox/libsvm-3.23/matlab），在命令窗口输入
 mex –setup  Matlab会提示你选择编译mex文件的C/C++编译器，就选择一个已安装的编译器，如Xcode with Clang。之后Matlab会提示确认选择的编译器，输入y进行确认。  输入以下命令进行编译:
 make  编译成功后，当前目录下会出现4个后缀为mexmaci64的文件。（tips:Matlab或VC版本过低可能会导致编译失败，建议使用最新的版本）。
@@ -205,7 +205,7 @@ libsvmwrite(&quot;data.txt&quot;, label_vector, instance_matrix]  libsvmtrain函
 <p>我的是mac版的matlab,需要重新编译相应的<code>.mexmaci64</code>文件，windows32的则是编译出<code>.mexw32</code>文件。具体来说：</p>
 
 <ol>
-<li><p>先确保电脑装了C/C++编译器，我电脑本身装了Xcode自带Clang，不需要再装编译器了，没装的随便装个编译器再进行下面的步骤。</p></li>
+<li><p>先确保电脑装了C/C++编译器，我电脑本身装了Xcode自带Clang，不需要再装编译器了，没装的随便装个编译器再进行下面的步骤（参考<a href="https://aileenxie.com/2019/11xcode/" rel="nofollow noreferrer" target="_blank">Matlab配置Xcode编译</a>）。</p></li>
 
 <li><p>在Matlab中进入Libsvm根目录下的matlab目录（如:toolbox/libsvm-3.23/matlab），在命令窗口输入</p>
 
@@ -395,6 +395,8 @@ Accuracy = 86.6667% (234/270) (classification)
         
         <a href="https://aileenxie.github.io/2019/09essay/" class="prev" rel="prev" title="研一总结"><i class="iconfont icon-left"></i>&nbsp;研一总结</a>
          
+        
+        <a href="https://aileenxie.github.io/2019/11xcode/" class="next" rel="next" title="Matlab配置Xcode编译">Matlab配置Xcode编译&nbsp;<i class="iconfont icon-right"></i></a>
         
     </div>
 
