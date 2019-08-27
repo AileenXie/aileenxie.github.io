@@ -6,8 +6,138 @@
     <description>Recent content in Aileen&#39;s Blog on Aileen&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ch-cn</language>
-    <lastBuildDate>Tue, 27 Aug 2019 08:50:51 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 27 Aug 2019 11:01:18 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Matlab常用函数</title>
+      <link>https://aileenxie.github.io/2019/12matlab/</link>
+      <pubDate>Tue, 27 Aug 2019 11:01:18 +0800</pubDate>
+      
+      <guid>https://aileenxie.github.io/2019/12matlab/</guid>
+      <description>
+
+&lt;p&gt;总结一些Matlab常用or易忘的函数，更详细和全面的用法查阅官方文档：&lt;a href=&#34;https://ww2.mathworks.cn/help/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;Mathworks Help&lt;/a&gt;。&lt;/p&gt;
+
+&lt;h1 id=&#34;计时&#34;&gt;计时&lt;/h1&gt;
+
+&lt;h2 id=&#34;tic-toc&#34;&gt;tic toc&lt;/h2&gt;
+
+&lt;p&gt;tic和toc是用来记录matlab命令执行的时间：tic用来保存当前时间，而后使用toc来记录程序完成时间。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;tic
+// 任意表达式
+toc
+t=toc
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;t&lt;/code&gt;存储所耗时间，不加&lt;code&gt;t=toc&lt;/code&gt;这句，运行完这段代码也会输出运行时间：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;Elapsed time is 0.000158 seconds.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;相似的还有cputime（返回从调用该函数起所用的总的Cpu时间，单位以秒计算。）、etime（e=etime(t2,t1)命令返回向量t1和t2之间的时间段，t1和t2必须含有由clock函数返回的6个元素，即[Year Month Day Hour Minute Second]）。
+　　
+　　&lt;/p&gt;
+
+&lt;h1 id=&#34;矩阵-向量&#34;&gt;矩阵&amp;amp;向量&lt;/h1&gt;
+
+&lt;h2 id=&#34;重复-repmat&#34;&gt;重复：repmat&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;B = repmat(A,m,n);     % 重复矩阵/向量/值A为 行m个，列n个
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;返回下三角-tril&#34;&gt;返回下三角： tril&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;B = tril(A,m,n);     % 返回矩阵下三角部分，其余补0
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;维度重排-permute&#34;&gt;维度重排：permute&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;B = permute(A,order);     % 设A是10x20x5的矩阵，B=permute(A,3,1,2)，则B为5x10x20的矩阵
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;拼接&#34;&gt;拼接&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;横向拼接&lt;code&gt;[a b]&lt;/code&gt;或&lt;code&gt;[a,b]&lt;/code&gt;;&lt;/li&gt;
+&lt;li&gt;纵向拼接&lt;code&gt;[a;b]&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;删除单一维度-squeeze&#34;&gt;删除单一维度: squeeze&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;B = squeeze(A);     % 设A是10x20x1的矩阵，则B为10x20的矩阵
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;　&lt;/p&gt;
+
+&lt;h2 id=&#34;向量对比-intersect-setdiff&#34;&gt;向量对比：intersect, setdiff&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;C=intersect(A,B);   % 返回向量A,B中共有数据（经过排序），不包含重复项
+C=setdiff(A,B);     % 返回在A中存在，B中不存在的数据（经过排序），不包含重复项
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;　&lt;/p&gt;
+
+&lt;h1 id=&#34;随机数&#34;&gt;随机数&lt;/h1&gt;
+
+&lt;h2 id=&#34;控制随机数种子-rng&#34;&gt;控制随机数种子：rng&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;rng(seed);     % 使用非负整数 seed 为随机数生成器提供种子，以使 rand、randi 和 randn 生成可预测的固定数字序列。默认seed为&#39;default&#39;
+rng(&#39;shuffle&#39;);     % 根据当前时间为随机数生成器提供种子。这样，rand、randi 和 randn 会在您每次调用 rng 时生成不同的数字序列
+s = rng;    % 捕获当前种子，以便后续rng(s)还原
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;生成随机数矩阵-rand-randn-randi&#34;&gt;生成随机数矩阵：rand,randn,randi&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;A = rand(m,n);     % 生成(0,1)均匀分布的mxn矩阵，没有n时--&amp;gt;生成mxm矩阵
+B = randn(m,n);     % 生成标准正态分布的mxn矩阵，没有n时--&amp;gt;生成mxm矩阵
+C = randi(imax,m,n);     % 生成介于 1 和 imax 之间均匀分布的随机整数mxn矩阵，没有n时--&amp;gt;生成mxm矩阵
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;随机采样-randperm&#34;&gt;随机采样：randperm&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;s = randperm(n,k);     % n&amp;gt;k；返回从整数1到n的随机均匀采样的k个值。s是1xk的行向量。
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;随机采样-randsample&#34;&gt;随机采样：randsample&lt;/h2&gt;
+
+&lt;p&gt;比randperm更高层次一点，对各功能进行了封装&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt; y = randsample(n,k);     % 和randperm(n,k)的功能一样，都是产生k个不相同的数，但是生成列向量
+ y = randsample(array,k);     % 从数组array中取k个不重复值
+ y = randsample(n,k,replacement);     % replacement：1-取出的数可重复(n可以小于k)；0-不可重复(n&amp;gt;k)
+ y = randsample(array,k,replacement);
+ y = randsample(n,k,true,w);     % w权重值，分别定义这n个值被取出来的可能性
+ y = randsample(population,k,true,w);
+ y = randsample(s,...);     %用自己提供的随机数stream替换系统默认的随机数，s必须派生自Matlab的RandStream类
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;　　
+　
+　&lt;/p&gt;
+
+&lt;h1 id=&#34;概率密度函数-累计概率分布函数及其逆函数&#34;&gt;概率密度函数、累计概率分布函数及其逆函数&lt;/h1&gt;
+
+&lt;h2 id=&#34;正态分布&#34;&gt;正态分布&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;y = normpdf(x,mu,sigma);    % 计算x中的值在正态分布中概率密度函数（pdf，概率密度图的y值），不设置均值mu、方差sigma时默认标准正态分布
+p = normcdf(x,mu,sigma);    % 计算x中的值在正态分布中的累积分布函数（cdf，概率密度图中与y轴围成的面积），不设置均值mu、方差sigma时默认标准正态分布
+x = norminv(p，mu，sigma);    % 计算p中的概率在正态cdf你函数中的对应值，其平均值为mu和标准差sigma。p中的值必须位于区间[0 1]中。
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;卡方分布&#34;&gt;卡方分布&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;Y = chi2pdf(X，V);   % 计算V中的相应自由度的X中每个值的卡方pdf。V中的自由度参数必须为正，X中的值必须位于区间[0 Inf]上。
+p = chi2cdf(x，v);   % 使用v中的相应自由度计算x中每个值处的卡方cdf
+X = chi2inv(P，V);   % 使用V中的相应自由度P中概率对应的卡方cdf的逆函数，V中的自由度参数必须为正，P中的值必须位于区间[0 1]中。
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;其他分布&#34;&gt;其他分布&lt;/h2&gt;
+
+&lt;p&gt;各类分布对应函数列表展示在&lt;a href=&#34;https://blog.csdn.net/leo2351960/article/details/39207299&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;CSDN博文&lt;/a&gt;中，可对照着去官方文档查看具体用法。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Matlab配置Xcode编译</title>
@@ -33,7 +163,7 @@
 &lt;p&gt;然后会有弹窗提示安装，跟着向导一步步完成安装。&lt;/p&gt;
 
 &lt;p&gt;确认安装成功的方法是：打开Xcode -&amp;gt; New -&amp;gt; Project，看到Command line tools。
-&lt;img src=&#34;http://ww2.sinaimg.cn/large/006y8mN6gy1g6dylnelzlj314p0u0n27.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;img src=&#34;https://aileenxie.github.io/img/11xcode_23.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;打开matlab项目，运行命令，看是否成功检测到编译器。&lt;/p&gt;
 
@@ -56,7 +186,7 @@
 
 &lt;ol&gt;
 &lt;li&gt;&lt;p&gt;在&lt;code&gt;/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs&lt;/code&gt;中查看自己的版本号：
-&lt;img src=&#34;http://ww4.sinaimg.cn/large/006y8mN6gy1g6dz5p7rx0j311k0nmwhp.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;img src=&#34;https://aileenxie.github.io/img/11xcode_43.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;&lt;/li&gt;
 
 &lt;li&gt;&lt;p&gt;或者终端运行命令&lt;/p&gt;
 
@@ -100,7 +230,7 @@ mex -setup
 &lt;p&gt;打开clang_maci64.xml文件（如果是编译C++，相应更改clang++_maci64.xml文件），以防万一提前备份一下该文件。更改方法&lt;a href=&#34;https://blog.csdn.net/sinat_38068956/article/details/80326877&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;CSDN博文&lt;/a&gt;，&lt;a href=&#34;https://ww2.mathworks.cn/matlabcentral/answers/243868-mex-can-t-find-compiler-after-xcode-7-update-r2015b?#comment_407066&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;MathWorks社区&lt;/a&gt;。&lt;/p&gt;&lt;/li&gt;
 
 &lt;li&gt;&lt;p&gt;Tips: 我目前用的是Matlab R2018a，我打开这个文件已经和之前文章说要更改的文件不一样了，不知道还有没有更改这个文件的需要，反正我用的Xcode v10.1 (10B61)没改一切正常。
-&lt;img src=&#34;http://ww3.sinaimg.cn/large/006y8mN6gy1g6e0nvirr3j316g0hi45c.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;img src=&#34;https://aileenxie.github.io/img/11xcode_85.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;p&gt;看到还有说Xcode没有接受协议也会有问题，放个&lt;a href=&#34;https://www.jianshu.com/p/35463964a361&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;简书文链&lt;/a&gt;结尾处有讲到这个问题。&lt;/p&gt;

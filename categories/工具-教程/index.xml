@@ -6,10 +6,22 @@
     <description>Recent content in 工具 · 教程 on Aileen&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ch-cn</language>
-    <lastBuildDate>Tue, 27 Aug 2019 08:50:51 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 27 Aug 2019 11:01:18 +0800</lastBuildDate>
     
 	<atom:link href="https://aileenxie.github.io/categories/%E5%B7%A5%E5%85%B7-%E6%95%99%E7%A8%8B/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Matlab常用函数</title>
+      <link>https://aileenxie.github.io/2019/12matlab/</link>
+      <pubDate>Tue, 27 Aug 2019 11:01:18 +0800</pubDate>
+      
+      <guid>https://aileenxie.github.io/2019/12matlab/</guid>
+      <description>总结一些Matlab常用or易忘的函数，更详细和全面的用法查阅官方文档：Mathworks Help。
+计时 tic toc tic和toc是用来记录matlab命令执行的时间：tic用来保存当前时间，而后使用toc来记录程序完成时间。
+tic // 任意表达式 toc t=toc  t存储所耗时间，不加t=toc这句，运行完这段代码也会输出运行时间：
+Elapsed time is 0.000158 seconds.  相似的还有cputime（返回从调用该函数起所用的总的Cpu时间，单位以秒计算。）、etime（e=etime(t2,t1)命令返回向量t1和t2之间的时间段，t1和t2必须含有由clock函数返回的6个元素，即[Year Month Day Hour Minute Second]）。 矩阵&amp;amp;向量 重复：repmat B = repmat(A,m,n); % 重复矩阵/向量/值A为 行m个，列n个  返回下三角： tril B = tril(A,m,n); % 返回矩阵下三角部分，其余补0  维度重排：permute B = permute(A,order); % 设A是10x20x5的矩阵，B=permute(A,3,1,2)，则B为5x10x20的矩阵  拼接  横向拼接[a b]或[a,b]; 纵向拼接[a;b].  删除单一维度: squeeze B = squeeze(A); % 设A是10x20x1的矩阵，则B为10x20的矩阵  　向量对比：intersect, setdiff C=intersect(A,B); % 返回向量A,B中共有数据（经过排序），不包含重复项 C=setdiff(A,B); % 返回在A中存在，B中不存在的数据（经过排序），不包含重复项  　随机数 控制随机数种子：rng rng(seed); % 使用非负整数 seed 为随机数生成器提供种子，以使 rand、randi 和 randn 生成可预测的固定数字序列。默认seed为&#39;default&#39; rng(&#39;shuffle&#39;); % 根据当前时间为随机数生成器提供种子。这样，rand、randi 和 randn 会在您每次调用 rng 时生成不同的数字序列 s = rng; % 捕获当前种子，以便后续rng(s)还原  生成随机数矩阵：rand,randn,randi A = rand(m,n); % 生成(0,1)均匀分布的mxn矩阵，没有n时--&amp;gt;生成mxm矩阵 B = randn(m,n); % 生成标准正态分布的mxn矩阵，没有n时--&amp;gt;生成mxm矩阵 C = randi(imax,m,n); % 生成介于 1 和 imax 之间均匀分布的随机整数mxn矩阵，没有n时--&amp;gt;生成mxm矩阵  随机采样：randperm s = randperm(n,k); % n&amp;gt;k；返回从整数1到n的随机均匀采样的k个值。s是1xk的行向量。  随机采样：randsample 比randperm更高层次一点，对各功能进行了封装</description>
+    </item>
     
     <item>
       <title>Matlab配置Xcode编译</title>
