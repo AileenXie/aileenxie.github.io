@@ -6,8 +6,140 @@
     <description>Recent content in Aileen&#39;s Blog on Aileen&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ch-cn</language>
-    <lastBuildDate>Tue, 27 Aug 2019 11:01:18 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 29 Jan 2020 20:59:19 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>SCI分区理解</title>
+      <link>https://aileenxie.github.io/2020/14sci/</link>
+      <pubDate>Wed, 29 Jan 2020 20:59:19 +0800</pubDate>
+      
+      <guid>https://aileenxie.github.io/2020/14sci/</guid>
+      <description>
+
+&lt;p&gt;之前一直没有仔细了解过SCI分区，概念一直很模糊，一区二区啥的没什么明确定义。&lt;/p&gt;
+
+&lt;p&gt;这次查过资料明确一下这个定义。&lt;/p&gt;
+
+&lt;h3 id=&#34;首先两个个概念&#34;&gt;首先两个个概念：&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;SCI&lt;/strong&gt;：全称是Science Citation Index（科学引文索引），科学引文索引是由美国科学资讯研究所于1960年上线投入使用的一部期刊文献检索工具。
+目前由科睿唯安公司运营。被SCI收录的论文在一定程度上也代表相对高质量的论文。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;JCR&lt;/strong&gt;：全称是Journal Citation Reports（期刊引证报告），汤森路透社每年对SCI收录的期刊进行引用和被引用数据进行统计计算，并以&lt;strong&gt;影响因子（IF，Impact Factor，反映期刊文献被引用率的高低=期刊总引用次数/总文章数，用来说明期刊的影响力）&lt;/strong&gt;等指数加以报道形成的报告。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;简单来说：SCI是一个索引工具，把相对高质量论文收录在一起形成索引；而JCR是根据SCI收录的论文进行指标统计形成的报告，用来评价期刊的质量。&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;其次为什么要分区&#34;&gt;其次为什么要分区&lt;/h3&gt;
+
+&lt;p&gt;为了公平！ 因为不同学科领域影响因子存在差别，有的热门学科容易出现高影响因子期刊，若不考虑学科之分，混在一起比较就不公平了，所以需要分区。某领域1区的期刊，就是该领域的顶级刊物，能够直观反映其领域内的水准。&lt;/p&gt;
+
+&lt;h3 id=&#34;目前分区种类&#34;&gt;目前分区种类&lt;/h3&gt;
+
+&lt;p&gt;主要是以下两种：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;汤森路透分区&lt;/strong&gt; （JCR分区）： JCR将收录期刊分为176个不同学科类别，每个学科类别根据 &lt;strong&gt;当年影响因子IF&lt;/strong&gt;从高到低排序，&lt;strong&gt;等分&lt;/strong&gt;成4等分，排名在前25%是1区，记作Q1；25-50%是2区，记作Q2；50-75%是3区，记作Q3；75%以后的属于4区，Q4。JCR分区可以从web of science进行查询，看期刊具体分区情况。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;中科院期刊分区&lt;/strong&gt;  (国内用的比较多)：是基于科学计量学方法的期刊评价数据，是中国科学院文献情报中心科学计量中心在汤森路透JCR分区的基础上，选择 &lt;strong&gt;学术影响力（3年平均IF）&lt;/strong&gt; 作为划分方式，把每个学科的所有期刊按照学术影响力由高到底降序排列，依次划分为4个区，使得每个分区期刊&lt;strong&gt;影响力总和相同&lt;/strong&gt;。&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://tva1.sinaimg.cn/large/006tNbRwgy1gbdreohc24j31c80nqdl5.jpg&#34; alt=&#34;期刊数量&amp;amp;影响力分布&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;简单来说：&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;JCR分区&lt;/th&gt;
+&lt;th&gt;中科院&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Q1/Q2/Q3/Q4每个区期刊数量都一样&lt;/td&gt;
+&lt;td&gt;1区数量最少，2、3、4区依次递增（△）&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;根据当年IF&lt;/td&gt;
+&lt;td&gt;根据3年平均IF&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;Q1影响力总和最大，Q2/Q3/Q4依次递减（▽）&lt;/td&gt;
+&lt;td&gt;1区、2区、3区、4区影响力总和均等&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;没有设置大类学科，只分为177（最新）个具体学科&lt;/td&gt;
+&lt;td&gt;将JCR中所有期刊13大类&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Tips：&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;JCR分区的Q1期刊很可能在中科院分区的2区；&lt;/li&gt;
+&lt;li&gt;中科院分区不仅仅根据13个大类进行排名，还会根据177（最新）个不同学科进行小类分区，通常说的都是大区，小区分区容易导致期刊分区高。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&#34;top期刊&#34;&gt;TOP期刊？&lt;/h3&gt;
+
+&lt;p&gt;最新版本的分区表里，大类的1区期刊默认为top期刊，大类的2区期刊中2年总被引频次位于前10%的期刊，经同行评议认定TOP期刊；小类1区期刊设置为top期刊；不在上述范围内的经过科学共同体评议，被认为是高学术影响力的期刊，也被采纳加入top期刊。&lt;/p&gt;
+
+&lt;p&gt;参考：
+&lt;a href=&#34;https://www.cingta.com/detail/10781&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;SCI的两三事：JCR分区和中科院分区&lt;/a&gt; |
+&lt;a href=&#34;https://zhuanlan.zhihu.com/p/78144183&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;SCI分区，该看JCR还是中科院? -知乎&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>鼠年寒假遇上新型冠状病毒</title>
+      <link>https://aileenxie.github.io/2020/13ncov/</link>
+      <pubDate>Wed, 29 Jan 2020 20:08:41 +0800</pubDate>
+      
+      <guid>https://aileenxie.github.io/2020/13ncov/</guid>
+      <description>&lt;p&gt;现在是2020鼠年的寒假&lt;/p&gt;
+
+&lt;p&gt;今年的寒假遇上了新型冠状病毒2019_nCoV&lt;/p&gt;
+
+&lt;p&gt;武汉真的太惨了&lt;/p&gt;
+
+&lt;p&gt;最早一例从12月初就出现了&lt;/p&gt;
+
+&lt;p&gt;然而到我回家18号左右才慢慢引起了关注&lt;/p&gt;
+
+&lt;p&gt;医用外科口罩、N95口罩全部脱销，网上线下都买不到&lt;/p&gt;
+
+&lt;p&gt;我23号买的口罩，说是顺丰不间断配送，到今天也没见到送&lt;/p&gt;
+
+&lt;p&gt;感染人数增速超快&lt;/p&gt;
+
+&lt;p&gt;好久没见到的小喇叭绕着居民区兜圈呼吁：“出门戴口罩，&amp;hellip;勤洗手，不要&amp;hellip;，避免去亲朋好友家聚会..”&lt;/p&gt;
+
+&lt;p&gt;最开始根本叫不到老爸老妈戴口罩，不带在意的。现在他们都开始囤粮食防封城了&amp;hellip;&lt;/p&gt;
+
+&lt;p&gt;目前确诊6000+， 超过SARS规模了。&lt;/p&gt;
+
+&lt;p&gt;全国性延后春节假期，上海更是红头文件禁止企业2月10号之前开工。&lt;/p&gt;
+
+&lt;p&gt;我的假期又长了一点&lt;/p&gt;
+
+&lt;p&gt;学校则是禁止提前返校，今年2月23开学，如果不去实习的话还有一个月的假期。&lt;/p&gt;
+
+&lt;p&gt;希望早日度过这个艰难的时刻，疫情早点得到控制，加油！&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://tva1.sinaimg.cn/large/006tNbRwgy1gbdpsek0bqj30ge040mxn.jpg&#34; alt=&#34;数据统计&#34; /&gt;
+&lt;!-- ![数据统计](https://tva1.sinaimg.cn/large/006tNbRwgy1gbdp8ide8tj30kk0i8why.jpg) --&gt;
+&lt;img src=&#34;https://tva1.sinaimg.cn/large/006tNbRwgy1gbdqar2iokj31ga0iignu.jpg&#34; alt=&#34;疫情地图&#34; /&gt;
+&lt;img src=&#34;https://tva1.sinaimg.cn/large/006tNbRwgy1gbdq1mgjcrj30g60sstar.jpg&#34; alt=&#34;&#34; /&gt;
+(数据摘自&lt;a href=&#34;https://3g.dxy.cn/newh5/view/pneumonia?scene=1&amp;amp;clicktime=1579582559&amp;amp;enterid=1579582559&amp;amp;from=timeline&amp;amp;isappinstalled=0&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;丁香医生&lt;/a&gt;)&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Matlab常用函数</title>
@@ -1944,38 +2076,6 @@ git push origin master
 &lt;!-- + RNN/CNN/DNN --&gt;
 
 &lt;!-- + ...  --&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>New Start</title>
-      <link>https://aileenxie.github.io/2018/00first-post/</link>
-      <pubDate>Fri, 05 Oct 2018 13:01:24 +0800</pubDate>
-      
-      <guid>https://aileenxie.github.io/2018/00first-post/</guid>
-      <description>
-
-&lt;p&gt;重新回到学校一个月，第一个国庆避开人山人海，在上海安安心心休息了几天。&lt;/p&gt;
-
-&lt;p&gt;之前工作的时候一直想要搭一个博客，把每天零零碎碎记录的笔记整理出来放在一起，但一直没能着手开始行动（大概是又忙又懒。。）直到笔记随手记了一大堆，越来越不想整理。&lt;/p&gt;
-
-&lt;p&gt;回到学校自由时间多了很多，又在学习新东西，想着这是个好的时机开始写博客，终于在这个国庆开始了这项活动。&lt;/p&gt;
-
-&lt;h3 id=&#34;关于笔记&#34;&gt;关于笔记&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;最开始一年我用的ubuntu系统，被安利了&lt;strong&gt;cherrytree&lt;/strong&gt;，试用了一下，马上被这种可以“遍地开花”随手快速记录的树状结构笔记软件所吸引。
-那年我刚工作，又是从通信跨到互联网行业，很多东西对我来说都是新知识：数据库(Mysql/Postgres)、编程语言（JAVA/Groov/Python)、测试框架（Spock/Selenium/Appium/rf/jmeter)、版本管理系统（Git）、持续集成（Gradle/Jenkins）包括Linux系统本身&amp;hellip; 用cherrytree记了相当多的笔记，这一年也是我收获颇丰的一年。&lt;/li&gt;
-&lt;li&gt;第二年换了macOS系统，cherrytree用不了（用模拟器打开页面很丑），先后换了有道云笔记，为知笔记，最后定格在了bootsnote（页面简洁好看，支持markdown和snippet）。又陆续做了关于ruby系测试框架（Cucumber/Capybara）、mac系统等的笔记。直到开学，我作为测试开发的工作告一段落。笔记也就此暂停。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;关于博客&#34;&gt;关于博客&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;终于展开新的研究生生活，投身于机器学习、深度学习和计算机视觉方向研究。有种可以大展拳脚的感觉略兴奋。从开学前到现在，看过了CS229吴恩达的机器学习基础课程，CS231n斯坦福卷积神经网络课程，学了pytorch框架，开始看导师给的paper。最初看的很细致，还做了手写的笔记，现在想来还是要有个地方集中放置一下，就从现在开始重新规划一下之后的笔记。预计会放一些paper的阅读笔记，学习的知识点，或许是任何想记下来的东西吧hhh&amp;hellip;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;七天假期马上要过去啦，搭好了博客算是一个很好的开始，希望能我好好充实这个博客，记录整个研究生阶段以及未来和以后更远更远的学习旅程，(๑•̀ㅂ•́)و✧加油！！&lt;/p&gt;
 </description>
     </item>
     
